@@ -14,6 +14,17 @@ config/name="SeviJam3"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[file_customization]
+
+folder_colors={
+"res://assets/audio/": "green",
+"res://assets/images/": "yellow",
+"res://nodes/": "gray",
+"res://resources/": "purple",
+"res://scripts/": "teal",
+"res://scripts/shader/": "blue"
+}
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
