@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv6qjfalx8wrw"]
+
+[ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_2ylxo"]
+[ext_resource type="PackedScene" uid="uid://c5j3ctjek0xew" path="res://nodes/packed/magnet.tscn" id="1_6yxhk"]
+
+[node name="TestCalendar" type="Node2D"]
+script = ExtResource("1_2ylxo")
+
+[node name="Magnet" parent="." instance=ExtResource("1_6yxhk")]
+position = Vector2(196, 356)
+input_pickable = true
+
+[node name="Magnet2" parent="." instance=ExtResource("1_6yxhk")]
+position = Vector2(483, 326)
+input_pickable = true

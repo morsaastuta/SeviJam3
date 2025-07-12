@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw0uclolpohdk"]
+
+[ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_mmiab"]
+[ext_resource type="PackedScene" path="res://nodes/packed/day.tscn" id="2_3ce4g"]
+
+[node name="Calendar" type="Node2D"]
+script = ExtResource("1_mmiab")
+
+[node name="Day01" parent="." instance=ExtResource("2_3ce4g")]
+
+[node name="Day02" parent="." instance=ExtResource("2_3ce4g")]
+position = Vector2(22, 0)
+
+[node name="Day03" parent="." instance=ExtResource("2_3ce4g")]
+position = Vector2(44, 0)
+
+[node name="Day04" parent="." instance=ExtResource("2_3ce4g")]
+position = Vector2(66, 0)
+
+[node name="Day05" parent="." instance=ExtResource("2_3ce4g")]
+position = Vector2(88, 0)
+
+[node name="Day06" parent="." instance=ExtResource("2_3ce4g")]
+position = Vector2(110, 0)
+
+[node name="Day07" parent="." instance=ExtResource("2_3ce4g")]
+position = Vector2(133, 0)
