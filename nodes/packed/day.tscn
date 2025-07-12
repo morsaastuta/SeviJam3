@@ -4,8 +4,17 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twf8d"]
 
-[node name="Day" type="Area2D"]
+[node name="Day" type="Area2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_nvsrj")
+sprite = NodePath("Sprite2D")
+textures = Dictionary[int, Texture2D]({
+0: null,
+1: null,
+2: null,
+3: null,
+4: null,
+5: null
+})
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_twf8d")

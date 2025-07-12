@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bx3hx5ma0ikba" path="res://scripts/gd/sticker_behaviour.gd" id="1_gvdio"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjg13"]
+size = Vector2(10, 10)
 
 [node name="Sticker" type="Sprite2D" node_paths=PackedStringArray("area") groups=["stickers"]]
 script = ExtResource("1_gvdio")
@@ -11,6 +12,7 @@ area = NodePath("Area2D")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 4.76837e-07)
 shape = SubResource("RectangleShape2D_cjg13")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_input_event"]
