@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://yiqdc46tksyb"]
+
+[ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="1_kl0re"]
+
+[node name="Calendar" type="Node2D"]
+
+[node name="Week1" parent="." instance=ExtResource("1_kl0re")]
+
+[node name="Week2" parent="." instance=ExtResource("1_kl0re")]
+position = Vector2(0, 24)
+
+[node name="Week3" parent="." instance=ExtResource("1_kl0re")]
+position = Vector2(0, 48)
+
+[node name="Week4" parent="." instance=ExtResource("1_kl0re")]
+position = Vector2(0, 72)
+
+[node name="Week5" parent="." instance=ExtResource("1_kl0re")]
+position = Vector2(0, 96)
+
+[editable path="Week1"]
+[editable path="Week2"]
+[editable path="Week3"]
+[editable path="Week4"]
+[editable path="Week5"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd2jiaw5hiskq"]
+
+[ext_resource type="PackedScene" uid="uid://ckw7icje268sg" path="res://nodes/packed/day.tscn" id="1_m5piv"]
+
+[node name="Week1" type="Node2D"]
+
+[node name="Monday" parent="." instance=ExtResource("1_m5piv")]
+
+[node name="Tuesday" parent="." instance=ExtResource("1_m5piv")]
+position = Vector2(24, 0)
+
+[node name="Wednesday" parent="." instance=ExtResource("1_m5piv")]
+position = Vector2(48, 0)
+
+[node name="Thursday" parent="." instance=ExtResource("1_m5piv")]
+position = Vector2(72, 0)
+
+[node name="Friday" parent="." instance=ExtResource("1_m5piv")]
+position = Vector2(96, 0)
+
+[node name="Saturday" parent="." instance=ExtResource("1_m5piv")]
+position = Vector2(120, 0)
+
+[node name="Sunday" parent="." instance=ExtResource("1_m5piv")]
+position = Vector2(144, 0)

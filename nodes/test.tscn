@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cv6qjfalx8wrw"]
+[gd_scene load_steps=8 format=3 uid="uid://cv6qjfalx8wrw"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_2ylxo"]
 [ext_resource type="PackedScene" uid="uid://crfcam2h8mdpv" path="res://nodes/packed/magnet.tscn" id="1_6yxhk"]
 [ext_resource type="PackedScene" uid="uid://ckw7icje268sg" path="res://nodes/packed/day.tscn" id="2_pvy7s"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="3_f5bf4"]
+[ext_resource type="PackedScene" uid="uid://yiqdc46tksyb" path="res://nodes/packed/month.tscn" id="5_kvbc6"]
 
 [sub_resource type="PackedScene" id="PackedScene_kvbc6"]
 _bundled = {
@@ -22,8 +23,8 @@ _bundled = {
 
 [node name="TestCalendar" type="Node2D" node_paths=PackedStringArray("screen")]
 script = ExtResource("1_2ylxo")
-screen = NodePath("Tray/ColorRect")
 next = SubResource("PackedScene_kvbc6")
+screen = NodePath("Tray/ColorRect")
 
 [node name="Magnet" parent="." instance=ExtResource("1_6yxhk")]
 position = Vector2(352, 251)
@@ -47,4 +48,14 @@ color = Color(0, 0, 0, 0.592157)
 [node name="Sticker" parent="Tray/ColorRect" instance=ExtResource("3_f5bf4")]
 position = Vector2(356, 269)
 
+[node name="Month" parent="." instance=ExtResource("5_kvbc6")]
+position = Vector2(400, 200)
+
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
+
+[editable path="Month"]
+[editable path="Month/Week1"]
+[editable path="Month/Week2"]
+[editable path="Month/Week3"]
+[editable path="Month/Week4"]
+[editable path="Month/Week5"]
