@@ -1,4 +1,4 @@
-class_name MagnetBehaviour extends RigidBody2D
+class_name StickerBehaviour extends Sprite2D
 
 var held: bool = false
 
@@ -10,20 +10,15 @@ func _on_input_event(viewport, event, shape_idx) -> void:
 
 func _physics_process(delta) -> void:
 	if not held: return
-	print("is held")
 	global_position.x = lerp(global_position.x, get_global_mouse_position().x, 0.35)
 	global_position.y = lerp(global_position.y, get_global_mouse_position().y, 0.35)
 
 func grab() -> void:
-	print("grab")
-	set_collision_layer_value(1, false)
-	set_collision_mask_value(1, false)
+	reparent(Global.fridge)
 	held = true
 	Global.grabbed.emit(self)
 	
 func drop() -> void:
-	print("drop")
-	set_collision_layer_value(1, true)
-	set_collision_mask_value(1, true)
+	reparent(Global.fridge_stickers)
 	held = false
 	Global.dropped.emit(self)
