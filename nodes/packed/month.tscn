@@ -17,9 +17,3 @@ position = Vector2(0, 72)
 
 [node name="Week5" parent="." instance=ExtResource("1_kl0re")]
 position = Vector2(0, 96)
-
-[editable path="Week1"]
-[editable path="Week2"]
-[editable path="Week3"]
-[editable path="Week4"]
-[editable path="Week5"]

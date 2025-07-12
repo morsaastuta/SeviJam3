@@ -26,6 +26,9 @@ script = ExtResource("1_2ylxo")
 screen = NodePath("Tray/ColorRect")
 next = SubResource("PackedScene_kvbc6")
 
+[node name="Month" parent="." instance=ExtResource("5_kvbc6")]
+position = Vector2(400, 200)
+
 [node name="Magnet" parent="." instance=ExtResource("1_6yxhk")]
 position = Vector2(352, 251)
 
@@ -33,6 +36,7 @@ position = Vector2(352, 251)
 position = Vector2(483, 326)
 
 [node name="Tray" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Tray"]
 custom_minimum_size = Vector2(6.2, 0)
@@ -48,14 +52,4 @@ color = Color(0, 0, 0, 0.592157)
 [node name="Sticker" parent="Tray/ColorRect" instance=ExtResource("3_f5bf4")]
 position = Vector2(356, 269)
 
-[node name="Month" parent="." instance=ExtResource("5_kvbc6")]
-position = Vector2(400, 200)
-
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
-
-[editable path="Month"]
-[editable path="Month/Week1"]
-[editable path="Month/Week2"]
-[editable path="Month/Week3"]
-[editable path="Month/Week4"]
-[editable path="Month/Week5"]
