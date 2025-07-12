@@ -1,4 +1,4 @@
 extends Node
 
 signal grabbed(magnet: MagnetBehaviour)
-signal dropped
+signal dropped(magnet: MagnetBehaviour)
