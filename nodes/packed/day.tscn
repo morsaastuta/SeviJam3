@@ -1,21 +1,23 @@
 [gd_scene load_steps=9 format=3 uid="uid://ckw7icje268sg"]
 
 [ext_resource type="Script" uid="uid://32onbcd1rnxf" path="res://scripts/gd/day_behaviour.gd" id="1_nvsrj"]
-[ext_resource type="Texture2D" uid="uid://cpd3pdt24kix5" path="res://assets/images/lluvia.png" id="2_pta2i"]
-[ext_resource type="Texture2D" uid="uid://bkscdqwgdtcxp" path="res://assets/images/sol.png" id="3_5700h"]
-[ext_resource type="Texture2D" uid="uid://cdsyypfqrd7rf" path="res://assets/images/tormenta.png" id="4_c040t"]
-[ext_resource type="Texture2D" uid="uid://dtysrl848qsdk" path="res://assets/images/arcoiris.png" id="5_xvgxs"]
-[ext_resource type="Texture2D" uid="uid://b7i8pxgbdtdph" path="res://assets/images/viento.png" id="6_1a1yd"]
+[ext_resource type="Texture2D" uid="uid://cpd3pdt24kix5" path="res://assets/images/icons/lluvia.png" id="2_pta2i"]
+[ext_resource type="Texture2D" uid="uid://bkscdqwgdtcxp" path="res://assets/images/icons/sol.png" id="3_5700h"]
+[ext_resource type="Texture2D" uid="uid://cdsyypfqrd7rf" path="res://assets/images/icons/tormenta.png" id="4_c040t"]
+[ext_resource type="Texture2D" uid="uid://dtysrl848qsdk" path="res://assets/images/icons/arcoiris.png" id="5_xvgxs"]
+[ext_resource type="Texture2D" uid="uid://b7i8pxgbdtdph" path="res://assets/images/icons/viento.png" id="6_1a1yd"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uisq6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twf8d"]
 
 [node name="Day" type="Area2D" node_paths=PackedStringArray("sprite")]
+position = Vector2(389, 257)
+scale = Vector2(3.015, 3.015)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_nvsrj")
-sprite = NodePath("Sprite2D")
+sprite = NodePath("SpriteEffect")
 textures = Dictionary[int, Texture2D]({
 0: SubResource("CompressedTexture2D_uisq6"),
 1: ExtResource("2_pta2i"),
@@ -28,7 +30,10 @@ textures = Dictionary[int, Texture2D]({
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_twf8d")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="SpriteEffect" type="Sprite2D" parent="."]
+
+[node name="SpriteMagnet" type="Sprite2D" parent="."]
+position = Vector2(8, -8)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

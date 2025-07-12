@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdsyypfqrd7rf"
-path="res://.godot/imported/tormenta.png-750ff97f83131cf05cb2410d0344a18b.ctex"
+uid="uid://dtysrl848qsdk"
+path="res://.godot/imported/arcoiris.png-b6103a72e324135e426c608bd92c1dfd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/tormenta.png"
-dest_files=["res://.godot/imported/tormenta.png-750ff97f83131cf05cb2410d0344a18b.ctex"]
+source_file="res://assets/images/icons/arcoiris.png"
+dest_files=["res://.godot/imported/arcoiris.png-b6103a72e324135e426c608bd92c1dfd.ctex"]
 
 [params]
 

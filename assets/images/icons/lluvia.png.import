@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtysrl848qsdk"
-path="res://.godot/imported/arcoiris.png-8ed6c2871e72596b225f95c51ff52ed5.ctex"
+uid="uid://cpd3pdt24kix5"
+path="res://.godot/imported/lluvia.png-df1de6b8a5b9d2e2f08c56bbab9a19d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/arcoiris.png"
-dest_files=["res://.godot/imported/arcoiris.png-8ed6c2871e72596b225f95c51ff52ed5.ctex"]
+source_file="res://assets/images/icons/lluvia.png"
+dest_files=["res://.godot/imported/lluvia.png-df1de6b8a5b9d2e2f08c56bbab9a19d4.ctex"]
 
 [params]
 

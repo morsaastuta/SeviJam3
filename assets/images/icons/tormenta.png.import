@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7i8pxgbdtdph"
-path="res://.godot/imported/viento.png-46bdf11a73e564b45d6bca41f7068066.ctex"
+uid="uid://cdsyypfqrd7rf"
+path="res://.godot/imported/tormenta.png-16031c17ba077d5b1c90b556738033b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/viento.png"
-dest_files=["res://.godot/imported/viento.png-46bdf11a73e564b45d6bca41f7068066.ctex"]
+source_file="res://assets/images/icons/tormenta.png"
+dest_files=["res://.godot/imported/tormenta.png-16031c17ba077d5b1c90b556738033b5.ctex"]
 
 [params]
 

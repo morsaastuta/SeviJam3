@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpd3pdt24kix5"
-path="res://.godot/imported/lluvia.png-79e778e5cc0489d6b7e2265b78248717.ctex"
+uid="uid://bo51xe5u8gvfx"
+path="res://.godot/imported/05.png-d330c8996e11c16d1122d71ddbb30dad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/lluvia.png"
-dest_files=["res://.godot/imported/lluvia.png-79e778e5cc0489d6b7e2265b78248717.ctex"]
+source_file="res://assets/images/calendars/05.png"
+dest_files=["res://.godot/imported/05.png-d330c8996e11c16d1122d71ddbb30dad.ctex"]
 
 [params]
 

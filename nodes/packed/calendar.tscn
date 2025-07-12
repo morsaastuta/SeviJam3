@@ -1,36 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbgp6l7oii4lw"]
+[gd_scene load_steps=4 format=3 uid="uid://bbgp6l7oii4lw"]
 
+[ext_resource type="Texture2D" uid="uid://cqwjfqrmqpvi1" path="res://assets/images/calendars/03.png" id="1_h5j1g"]
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_mtc6k"]
 [ext_resource type="PackedScene" uid="uid://ckw7icje268sg" path="res://nodes/packed/day.tscn" id="1_qkihu"]
 
 [node name="Calendar" type="Node2D"]
+
+[node name="Page" type="Sprite2D" parent="."]
+position = Vector2(882.8, 592.325)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_h5j1g")
 
 [node name="Month" type="Node2D" parent="."]
 script = ExtResource("1_mtc6k")
 rules = Array[String](["1_3_rain", "", "", ""])
 
 [node name="week01" type="Node2D" parent="Month"]
+position = Vector2(417, 452)
 
 [node name="Day01" parent="Month/week01" instance=ExtResource("1_qkihu")]
+position = Vector2(421, 456)
 no_magnet = true
 
 [node name="Day02" parent="Month/week01" instance=ExtResource("1_qkihu")]
-position = Vector2(22, 0)
+position = Vector2(569, 456)
 
 [node name="Day03" parent="Month/week01" instance=ExtResource("1_qkihu")]
-position = Vector2(44, 0)
+position = Vector2(718, 454)
 
 [node name="Day04" parent="Month/week01" instance=ExtResource("1_qkihu")]
-position = Vector2(66, 0)
+position = Vector2(883, 459)
 
 [node name="Day05" parent="Month/week01" instance=ExtResource("1_qkihu")]
-position = Vector2(88, 0)
+position = Vector2(1030, 459)
 
 [node name="Day06" parent="Month/week01" instance=ExtResource("1_qkihu")]
-position = Vector2(110, 0)
+position = Vector2(1179, 456)
 
 [node name="Day07" parent="Month/week01" instance=ExtResource("1_qkihu")]
-position = Vector2(133, 0)
+position = Vector2(1336, 459)
 
 [node name="week02" type="Node2D" parent="Month"]
 position = Vector2(0, 26)
@@ -39,7 +47,7 @@ position = Vector2(0, 26)
 no_magnet = true
 
 [node name="Day02" parent="Month/week02" instance=ExtResource("1_qkihu")]
-position = Vector2(22, 0)
+position = Vector2(690, 654)
 
 [node name="Day03" parent="Month/week02" instance=ExtResource("1_qkihu")]
 position = Vector2(44, 0)
