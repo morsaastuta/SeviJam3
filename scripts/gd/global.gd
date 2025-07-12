@@ -7,3 +7,5 @@ signal dropped
 @onready var fridge_stickers: FridgeBehaviour = get_node("Fridge/GroupStickers")
 @onready var fridge_calendar: FridgeBehaviour = get_node("Fridge/GroupCalendar")
 @onready var fridge_tray: 
+	
+signal dropped(magnet: MagnetBehaviour)
