@@ -7,9 +7,7 @@ var magnet_position: Vector2
 @export var sprite: Sprite2D
 @export var no_magnet: bool
 @export var no_apply_drawing: bool
-@export var requirements: Dictionary[StringName, bool] = {
-	
-}
+@export var requirements: Dictionary[StringName, bool]
 
 var magnet_hover: MagnetBehaviour
 var magnet_applied: MagnetBehaviour:
@@ -20,13 +18,11 @@ var magnet_applied: MagnetBehaviour:
 		if magnet_applied: effect_applied = Effect.RAIN; no_apply_drawing = true
 		else: effect_applied = Effect.NONE; no_apply_drawing = false
 
-enum Effect{
-	NONE,
-	SUN,
-	RAINBOW,
-	RAIN,
-	STORM
+enum Effect {
+	NONE, RAIN, SUN,
+	STORM, RAINBOW, WIND,
 }
+
 var effect_applied: Effect = Effect.NONE:
 	get:
 		return effect_applied
@@ -77,7 +73,6 @@ func _on_magnet_grabbed(magnet: MagnetBehaviour) -> void:
 	calendar.selected_magnet = magnet_hover
 	magnet_applied = null
 	Global.check_day.emit(self)
-	
 
 func _on_body_entered(body: Node2D) -> void:
 	if not body is MagnetBehaviour: return
@@ -97,11 +92,8 @@ func _on_body_exited(body: Node2D) -> void:
 func _self_check() -> void:
 	for key in requirements.keys():
 		match key:
-			ReqName.RAIN:
-				requirements[key] = effect_applied == Effect.RAIN 
-			ReqName.RAINBOW:
-				requirements[key] = effect_applied == Effect.RAINBOW
-			ReqName.STORM:
-				requirements[key] = effect_applied == Effect.STORM
-			ReqName.SUN:
-				requirements[key] = effect_applied == Effect.SUN
+			ReqName.RAIN: requirements[key] = effect_applied == Effect.RAIN 
+			ReqName.SUN: requirements[key] = effect_applied == Effect.SUN
+			ReqName.STORM: requirements[key] = effect_applied == Effect.STORM
+			ReqName.RAINBOW: requirements[key] = effect_applied == Effect.RAINBOW
+			ReqName.WIND: requirements[key] = effect_applied == Effect.WIND
