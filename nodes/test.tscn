@@ -25,6 +25,12 @@ script = ExtResource("1_2ylxo")
 screen = NodePath("Tray/ColorRect")
 next = SubResource("PackedScene_kvbc6")
 
+[node name="Magnet" parent="." instance=ExtResource("1_6yxhk")]
+position = Vector2(352, 251)
+
+[node name="Magnet2" parent="." instance=ExtResource("1_6yxhk")]
+position = Vector2(483, 326)
+
 [node name="Tray" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Tray"]
@@ -40,11 +46,5 @@ color = Color(0, 0, 0, 0.592157)
 
 [node name="Sticker" parent="Tray/ColorRect" instance=ExtResource("3_f5bf4")]
 position = Vector2(356, 269)
-
-[node name="Magnet" parent="." instance=ExtResource("1_6yxhk")]
-position = Vector2(352, 251)
-
-[node name="Magnet2" parent="." instance=ExtResource("1_6yxhk")]
-position = Vector2(483, 326)
 
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]

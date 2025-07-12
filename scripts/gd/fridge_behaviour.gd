@@ -8,7 +8,6 @@ var screen: ColorRect
 
 func _ready():
 	next_level()
-	show_stickers(true)
 
 func next_level() -> void:
 	var calendar_next: CalendarBehaviour
