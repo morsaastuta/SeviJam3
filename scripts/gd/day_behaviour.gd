@@ -1,6 +1,5 @@
 class_name DayBehaviour extends Area2D
 
-@onready var selected_magnet: MagnetBehaviour = Global.fridge.calendar.selected_magnet
 @export var sprite: Sprite2D
 @export var textures: Dictionary[Name.Effect, Texture2D]
 @export var no_magnet: bool
@@ -35,7 +34,7 @@ func _ready() -> void:
 
 func _on_magnet_dropped(magnet: MagnetBehaviour) -> void:
 	if not magnet_hover: return
-	if not magnet_hover == selected_magnet: printerr("QUE COÑO?, day_behaviour.gd")
+	if not magnet_hover == Global.fridge.calendar.selected_magnet: printerr("QUE COÑO?, day_behaviour.gd")
 	
 	if no_magnet or magnet_applied: 
 		magnet_hover.abort() 
@@ -46,14 +45,14 @@ func _on_magnet_dropped(magnet: MagnetBehaviour) -> void:
 	
 	Global.check_day.emit(self)
 	magnet_hover = null
-	selected_magnet = null
+	Global.fridge.calendar.selected_magnet = null
 
 func _on_magnet_grabbed(magnet: MagnetBehaviour) -> void:
 	if not magnet_applied: return
 	if magnet_hover: return
 	
 	magnet_hover = magnet_applied
-	selected_magnet = magnet_hover
+	Global.fridge.calendar.selected_magnet = magnet_hover
 	magnet_applied = null
 	Global.check_day.emit(self)
 
@@ -61,16 +60,16 @@ func _on_body_entered(body: Node2D) -> void:
 	if not body is MagnetBehaviour: return
 	magnet_hover = body as MagnetBehaviour
 	
-	if selected_magnet: return
-	selected_magnet = body as MagnetBehaviour
+	if Global.fridge.calendar.selected_magnet: return
+	Global.fridge.calendar.selected_magnet = body as MagnetBehaviour
 
 func _on_body_exited(body: Node2D) -> void:
 	if not body is MagnetBehaviour: return
-	if not selected_magnet: return
-	if not selected_magnet == body: return
+	if not Global.fridge.calendar.selected_magnet: return
+	if not Global.fridge.calendar.selected_magnet == body: return
 	
 	magnet_hover = null
-	selected_magnet = null
+	Global.fridge.calendar.selected_magnet = null
 
 func _self_check() -> void:
 	for key in requirements.keys():
