@@ -2,10 +2,10 @@ class_name CalendarBehaviour extends Node2D
 
 @export var screen: ColorRect
 @export var next: PackedScene
+@export var rules: Array[String]
+
 var selected_magnet: MagnetBehaviour
 var held: bool = false
-
-@export var rules: Array[String]
 
 var month: Array[Array]
 
@@ -20,14 +20,11 @@ func _ready() -> void:
 func _mission_achieved():
 	pass
 
-func _on_area_2d_body_entered(area):
-	pass
-
 func _sticker_achieved():
 	pass
 
-func evaluator() -> Array[bool]:
-	var array_evaluations: Array[bool]
+func evaluator() -> Array[Array]:
+	var array_evaluations: Array[Array] = [[],[]]
 	for rule in rules:
 		var str_array: Array[String] = rule.split("_")
 		
@@ -43,9 +40,14 @@ func evaluator() -> Array[bool]:
 		var effect: String = str_array[2]
 		match effect:
 			Name.RAIN:
-				for day: DayBehaviour in month[week_index]:
+				for day:DayBehaviour in month[week_index]:
 					if day.effect_applied == Name.Effect.RAIN:
 						how_many -= 1
-		array_evaluations.append(how_many <= 0)  
+		array_evaluations[0].append(how_many <= 0)  
+	
+	for week in month:
+		for day:DayBehaviour in week:
+			for requirement in day.requirements.values():
+				array_evaluations[1].append(requirement)
 	
 	return array_evaluations
