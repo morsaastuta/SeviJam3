@@ -18,21 +18,27 @@ func grab() -> void:
 	origin = global_position
 	set_collision_layer_value(1, false)
 	set_collision_mask_value(1, false)
-	held = true
-	Global.fridge.calendar.held = true
-	Global.grabbed.emit(self)
+	grab_commons()
 	
 func drop() -> void:
 	set_collision_layer_value(1, true)
 	set_collision_mask_value(1, true)
-	held = false
-	Global.fridge.calendar.held = false
-	Global.dropped.emit(self)
+	drop_commons()
 
 func abort() -> void:
-	held = false
-	Global.fridge.calendar.held = false
+	drop_commons()
 	create_tween().tween_property(self, "global_position", origin, 0.5)
+
+func grab_commons() -> void:
+	held = true
+	Global.fridge.calendar.selected_magnet = self
+	Global.fridge.calendar.held = true
+	Global.grabbed.emit(self)
+
+func drop_commons() -> void:
+	held = false
+	Global.fridge.calendar.selected_magnet = null
+	Global.fridge.calendar.held = false
 	Global.dropped.emit(self)
 
 func set_input_pickable(p: bool) -> void:

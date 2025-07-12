@@ -6,6 +6,7 @@
 radius = 7.28011
 
 [node name="Magnet" type="RigidBody2D" node_paths=PackedStringArray("area") groups=["magnets"]]
+collision_layer = 3
 gravity_scale = 0.0
 script = ExtResource("1_ytlxt")
 area = NodePath("Area2D")

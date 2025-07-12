@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="SeviJam3"
+run/main_scene="uid://b4nclix6r782b"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
