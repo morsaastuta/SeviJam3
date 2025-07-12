@@ -3,77 +3,182 @@
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_mtc6k"]
 [ext_resource type="PackedScene" uid="uid://ckw7icje268sg" path="res://nodes/packed/day.tscn" id="1_qkihu"]
 
-[node name="Calendar" type="Node2D"]
+[node name="Month" type="Node2D"]
+
+[node name="Calendar" type="Node2D" parent="."]
 script = ExtResource("1_mtc6k")
-dic = Array[String](["1_any*3_rain", ""])
 
-[node name="week01" type="Node2D" parent="."]
+[node name="week01" type="Node2D" parent="Calendar"]
 
-[node name="Day01" parent="week01" instance=ExtResource("1_qkihu")]
+[node name="Day01" parent="Calendar/week01" instance=ExtResource("1_qkihu")]
 no_magnet = true
+no_apply_drawing = null
+requirements = null
 
-[node name="Day02" parent="week01" instance=ExtResource("1_qkihu")]
+[node name="Day02" parent="Calendar/week01" instance=ExtResource("1_qkihu")]
 position = Vector2(22, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
 
-[node name="Day03" parent="week01" instance=ExtResource("1_qkihu")]
+[node name="Day03" parent="Calendar/week01" instance=ExtResource("1_qkihu")]
 position = Vector2(44, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
 
-[node name="Day04" parent="week01" instance=ExtResource("1_qkihu")]
+[node name="Day04" parent="Calendar/week01" instance=ExtResource("1_qkihu")]
 position = Vector2(66, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
 
-[node name="Day05" parent="week01" instance=ExtResource("1_qkihu")]
+[node name="Day05" parent="Calendar/week01" instance=ExtResource("1_qkihu")]
 position = Vector2(88, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
 
-[node name="Day06" parent="week01" instance=ExtResource("1_qkihu")]
+[node name="Day06" parent="Calendar/week01" instance=ExtResource("1_qkihu")]
 position = Vector2(110, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
 
-[node name="Day07" parent="week01" instance=ExtResource("1_qkihu")]
+[node name="Day07" parent="Calendar/week01" instance=ExtResource("1_qkihu")]
 position = Vector2(133, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
 
-[node name="week02" type="Node2D" parent="."]
+[node name="week02" type="Node2D" parent="Calendar"]
 position = Vector2(0, 26)
 
-[node name="Day01" parent="week02" instance=ExtResource("1_qkihu")]
+[node name="Day01" parent="Calendar/week02" instance=ExtResource("1_qkihu")]
 no_magnet = true
+no_apply_drawing = null
+requirements = null
 
-[node name="Day02" parent="week02" instance=ExtResource("1_qkihu")]
+[node name="Day02" parent="Calendar/week02" instance=ExtResource("1_qkihu")]
 position = Vector2(22, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
 
-[node name="Day03" parent="week02" instance=ExtResource("1_qkihu")]
+[node name="Day03" parent="Calendar/week02" instance=ExtResource("1_qkihu")]
 position = Vector2(44, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
 
-[node name="Day04" parent="week02" instance=ExtResource("1_qkihu")]
+[node name="Day04" parent="Calendar/week02" instance=ExtResource("1_qkihu")]
 position = Vector2(66, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
 
-[node name="Day05" parent="week02" instance=ExtResource("1_qkihu")]
+[node name="Day05" parent="Calendar/week02" instance=ExtResource("1_qkihu")]
 position = Vector2(88, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
 
-[node name="Day06" parent="week02" instance=ExtResource("1_qkihu")]
+[node name="Day06" parent="Calendar/week02" instance=ExtResource("1_qkihu")]
 position = Vector2(110, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
 
-[node name="Day07" parent="week02" instance=ExtResource("1_qkihu")]
+[node name="Day07" parent="Calendar/week02" instance=ExtResource("1_qkihu")]
 position = Vector2(133, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
 
-[node name="week03" type="Node2D" parent="."]
+[node name="week03" type="Node2D" parent="Calendar"]
 position = Vector2(0, 55)
 
-[node name="Day01" parent="week03" instance=ExtResource("1_qkihu")]
+[node name="Day01" parent="Calendar/week03" instance=ExtResource("1_qkihu")]
 no_magnet = true
+no_apply_drawing = null
+requirements = null
 
-[node name="Day02" parent="week03" instance=ExtResource("1_qkihu")]
+[node name="Day02" parent="Calendar/week03" instance=ExtResource("1_qkihu")]
 position = Vector2(22, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
 
-[node name="Day03" parent="week03" instance=ExtResource("1_qkihu")]
+[node name="Day03" parent="Calendar/week03" instance=ExtResource("1_qkihu")]
 position = Vector2(44, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
 
-[node name="Day04" parent="week03" instance=ExtResource("1_qkihu")]
+[node name="Day04" parent="Calendar/week03" instance=ExtResource("1_qkihu")]
 position = Vector2(66, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
 
-[node name="Day05" parent="week03" instance=ExtResource("1_qkihu")]
+[node name="Day05" parent="Calendar/week03" instance=ExtResource("1_qkihu")]
 position = Vector2(88, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
 
-[node name="Day06" parent="week03" instance=ExtResource("1_qkihu")]
+[node name="Day06" parent="Calendar/week03" instance=ExtResource("1_qkihu")]
 position = Vector2(110, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
 
-[node name="Day07" parent="week03" instance=ExtResource("1_qkihu")]
+[node name="Day07" parent="Calendar/week03" instance=ExtResource("1_qkihu")]
 position = Vector2(133, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
+
+[node name="week04" type="Node2D" parent="Calendar"]
+position = Vector2(0, 55)
+
+[node name="Day01" parent="Calendar/week04" instance=ExtResource("1_qkihu")]
+no_magnet = true
+no_apply_drawing = null
+requirements = null
+
+[node name="Day02" parent="Calendar/week04" instance=ExtResource("1_qkihu")]
+position = Vector2(22, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
+
+[node name="Day03" parent="Calendar/week04" instance=ExtResource("1_qkihu")]
+position = Vector2(44, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
+
+[node name="Day04" parent="Calendar/week04" instance=ExtResource("1_qkihu")]
+position = Vector2(66, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
+
+[node name="Day05" parent="Calendar/week04" instance=ExtResource("1_qkihu")]
+position = Vector2(88, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
+
+[node name="Day06" parent="Calendar/week04" instance=ExtResource("1_qkihu")]
+position = Vector2(110, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null
+
+[node name="Day07" parent="Calendar/week04" instance=ExtResource("1_qkihu")]
+position = Vector2(133, 0)
+no_magnet = null
+no_apply_drawing = null
+requirements = null

@@ -7,9 +7,11 @@ var held: bool = false
 
 @export var rules: Array[String]
 
-@export var 
+var days: Array[Array]
+
 func _ready() -> void:
-	pass
+	for child in get_children():
+		pass
 
 func _mission_achieved():
 	pass
