@@ -2,7 +2,7 @@ class_name DayBehaviour extends Area2D
 
 @onready var selected_magnet: MagnetBehaviour = Global.fridge.calendar.selected_magnet
 @export var sprite: Sprite2D
-@export var textures: Dictionary[Effect, Texture2D]
+@export var textures: Dictionary[Name.Effect, Texture2D]
 @export var no_magnet: bool
 @export var no_apply_drawing: bool
 @export var requirements: Dictionary[StringName, bool]
@@ -15,10 +15,10 @@ var magnet_applied: MagnetBehaviour:
 		return magnet_applied
 	set(value):
 		magnet_applied = value
-		if magnet_applied: effect_applied = Effect.RAIN; no_apply_drawing = true
-		else: effect_applied = Effect.NONE; no_apply_drawing = false
+		if magnet_applied: effect_applied = Name.Effect.RAIN; no_apply_drawing = true
+		else: effect_applied = Name.Effect.NONE; no_apply_drawing = false
 
-var effect_applied: Effect = Effect.NONE:
+var effect_applied: Name.Effect = Name.Effect.NONE:
 	get:
 		return effect_applied
 	set(value):
@@ -75,8 +75,8 @@ func _on_body_exited(body: Node2D) -> void:
 func _self_check() -> void:
 	for key in requirements.keys():
 		match key:
-			ReqName.RAIN: requirements[key] = effect_applied == Effect.RAIN 
-			ReqName.SUN: requirements[key] = effect_applied == Effect.SUN
-			ReqName.STORM: requirements[key] = effect_applied == Effect.STORM
-			ReqName.RAINBOW: requirements[key] = effect_applied == Effect.RAINBOW
-			ReqName.WIND: requirements[key] = effect_applied == Effect.WIND
+			Name.Effect.RAIN: requirements[key] = effect_applied == Name.Effect.RAIN 
+			Name.Effect.SUN: requirements[key] = effect_applied == Name.Effect.SUN
+			Name.Effect.STORM: requirements[key] = effect_applied == Name.Effect.STORM
+			Name.Effect.RAINBOW: requirements[key] = effect_applied == Name.Effect.RAINBOW
+			Name.Effect.WIND: requirements[key] = effect_applied == Name.Effect.WIND

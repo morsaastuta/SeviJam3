@@ -42,9 +42,9 @@ func evaluator() -> Array[bool]:
 		
 		var effect: String = str_array[2]
 		match effect:
-			ReqName.RAIN:
+			Name.RAIN:
 				for day: DayBehaviour in month[week_index]:
-					if day.effect_applied == day.Effect.RAIN:
+					if day.effect_applied == Name.Effect.RAIN:
 						how_many -= 1
 		array_evaluations.append(how_many <= 0)  
 	
