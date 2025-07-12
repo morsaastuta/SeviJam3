@@ -2,6 +2,7 @@ class_name CalendarBehaviour extends Node2D
 
 var selected_magnet: MagnetBehaviour
 @export var screen: ColorRect
+@export var next: PackedScene
 
 func _mission_achieved():
 	pass

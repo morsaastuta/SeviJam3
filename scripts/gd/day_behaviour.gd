@@ -5,7 +5,7 @@ extends Area2D
 var magnet_position: Vector2
 
 @export var no_magnet: bool
-@export var restrictions: Dictionary[StringName, bool] = {
+@export var requirements: Dictionary[StringName, bool] = {
 	
 }
 

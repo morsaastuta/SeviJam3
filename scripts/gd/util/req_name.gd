@@ -1,4 +1,4 @@
-class_name ResName
+class_name ReqName
 
 const SUN: StringName = &"sun"
 const RAIN: StringName = &"rain"
