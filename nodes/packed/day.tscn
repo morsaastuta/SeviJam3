@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckw7icje268sg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twf8d"]
+
+[node name="Day" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_twf8d")
