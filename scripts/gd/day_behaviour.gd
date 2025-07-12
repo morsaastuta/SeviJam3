@@ -41,7 +41,7 @@ func _ready() -> void:
 		if get_parent() is CalendarBehaviour:
 			calendar = get_parent()
 		elif get_parent().get_parent() is CalendarBehaviour:
-			calendar = get_parent()
+			calendar = get_parent().get_parent()
 	
 	if not no_magnet:
 		Global.grabbed.connect(_on_magnet_grabbed)	

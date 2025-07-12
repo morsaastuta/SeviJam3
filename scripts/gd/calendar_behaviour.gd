@@ -7,11 +7,15 @@ var held: bool = false
 
 @export var rules: Array[String]
 
-var days: Array[Array]
+var month: Array[Array]
 
 func _ready() -> void:
+	var index:int = 0
 	for child in get_children():
-		pass
+		month.append([])
+		for grandchild in child.get_children():
+			month[index].append(grandchild)
+		index += 1
 
 func _mission_achieved():
 	pass
@@ -22,14 +26,26 @@ func _on_area_2d_body_entered(area):
 func _sticker_achieved():
 	pass
 
-func string_to_calendar(str:String):
-	var str_array := str.split("_")
-	match str_array[0]:
-		"any":
-			pass
-		"all":
-			pass
-		_:
-			var n:int = str_array[0].to_int()
-			
+func evaluator() -> Array[bool]:
+	var array_evaluations: Array[bool]
+	for rule in rules:
+		var str_array: Array[String] = rule.split("_")
+		
+		var week_index: int
+		match str_array[0]:
+			"any":
+				week_index = -1
+			_:
+				week_index = str_array[0].to_int()
+				
+		var how_many: int = str_array[1].to_int()
+		
+		var effect: String = str_array[2]
+		match effect:
+			ReqName.RAIN:
+				for day: DayBehaviour in month[week_index]:
+					if day.effect_applied == day.Effect.RAIN:
+						how_many -= 1
+		array_evaluations.append(how_many <= 0)  
 	
+	return array_evaluations
