@@ -24,10 +24,15 @@ func _on_magnet_dropped(magnet: MagnetBehaviour):
 	if not magnet_hover: return
 	if not magnet_hover == calendar.selected_magnet: printerr("QUE COÑO?, day_behaviour.gd")
 	
-	create_tween().tween_property(magnet_hover, "global_position", )
+	create_tween().tween_property(magnet_hover, "global_position", magnet_position, 0.15).set_delay(0.15)#.from(magnet_hover.global_position)
+	magnet_applied = magnet_hover
+	magnet_hover = null; calendar.selected_magnet = null
 
 func _on_magnet_grabbed(magnet: MagnetBehaviour):
 	if not magnet_applied: return
+	if magnet_hover: return
+	
+	
 
 func _on_body_entered(body: Node2D) -> void:
 	if not body is MagnetBehaviour: return
@@ -35,7 +40,6 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	magnet_hover = body as MagnetBehaviour
 	calendar.selected_magnet = body as MagnetBehaviour
-	
 
 func _on_body_exited(body: Node2D) -> void:
 	if not body is MagnetBehaviour: return
@@ -44,4 +48,3 @@ func _on_body_exited(body: Node2D) -> void:
 	
 	magnet_hover = null
 	calendar.selected_magnet = null
-	
