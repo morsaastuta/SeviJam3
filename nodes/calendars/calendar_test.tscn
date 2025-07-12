@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cv6qjfalx8wrw"]
-
-[ext_resource type="PackedScene" uid="uid://c5j3ctjek0xew" path="res://nodes/packed/magnet.tscn" id="1_a6yxn"]
-
-[node name="Test" type="Node2D"]
-
-[node name="Magnet" parent="." instance=ExtResource("1_a6yxn")]
-position = Vector2(196, 356)

@@ -1,4 +1,4 @@
-class_name FridgeBehaviour extends CanvasLayer
+class_name FridgeBehaviour extends Node2D
 
 @export var calendar_current: CalendarBehaviour
 var calendar_next: CalendarBehaviour

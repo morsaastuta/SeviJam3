@@ -12,4 +12,9 @@ script = ExtResource("1_ytlxt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_m442f")
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_m442f")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_input_event"]
