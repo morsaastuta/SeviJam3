@@ -23,8 +23,8 @@ _bundled = {
 
 [node name="TestCalendar" type="Node2D" node_paths=PackedStringArray("screen")]
 script = ExtResource("1_2ylxo")
-next = SubResource("PackedScene_kvbc6")
 screen = NodePath("Tray/ColorRect")
+next = SubResource("PackedScene_kvbc6")
 
 [node name="Magnet" parent="." instance=ExtResource("1_6yxhk")]
 position = Vector2(352, 251)

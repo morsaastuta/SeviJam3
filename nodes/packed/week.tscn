@@ -5,21 +5,49 @@
 [node name="Week1" type="Node2D"]
 
 [node name="Monday" parent="." instance=ExtResource("1_m5piv")]
+textures = Dictionary[int, Texture2D]({})
+no_magnet = false
+no_apply_drawing = false
+requirements = Dictionary[int, Texture2D]({})
 
 [node name="Tuesday" parent="." instance=ExtResource("1_m5piv")]
 position = Vector2(24, 0)
+textures = Dictionary[int, Texture2D]({})
+no_magnet = false
+no_apply_drawing = false
+requirements = Dictionary[int, Texture2D]({})
 
 [node name="Wednesday" parent="." instance=ExtResource("1_m5piv")]
 position = Vector2(48, 0)
+textures = Dictionary[int, Texture2D]({})
+no_magnet = false
+no_apply_drawing = false
+requirements = Dictionary[int, Texture2D]({})
 
 [node name="Thursday" parent="." instance=ExtResource("1_m5piv")]
 position = Vector2(72, 0)
+textures = Dictionary[int, Texture2D]({})
+no_magnet = false
+no_apply_drawing = false
+requirements = Dictionary[int, Texture2D]({})
 
 [node name="Friday" parent="." instance=ExtResource("1_m5piv")]
 position = Vector2(96, 0)
+textures = Dictionary[int, Texture2D]({})
+no_magnet = false
+no_apply_drawing = false
+requirements = Dictionary[int, Texture2D]({})
 
 [node name="Saturday" parent="." instance=ExtResource("1_m5piv")]
 position = Vector2(120, 0)
+textures = Dictionary[int, Texture2D]({})
+no_magnet = false
+no_apply_drawing = false
+requirements = Dictionary[int, Texture2D]({})
 
 [node name="Sunday" parent="." instance=ExtResource("1_m5piv")]
 position = Vector2(144, 0)
+textures = Dictionary[int, Texture2D]({})
+no_magnet = false
+no_apply_drawing = false
+requirements = Dictionary[int, Texture2D]({})
