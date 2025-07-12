@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bw0uclolpohdk"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_mmiab"]
-[ext_resource type="PackedScene" path="res://nodes/packed/day.tscn" id="2_3ce4g"]
+[ext_resource type="PackedScene" uid="uid://dfn18ev3bft5e" path="res://nodes/packed/day.tscn" id="2_3ce4g"]
 
 [node name="Calendar" type="Node2D"]
 script = ExtResource("1_mmiab")

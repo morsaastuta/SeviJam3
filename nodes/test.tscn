@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv6qjfalx8wrw"]
+[gd_scene load_steps=4 format=3 uid="uid://cv6qjfalx8wrw"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_2ylxo"]
 [ext_resource type="PackedScene" uid="uid://c5j3ctjek0xew" path="res://nodes/packed/magnet.tscn" id="1_6yxhk"]
+[ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="3_f5bf4"]
 
 [node name="TestCalendar" type="Node2D"]
 script = ExtResource("1_2ylxo")
@@ -13,3 +14,16 @@ input_pickable = true
 [node name="Magnet2" parent="." instance=ExtResource("1_6yxhk")]
 position = Vector2(483, 326)
 input_pickable = true
+
+[node name="Tray" type="CanvasLayer" parent="."]
+
+[node name="Control" type="ColorRect" parent="Tray"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Sticker" parent="Tray" instance=ExtResource("3_f5bf4")]
+position = Vector2(353, 269)
