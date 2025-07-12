@@ -2,12 +2,15 @@ class_name CalendarBehaviour extends Node2D
 
 @export var screen: ColorRect
 @export var next: PackedScene
+@export var sticker_quantity_rules:int
 @export var rules: Array[String]
 
 var selected_magnet: MagnetBehaviour
 var held: bool = false
-
 var month: Array[Array]
+
+var sticker_is_achieved: bool
+var mission_is_achieved: bool
 
 func _ready() -> void:
 	var index:int = 0
@@ -16,12 +19,34 @@ func _ready() -> void:
 		for grandchild in child.get_children():
 			month[index].append(grandchild)
 		index += 1
+		
+	Global.grabbed.connect(_on_magnet_grabbed_dropped)
+	Global.dropped.connect(_on_magnet_grabbed_dropped)
+	
 
-func _mission_achieved():
-	pass
+func _on_magnet_grabbed_dropped():
+	mission_is_achieved = _mission_achieved()
+	sticker_is_achieved = _sticker_achieved()
 
-func _sticker_achieved():
-	pass
+
+func _mission_achieved() -> bool:
+	var evaluation := evaluator()
+	
+	var m_is_achieved: bool = true
+	var n_is_achieved: bool = true
+	for i in range(sticker_quantity_rules, evaluation[0].size()):
+		if not evaluation[0][i]: m_is_achieved = false; break
+	for n in evaluation[1]:
+		if not n: n_is_achieved = false; break
+	
+	return n_is_achieved and m_is_achieved
+
+func _sticker_achieved() -> bool:
+	var evaluation := evaluator()[0]
+	var sticker_is_achieved: bool = true
+	for i in range(sticker_quantity_rules):
+		if not evaluation[i]: sticker_is_achieved = false; break
+	return sticker_is_achieved
 
 func evaluator() -> Array[Array]:
 	var array_evaluations: Array[Array] = [[],[]]
@@ -38,11 +63,15 @@ func evaluator() -> Array[Array]:
 		var how_many: int = str_array[1].to_int()
 		
 		var effect: String = str_array[2]
-		match effect:
-			Name.RAIN:
-				for day:DayBehaviour in month[week_index]:
-					if day.effect_applied == Name.Effect.RAIN:
-						how_many -= 1
+		if week_index >= 0:
+			for day:DayBehaviour in month[week_index]:
+				if day.effect_applied == Global.effect_by_name(effect):
+					how_many -= 1
+		else:
+			for week in month:
+				for day:DayBehaviour in week:
+					if day.effect_applied == Global.effect_by_name(effect):
+						how_many
 		array_evaluations[0].append(how_many <= 0)  
 	
 	for week in month:
