@@ -1,12 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5j3ctjek0xew"]
 
-[ext_resource type="Script" uid="uid://bsmr3og4rsc35" path="res://nodes/packed/magnet_behaviour.gd" id="1_ytlxt"]
+[ext_resource type="Script" uid="uid://bsmr3og4rsc35" path="res://scripts/gd/magnet_behaviour.gd" id="1_ytlxt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m442f"]
 radius = 39.3192
 
-[node name="Magnet" type="Area2D"]
+[node name="Magnet" type="RigidBody2D"]
+gravity_scale = 0.0
 script = ExtResource("1_ytlxt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_m442f")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
