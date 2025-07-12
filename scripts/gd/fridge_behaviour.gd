@@ -1,7 +1,7 @@
 class_name FridgeBehaviour extends Node2D
 
-var calendar
-var calendar_next
+var calendar: CalendarBehaviour
+var calendar_next: CalendarBehaviour
 @export var group_stickers: CanvasGroup
 @export var group_calendar: CanvasGroup
 var screen: ColorRect

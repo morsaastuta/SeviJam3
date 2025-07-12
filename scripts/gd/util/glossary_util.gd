@@ -1,4 +1,4 @@
-class_name Name
+class_name Name extends Node
 
 # Groups
 const MAGNETS: StringName = &"magnets"
@@ -13,12 +13,3 @@ const WIND: StringName = &"wind"
 
 # Enums
 enum Effect {NONE, RAIN, SUN, STORM, RAINBOW, WIND}
-
-func effect_by_name(effect_name: String) -> Effect:
-	match effect_name:
-		RAIN: return Effect.RAIN
-		SUN: return Effect.SUN
-		STORM: return Effect.STORM
-		RAINBOW: return Effect.RAINBOW
-		WIND: return Effect.WIND
-		_: return Effect.NONE
