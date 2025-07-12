@@ -1,11 +1,12 @@
 class_name StickerBehaviour extends Sprite2D
 
+@export var area: Area2D
 var held: bool = false
 
 func _on_input_event(viewport, event, shape_idx) -> void:
 	if event is InputEventMouseButton:
-		if !Global.fridge.calendar.held and !held and event.is_pressed(): grab()
-		elif Global.fridge.calendar.held and held and !event.is_pressed(): drop()
+		if !Global.fridge.calendar.held && !held && event.is_action_pressed("click"): grab()
+		elif Global.fridge.calendar.held && held && event.is_action_pressed("click"): drop()
 
 func _physics_process(delta) -> void:
 	if !Global.fridge.calendar.held || !held: return
@@ -22,6 +23,10 @@ func drop() -> void:
 	reparent(Global.fridge.group_stickers)
 	held = false
 	Global.fridge.calendar.held = false
+	set_input_pickable(false)
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	pass
+
+func set_input_pickable(on: bool) -> void:
+	area.input_pickable = on

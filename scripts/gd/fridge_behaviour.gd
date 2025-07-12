@@ -23,9 +23,7 @@ func next_level() -> void:
 func show_stickers(on: bool) -> void:
 	if on:
 		for magnet: MagnetBehaviour in get_tree().get_nodes_in_group(Name.MAGNETS): magnet.set_input_pickable(false)
-		calendar.screen.set_mouse_filter(Control.MOUSE_FILTER_STOP)
 		create_tween().tween_property(screen, "color", Color(0,0,0,0.6), 0.5)
 	else:
 		create_tween().tween_property(screen, "color", Color.TRANSPARENT, 0.5)
-		calendar.screen.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
 		for magnet: MagnetBehaviour in get_tree().get_nodes_in_group(Name.MAGNETS): magnet.set_input_pickable(true)

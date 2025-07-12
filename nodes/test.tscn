@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cv6qjfalx8wrw"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_2ylxo"]
-[ext_resource type="PackedScene" uid="uid://c5j3ctjek0xew" path="res://nodes/packed/magnet.tscn" id="1_6yxhk"]
+[ext_resource type="PackedScene" uid="uid://crfcam2h8mdpv" path="res://nodes/packed/magnet.tscn" id="1_6yxhk"]
 [ext_resource type="PackedScene" uid="uid://ckw7icje268sg" path="res://nodes/packed/day.tscn" id="2_pvy7s"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="3_f5bf4"]
 
