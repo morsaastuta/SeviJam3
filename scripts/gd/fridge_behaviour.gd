@@ -7,24 +7,25 @@ var calendar: CalendarBehaviour
 var screen: ColorRect
 
 func _ready():
-	calendar = calendar_default.instantiate()
 	next_level()
+	show_stickers(true)
 
 func next_level() -> void:
-	var calendar_next: CalendarBehaviour = calendar.next.instantiate()
+	var calendar_next: CalendarBehaviour
+	if calendar != null: calendar_next = calendar.next.instantiate()
+	else: calendar_next = calendar_default.instantiate()
 	group_calendar.add_child(calendar_next)
 	# esperar a que cargue
 	# animar calendar
-	calendar.queue_free()
+	if calendar != null: calendar.queue_free()
 	calendar = calendar_next
 
 func show_stickers(on: bool) -> void:
-	var tween: Tween = create_tween()
 	if on:
+		for magnet: MagnetBehaviour in get_tree().get_nodes_in_group(Name.MAGNETS): magnet.set_input_pickable(false)
 		calendar.screen.set_mouse_filter(Control.MOUSE_FILTER_STOP)
-		tween.tween_property(screen, "color:a", 0.6, 0.5)
-		
+		create_tween().tween_property(screen, "color", Color(0,0,0,0.6), 0.5)
 	else:
-		await tween.tween_property(screen, "color:a", 0, 0.5)
-		#await get_tree().create_timer(0.5).timeout
+		create_tween().tween_property(screen, "color", Color.TRANSPARENT, 0.5)
 		calendar.screen.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
+		for magnet: MagnetBehaviour in get_tree().get_nodes_in_group(Name.MAGNETS): magnet.set_input_pickable(true)

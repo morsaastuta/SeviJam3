@@ -1,39 +1,50 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv6qjfalx8wrw"]
+[gd_scene load_steps=7 format=3 uid="uid://cv6qjfalx8wrw"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_2ylxo"]
 [ext_resource type="PackedScene" uid="uid://c5j3ctjek0xew" path="res://nodes/packed/magnet.tscn" id="1_6yxhk"]
+[ext_resource type="PackedScene" uid="uid://ckw7icje268sg" path="res://nodes/packed/day.tscn" id="2_pvy7s"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="3_f5bf4"]
+
+[sub_resource type="PackedScene" id="PackedScene_kvbc6"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("Calendar", "Node2D", "script", "Day01", "script", "Day02", "position", "script", "Day03", "position", "script", "Day04", "position", "script", "Day05", "position", "script", "Day06", "position", "script", "Day07", "position", "script"),
+"node_count": 8,
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 1, 2, 0, 0, 1073741824, 0, 2147483647, 3, 1, 1, 4, 2, 0, 1073741825, 0, 2147483647, 5, 3, 2, 6, 4, 7, 5, 0, 1073741826, 0, 2147483647, 8, 6, 2, 9, 7, 10, 8, 0, 1073741827, 0, 2147483647, 11, 9, 2, 12, 10, 13, 11, 0, 1073741828, 0, 2147483647, 14, 12, 2, 15, 13, 16, 14, 0, 1073741829, 0, 2147483647, 17, 15, 2, 18, 16, 19, 17, 0, 1073741830, 0, 2147483647, 20, 18, 2, 21, 19, 22, 20, 0),
+"variants": [ExtResource("1_2ylxo"), ExtResource("2_pvy7s"), null, ExtResource("2_pvy7s"), Vector2(22, 0), null, ExtResource("2_pvy7s"), Vector2(44, 0), null, ExtResource("2_pvy7s"), Vector2(66, 0), null, ExtResource("2_pvy7s"), Vector2(88, 0), null, ExtResource("2_pvy7s"), Vector2(110, 0), null, ExtResource("2_pvy7s"), Vector2(133, 0), null],
+"version": 3
+}
+
+[sub_resource type="Theme" id="Theme_pvy7s"]
 
 [node name="TestCalendar" type="Node2D" node_paths=PackedStringArray("screen")]
 script = ExtResource("1_2ylxo")
 screen = NodePath("Tray/ColorRect")
-
-[node name="Magnet" parent="." instance=ExtResource("1_6yxhk")]
-position = Vector2(196, 356)
-input_pickable = true
-
-[node name="Magnet2" parent="." instance=ExtResource("1_6yxhk")]
-position = Vector2(483, 326)
-input_pickable = true
+next = SubResource("PackedScene_kvbc6")
 
 [node name="Tray" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Tray"]
+custom_minimum_size = Vector2(6.2, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_pvy7s")
 color = Color(0, 0, 0, 0.592157)
 
-[node name="Control" type="Control" parent="Tray"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
+[node name="Sticker" parent="Tray/ColorRect" instance=ExtResource("3_f5bf4")]
+position = Vector2(356, 269)
 
-[node name="Sticker" parent="Tray/Control" instance=ExtResource("3_f5bf4")]
-position = Vector2(353, 269)
+[node name="Magnet" parent="." instance=ExtResource("1_6yxhk")]
+position = Vector2(352, 251)
+
+[node name="Magnet2" parent="." instance=ExtResource("1_6yxhk")]
+position = Vector2(483, 326)
+
+[connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]

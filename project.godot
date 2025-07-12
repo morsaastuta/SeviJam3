@@ -17,7 +17,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://scripts/gd/global.gd"
-Transition="*res://nodes/Transition.tscn"
 
 [editor_plugins]
 
@@ -33,6 +32,11 @@ folder_colors={
 "res://scripts/": "teal",
 "res://scripts/shader/": "blue"
 }
+
+[global_group]
+
+magnets=""
+stickers=""
 
 [rendering]
 
