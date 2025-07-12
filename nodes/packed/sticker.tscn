@@ -4,8 +4,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjg13"]
 
-[node name="Sticker" type="Sprite2D" groups=["stickers"]]
+[node name="Sticker" type="Sprite2D" node_paths=PackedStringArray("area") groups=["stickers"]]
 script = ExtResource("1_gvdio")
+area = NodePath("Area2D")
 
 [node name="Area2D" type="Area2D" parent="."]
 
