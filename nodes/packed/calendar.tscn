@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbgp6l7oii4lw"]
+[gd_scene load_steps=3 format=3 uid="uid://bbgp6l7oii4lw"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_mtc6k"]
 [ext_resource type="PackedScene" uid="uid://ckw7icje268sg" path="res://nodes/packed/day.tscn" id="1_qkihu"]
-[ext_resource type="PackedScene" uid="uid://c5j3ctjek0xew" path="res://nodes/packed/Magnet.tscn" id="3_h5j1g"]
 
 [node name="Calendar" type="Node2D"]
 script = ExtResource("1_mtc6k")
@@ -28,8 +27,3 @@ position = Vector2(187, 53)
 
 [node name="Day07" parent="." instance=ExtResource("1_qkihu")]
 position = Vector2(210, 53)
-
-[node name="Magnet" parent="." instance=ExtResource("3_h5j1g")]
-position = Vector2(161, 129)
-
-[editable path="Magnet"]
