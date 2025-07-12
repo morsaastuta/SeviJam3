@@ -18,7 +18,7 @@ func grab() -> void:
 	Global.fridge.show_stickers(false)
 	
 func drop() -> void:
-	reparent(Global.fridge_stickers)
+	reparent(Global.fridge.group_stickers)
 	held = false
 
 

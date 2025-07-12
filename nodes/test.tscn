@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://c5j3ctjek0xew" path="res://nodes/packed/magnet.tscn" id="1_6yxhk"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="3_f5bf4"]
 
-[node name="TestCalendar" type="Node2D"]
+[node name="TestCalendar" type="Node2D" node_paths=PackedStringArray("screen")]
 script = ExtResource("1_2ylxo")
+screen = NodePath("Tray/ColorRect")
 
 [node name="Magnet" parent="." instance=ExtResource("1_6yxhk")]
 position = Vector2(196, 356)

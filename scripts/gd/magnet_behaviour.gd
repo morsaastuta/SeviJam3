@@ -32,3 +32,4 @@ func drop() -> void:
 func abort() -> void:
 	held = false
 	create_tween().tween_property(self, "global_position", origin, 0.5)
+	Global.dropped.emit(self)
