@@ -4,9 +4,8 @@ var held: bool = false
 
 func _on_input_event(viewport, event, shape_idx) -> void:
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if not held and event.is_pressed(): grab()
-			elif held and not event.is_pressed(): drop()
+		if not held and event.is_pressed(): grab()
+		elif held and not event.is_pressed(): drop()
 
 func _physics_process(delta) -> void:
 	if not held: return
@@ -16,9 +15,12 @@ func _physics_process(delta) -> void:
 func grab() -> void:
 	reparent(Global.fridge)
 	held = true
-	Global.grabbed.emit(self)
+	Global.fridge.show_stickers(false)
 	
 func drop() -> void:
 	reparent(Global.fridge_stickers)
 	held = false
-	Global.dropped.emit(self)
+
+
+func _on_area_2d_input_event(viewport, event, shape_idx):
+	pass # Replace with function body.

@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://voinhe3w734h"]
+[gd_scene load_steps=3 format=3 uid="uid://voinhe3w734h"]
+
+[ext_resource type="Script" uid="uid://bx3hx5ma0ikba" path="res://scripts/gd/sticker_behaviour.gd" id="1_gvdio"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjg13"]
 
 [node name="Sticker" type="Sprite2D"]
+script = ExtResource("1_gvdio")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_cjg13")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_input_event"]

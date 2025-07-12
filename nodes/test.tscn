@@ -17,13 +17,22 @@ input_pickable = true
 
 [node name="Tray" type="CanvasLayer" parent="."]
 
-[node name="Control" type="ColorRect" parent="Tray"]
+[node name="ColorRect" type="ColorRect" parent="Tray"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0)
+color = Color(0, 0, 0, 0.592157)
 
-[node name="Sticker" parent="Tray" instance=ExtResource("3_f5bf4")]
+[node name="Control" type="Control" parent="Tray"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Sticker" parent="Tray/Control" instance=ExtResource("3_f5bf4")]
 position = Vector2(353, 269)
