@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bw0uclolpohdk"]
+[gd_scene load_steps=3 format=3 uid="uid://d27hbcvn6fbdl"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_mmiab"]
 [ext_resource type="PackedScene" uid="uid://ckw7icje268sg" path="res://nodes/packed/day.tscn" id="2_3ce4g"]

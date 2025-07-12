@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://cmstrfwit0tw" path="res://scripts/gd/fridge_behaviour.gd" id="1_7vwyd"]
 [ext_resource type="PackedScene" uid="uid://cv6qjfalx8wrw" path="res://nodes/test.tscn" id="2_n5g6r"]
 
-[node name="Fridge" type="Node2D"]
+[node name="Fridge" type="Node2D" node_paths=PackedStringArray("group_stickers", "group_calendar")]
 script = ExtResource("1_7vwyd")
+calendar_default = ExtResource("2_n5g6r")
+group_stickers = NodePath("GroupStickers")
+group_calendar = NodePath("GroupCalendar")
 
 [node name="GroupStickers" type="CanvasGroup" parent="."]
 
 [node name="GroupCalendar" type="CanvasGroup" parent="."]
 z_index = 1
-
-[node name="TestCalendar" parent="GroupCalendar" instance=ExtResource("2_n5g6r")]
