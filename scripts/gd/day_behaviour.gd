@@ -16,18 +16,23 @@ func _ready() -> void:
 	if not calendar and get_parent() is CalendarBehaviour:
 		calendar = get_parent()
 	
-	if not magnet_marker: magnet_position = self.global_position
-	else: magnet_position = magnet_marker.global_position
+	if not no_magnet:
+		Global.grabbed.connect(_on_magnet_grabbed)	
+		if not magnet_marker: magnet_position = self.global_position
+		else: magnet_position = magnet_marker.global_position
 	
-	Global.grabbed.connect(_on_magnet_grabbed)
 	Global.dropped.connect(_on_magnet_dropped)
 
 func _on_magnet_dropped(magnet: MagnetBehaviour):
 	if not magnet_hover: return
 	if not magnet_hover == calendar.selected_magnet: printerr("QUE COÑO?, day_behaviour.gd")
 	
-	create_tween().tween_property(magnet_hover, "global_position", magnet_position, 0.15).set_delay(0.15)#.from(magnet_hover.global_position)
-	magnet_applied = magnet_hover
+	if no_magnet or magnet_applied:
+		magnet_hover.abort()
+	else:
+		create_tween().tween_property(magnet_hover, "global_position", magnet_position, 0.15)#.from(magnet_hover.global_position)
+		magnet_applied = magnet_hover
+	
 	magnet_hover = null; calendar.selected_magnet = null
 
 func _on_magnet_grabbed(magnet: MagnetBehaviour):
