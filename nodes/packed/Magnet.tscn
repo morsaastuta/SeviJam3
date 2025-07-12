@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bsmr3og4rsc35" path="res://scripts/gd/magnet_behaviour.gd" id="1_ytlxt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m442f"]
-radius = 39.3192
+radius = 7.28011
 
 [node name="Magnet" type="RigidBody2D"]
 gravity_scale = 0.0
