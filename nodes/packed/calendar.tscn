@@ -7,6 +7,7 @@
 script = ExtResource("1_mtc6k")
 
 [node name="Day01" parent="." instance=ExtResource("1_qkihu")]
+no_magnet = true
 
 [node name="Day02" parent="." instance=ExtResource("1_qkihu")]
 position = Vector2(22, 0)
