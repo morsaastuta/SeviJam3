@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckw7icje268sg"]
+[gd_scene load_steps=11 format=3 uid="uid://ckw7icje268sg"]
 
 [ext_resource type="Script" uid="uid://32onbcd1rnxf" path="res://scripts/gd/day_behaviour.gd" id="1_nvsrj"]
 [ext_resource type="Texture2D" uid="uid://cpd3pdt24kix5" path="res://assets/images/icons/drawings/d_rain.png" id="2_pta2i"]
@@ -6,10 +6,33 @@
 [ext_resource type="Texture2D" uid="uid://cdsyypfqrd7rf" path="res://assets/images/icons/drawings/d_storm.png" id="4_c040t"]
 [ext_resource type="Texture2D" uid="uid://dtysrl848qsdk" path="res://assets/images/icons/drawings/d_rainbow.png" id="5_xvgxs"]
 [ext_resource type="Texture2D" uid="uid://b7i8pxgbdtdph" path="res://assets/images/icons/drawings/d_wind.png" id="6_1a1yd"]
+[ext_resource type="Shader" uid="uid://b6j6o140o6x0m" path="res://scripts/shader/fade.gdshader" id="7_5700h"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uisq6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twf8d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c040t"]
+shader = ExtResource("7_5700h")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 0
+shader_parameter/position = Vector2(0, 0)
+shader_parameter/invert = false
+shader_parameter/grid_size = Vector2(1, 1)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/use_mask_size = false
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 6
+shader_parameter/shape_feather = 0.1
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 0.0
+shader_parameter/progress_bias = Vector2(0, 0)
 
 [node name="Day" type="Area2D" node_paths=PackedStringArray("sprite") groups=["days"]]
 collision_layer = 0
@@ -30,7 +53,9 @@ scale = Vector2(7, 5)
 shape = SubResource("RectangleShape2D_twf8d")
 
 [node name="SpriteEffect" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_c040t")
 scale = Vector2(0.16, 0.16)
+texture = ExtResource("2_pta2i")
 
 [node name="SpriteMagnet" type="Sprite2D" parent="."]
 position = Vector2(-8, -8)
