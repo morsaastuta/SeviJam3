@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="3_d7mam"]
 [ext_resource type="Texture2D" uid="uid://cr1je5xoutwqr" path="res://assets/images/props/help_rainbow.png" id="4_nbp2d"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="5_d7mam"]
-[ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/magnet.tscn" id="6_6kooq"]
+[ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/Magnet.tscn" id="6_6kooq"]
 [ext_resource type="Texture2D" uid="uid://doyh7p3x8pcwb" path="res://assets/images/icons/stickers/s_rainbow_1.png" id="8_s0quv"]
 [ext_resource type="Texture2D" uid="uid://bg4u56nnkvmsn" path="res://assets/images/icons/stickers/s_rainbow_2.png" id="9_77t68"]
 
