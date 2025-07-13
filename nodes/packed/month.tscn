@@ -13,8 +13,9 @@ shader_parameter/shadow_offset = Vector2(0.01, 0.01)
 
 [sub_resource type="Theme" id="Theme_gvusi"]
 
-[node name="Calendar" type="Node2D"]
+[node name="Calendar" type="Node2D" node_paths=PackedStringArray("screen")]
 script = ExtResource("1_4fopo")
+screen = NodePath("Tray/ColorRect")
 
 [node name="Month" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_2iphj")
