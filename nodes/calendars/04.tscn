@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="3_d7mam"]
 [ext_resource type="Texture2D" uid="uid://cr1je5xoutwqr" path="res://assets/images/props/help_rainbow.png" id="4_nbp2d"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="5_d7mam"]
-[ext_resource type="PackedScene" path="res://nodes/packed/Magnet.tscn" id="6_6kooq"]
+[ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/magnet_0.tscn" id="6_6kooq"]
 [ext_resource type="FontFile" uid="uid://4soe34omom8k" path="res://assets/font/LT Colored Pencil.otf" id="6_l2qjx"]
 [ext_resource type="Texture2D" uid="uid://cx03q7yuadtdl" path="res://assets/images/post-its/p_no_magnet.png" id="7_kwv1y"]
 [ext_resource type="Texture2D" uid="uid://2ypckt2xfjqr" path="res://assets/images/post-its/p_rain.png" id="7_m7bf4"]
@@ -20,7 +20,6 @@
 script = ExtResource("1_hsbjh")
 screen = NodePath("Tray/ColorRect")
 next = ExtResource("2_77t68")
-sticker_quantity_rules = 1
 rules = Array[String](["any_2_storm", "any_4_rain"])
 
 [node name="Month" type="Sprite2D" parent="."]
@@ -141,16 +140,13 @@ theme = SubResource("Theme_nbp2d")
 color = Color(0, 0, 0, 0)
 
 [node name="Sticker" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
-material = null
 position = Vector2(632, 677)
 
 [node name="Sticker2" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
-material = null
 position = Vector2(911, 593)
 texture = ExtResource("8_s0quv")
 
 [node name="Sticker3" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
-material = null
 position = Vector2(1183, 685)
 texture = ExtResource("9_77t68")
 
