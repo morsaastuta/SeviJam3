@@ -19,7 +19,7 @@ script = ExtResource("1_phkgn")
 screen = NodePath("Tray/ColorRect")
 next = ExtResource("2_4reae")
 sticker_quantity_rules = 1
-rules = Array[String](["any_7_rain", "2_any_wind", "3_any_rain", "4_any_rain"])
+rules = Array[String](["any_7_rain", "1_any_wind", "2_any_rain", "3_any_rain"])
 
 [node name="Month" type="Sprite2D" parent="."]
 position = Vector2(885, 604)
