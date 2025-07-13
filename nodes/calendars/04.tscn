@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cp4ilc1d6ygfu"]
+[gd_scene load_steps=11 format=3 uid="uid://cp4ilc1d6ygfu"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_hsbjh"]
 [ext_resource type="Texture2D" uid="uid://brhd7uoqfjv48" path="res://assets/images/calendars/04_l.png" id="2_hsbjh"]
@@ -6,11 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="3_d7mam"]
 [ext_resource type="Texture2D" uid="uid://cr1je5xoutwqr" path="res://assets/images/props/help_rainbow.png" id="4_nbp2d"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="5_d7mam"]
-[ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/magnet.tscn" id="6_6kooq"]
+[ext_resource type="PackedScene" uid="uid://dmhp715jovgre" path="res://nodes/packed/Magnet.tscn" id="6_6kooq"]
+[ext_resource type="Texture2D" uid="uid://doyh7p3x8pcwb" path="res://assets/images/icons/stickers/s_rainbow_1.png" id="8_s0quv"]
+[ext_resource type="Texture2D" uid="uid://bg4u56nnkvmsn" path="res://assets/images/icons/stickers/s_rainbow_2.png" id="9_77t68"]
 
 [sub_resource type="Theme" id="Theme_nbp2d"]
 
-[node name="Calendar" type="Node2D"]
+[node name="Calendar2" type="Node2D"]
 script = ExtResource("1_hsbjh")
 rules = Array[String](["3_any_rain"])
 
@@ -26,7 +28,7 @@ scale = Vector2(0.965, 0.965)
 texture = ExtResource("3_2uj7b")
 
 [node name="HelpRainbow" type="Sprite2D" parent="Notas"]
-position = Vector2(-66.1895, 219.656)
+position = Vector2(133.085, 170.199)
 rotation = 0.000739086
 scale = Vector2(0.279793, 0.279793)
 texture = ExtResource("4_nbp2d")
@@ -70,7 +72,6 @@ position = Vector2(1757, 770)
 
 [node name="Tray" type="CanvasLayer" parent="."]
 layer = 5
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Tray"]
 custom_minimum_size = Vector2(6.2, 0)
@@ -81,16 +82,18 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme = SubResource("Theme_nbp2d")
-color = Color(0, 0, 0, 0.592157)
+color = Color(0, 0, 0, 0)
 
 [node name="Sticker" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
-position = Vector2(356, 269)
+position = Vector2(632, 677)
 
 [node name="Sticker2" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
-position = Vector2(712, 538)
+position = Vector2(911, 593)
+texture = ExtResource("8_s0quv")
 
 [node name="Sticker3" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
-position = Vector2(1068, 807)
+position = Vector2(1170, 689)
+texture = ExtResource("9_77t68")
 
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
 

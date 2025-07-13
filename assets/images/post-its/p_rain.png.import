@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwammq2khg3j1"
-path="res://.godot/imported/postittormenta.png-73989b5c7c3980f94146c27040e3455b.ctex"
+uid="uid://2ypckt2xfjqr"
+path="res://.godot/imported/p_rain.png-b8892d7d9cc66c6ab42790e052f95142.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/postittormenta.png"
-dest_files=["res://.godot/imported/postittormenta.png-73989b5c7c3980f94146c27040e3455b.ctex"]
+source_file="res://assets/images/post-its/p_rain.png"
+dest_files=["res://.godot/imported/p_rain.png-b8892d7d9cc66c6ab42790e052f95142.ctex"]
 
 [params]
 
