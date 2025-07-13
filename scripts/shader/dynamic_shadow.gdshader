@@ -21,7 +21,7 @@ uniform float inset : hint_range(0, 1) = 0.0;
 
 // Consider changing this to a uniform and changing it from code
 
-uniform float hovering;
+instance uniform float hovering = 1.0;
 
 uniform float rand_trans_power = 1.0;
 
@@ -34,7 +34,7 @@ uniform float rotation:hint_range(-10.0, 10.0, 0.1) = 0.0;
 varying flat vec4 modulate;
 varying flat float sprite_rotation;
 
-global uniform vec2 mouse_screen_pos = vec2(0.0, 0.0);
+instance uniform vec2 mouse_screen_pos = vec2(0.0, 0.0);
 
 uniform vec2 mouse_screen_pos_test = vec2(0.0, 0.0);
 
