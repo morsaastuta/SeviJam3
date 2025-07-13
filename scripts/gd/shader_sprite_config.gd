@@ -2,6 +2,7 @@ extends Sprite2D
 
 func _ready() -> void:
 	self.set_instance_shader_parameter("mouse_screen_pos",self.global_position)
+	self.set_instance_shader_parameter("hovering",1)
 	Global.grabbed.connect(_on_grabbed_magnet)
 	Global.dropped.connect(_on_dropped_magnet)
 	

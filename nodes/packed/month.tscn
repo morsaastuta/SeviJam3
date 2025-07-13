@@ -1,9 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://yiqdc46tksyb"]
+[gd_scene load_steps=8 format=3 uid="uid://yiqdc46tksyb"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_4fopo"]
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="1_kl0re"]
 [ext_resource type="Texture2D" uid="uid://cqwjfqrmqpvi1" path="res://assets/images/calendars/03_l.png" id="1_krheb"]
+[ext_resource type="Shader" uid="uid://d1as0k3j4r023" path="res://scripts/shader/shadow.gdshader" id="2_gvusi"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="4_siysn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2iphj"]
+shader = ExtResource("2_gvusi")
+shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.305882)
+shader_parameter/shadow_offset = Vector2(0.01, 0.01)
 
 [sub_resource type="Theme" id="Theme_gvusi"]
 
@@ -11,6 +17,7 @@
 script = ExtResource("1_4fopo")
 
 [node name="Month" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_2iphj")
 position = Vector2(885, 604)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_krheb")

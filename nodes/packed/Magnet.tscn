@@ -1,11 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmhp715jovgre"]
+[gd_scene load_steps=8 format=3 uid="uid://b1fa3o8y0dt2n"]
 
 [ext_resource type="Script" uid="uid://bsmr3og4rsc35" path="res://scripts/gd/magnet_behaviour.gd" id="1_ytlxt"]
 [ext_resource type="Texture2D" uid="uid://y6klxd3jyp68" path="res://assets/images/icons/magnets/m_rain_0.png" id="2_od1py"]
-[ext_resource type="Shader" path="res://scripts/shader/dynamic_shadow.gdshader" id="2_vshok"]
+[ext_resource type="Shader" uid="uid://0qq7ftnrf05e" path="res://scripts/shader/dynamic_shadow.gdshader" id="2_vshok"]
+[ext_resource type="Script" uid="uid://hmbsi6dytkna" path="res://scripts/gd/shader_sprite_config.gd" id="4_clx6w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vtgsf"]
 shader = ExtResource("2_vshok")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(0, -50)
+shader_parameter/color = Color(0, 0, 0, 0.317647)
+shader_parameter/blur_amount = 5.0
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+shader_parameter/rand_trans_power = 1.0
+shader_parameter/rand_seed = 0.0
+shader_parameter/vortex_amt = 0.0
+shader_parameter/rotation = 0.0
+shader_parameter/mouse_screen_pos_test = Vector2(0, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m442f"]
 radius = 50.0
@@ -24,6 +42,7 @@ area = NodePath("Area2D")
 material = SubResource("ShaderMaterial_vtgsf")
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_od1py")
+script = ExtResource("4_clx6w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_m442f")
@@ -34,3 +53,4 @@ shape = SubResource("CircleShape2D_m442f")
 shape = SubResource("CircleShape2D_od1py")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_input_event"]
+[connection signal="input_event" from="Area2D" to="Sprite2D" method="_on_area_2d_input_event"]
