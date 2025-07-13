@@ -24,9 +24,7 @@ func drop() -> void:
 	held = false
 	Global.fridge.calendar.held = false
 	set_input_pickable(false)
-
-func _on_area_2d_input_event(viewport, event, shape_idx):
-	pass
+	Global.fridge.next_level()
 
 func set_input_pickable(on: bool) -> void:
 	area.input_pickable = on
