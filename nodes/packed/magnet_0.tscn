@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://b1fa3o8y0dt2n"]
 
-[ext_resource type="Script" uid="uid://bsmr3og4rsc35" path="res://scripts/gd/magnet_behaviour.gd" id="1_ytlxt"]
-[ext_resource type="Texture2D" uid="uid://y6klxd3jyp68" path="res://assets/images/icons/magnets/m_rain_0.png" id="2_od1py"]
-[ext_resource type="Shader" uid="uid://0qq7ftnrf05e" path="res://scripts/shader/dynamic_shadow.gdshader" id="2_vshok"]
-[ext_resource type="Script" uid="uid://hmbsi6dytkna" path="res://scripts/gd/shader_sprite_config.gd" id="4_clx6w"]
+[ext_resource type="Script" uid="uid://bsmr3og4rsc35" path="res://scripts/gd/magnet_behaviour.gd" id="1_8emyy"]
+[ext_resource type="Shader" uid="uid://0qq7ftnrf05e" path="res://scripts/shader/dynamic_shadow.gdshader" id="2_4auc2"]
+[ext_resource type="Texture2D" uid="uid://y6klxd3jyp68" path="res://assets/images/icons/magnets/m_rain_0.png" id="3_5t8gb"]
+[ext_resource type="Script" uid="uid://hmbsi6dytkna" path="res://scripts/gd/shader_sprite_config.gd" id="4_5t2mh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vtgsf"]
-shader = ExtResource("2_vshok")
+shader = ExtResource("2_4auc2")
 shader_parameter/debug = false
 shader_parameter/border_scale = 2.0
 shader_parameter/shadow_offset = Vector2(0, -50)
@@ -35,14 +35,14 @@ radius = 50.04
 z_index = 2
 collision_layer = 3
 gravity_scale = 0.0
-script = ExtResource("1_ytlxt")
+script = ExtResource("1_8emyy")
 area = NodePath("Area2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_vtgsf")
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_od1py")
-script = ExtResource("4_clx6w")
+texture = ExtResource("3_5t8gb")
+script = ExtResource("4_5t2mh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_m442f")
