@@ -5,6 +5,9 @@ var origin: Vector2
 var held: bool = false
 var day: DayBehaviour
 
+func _ready():
+	origin = global_position
+
 func _on_input_event(viewport, event, shape_idx) -> void:
 	if event is InputEventMouseButton:
 		if !Global.fridge.calendar.held and !held and event.is_pressed(): grab()
@@ -16,7 +19,6 @@ func _physics_process(delta) -> void:
 	global_position.y = lerp(global_position.y, get_global_mouse_position().y, 0.35)
 
 func grab() -> void:
-	origin = global_position
 	set_collision_layer_value(1, false)
 	set_collision_mask_value(1, false)
 	grab_commons()
@@ -30,8 +32,8 @@ func drop() -> void:
 
 func abort() -> void:
 	drop_commons()
+	create_tween().tween_property(self, "global_position", origin, 0.25)
 	Global.aborted.emit(self)
-	create_tween().tween_property(self, "global_position", origin, 0.5)
 
 func grab_commons() -> void:
 	held = true

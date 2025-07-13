@@ -25,3 +25,4 @@ position = Vector2(769.515, 0)
 
 [node name="Sunday" parent="." instance=ExtResource("1_m5piv")]
 position = Vector2(927.155, 0)
+no_magnet = true

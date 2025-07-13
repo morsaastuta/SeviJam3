@@ -24,7 +24,6 @@ func _ready() -> void:
 	Global.grabbed.connect(_on_magnet_grabbed_dropped)
 	Global.dropped.connect(_on_magnet_grabbed_dropped)
 	Global.aborted.connect(_on_magnet_grabbed_dropped)
-	print(month)
 
 func _on_magnet_grabbed_dropped(magnet: MagnetBehaviour):
 	generate_climate()
@@ -59,7 +58,7 @@ func generate_climate():
 			elif (idx >= 1 && idx <= days.size()-2 &&
 			days[idx-1].effect_applied == Name.Effect.RAIN &&
 			days[idx+1].effect_applied == Name.Effect.RAIN):
-				day.set_effect(Name.Effect.STORM); print("try stormy")
+				day.set_effect(Name.Effect.STORM)
 			# RAIN A
 			elif (idx >= 2 &&
 			days[idx-1].effect_applied == Name.Effect.STORM &&
@@ -87,15 +86,18 @@ func _mission_achieved() -> bool:
 
 func _sticker_achieved() -> bool:
 	var evaluation := evaluator()[0]
-	var sticker_is_achieved: bool = true
-	for i in range(sticker_quantity_rules):
-		if not evaluation[i]: sticker_is_achieved = false; break
-	return sticker_is_achieved
+	if sticker_quantity_rules >= 1:
+		var sticker_is_achieved: bool = true
+		for i in range(sticker_quantity_rules):
+			if not evaluation[i]: sticker_is_achieved = false; break
+		return sticker_is_achieved
+	else: return false
 
 func evaluator() -> Array[Array]:
 	var array_evaluations: Array[Array] = [[],[]]
 	for rule in rules:
-		var str_array: Array[String] = rule.split("_")
+		var str_array: Array[String]
+		str_array.append_array(rule.split("_"))
 		
 		var week_index: int
 		match str_array[0]:
@@ -115,7 +117,7 @@ func evaluator() -> Array[Array]:
 			for week in month:
 				for day:DayBehaviour in week:
 					if day.effect_applied == Global.effect_by_name(effect):
-						how_many
+						how_many -= 1
 		array_evaluations[0].append(how_many <= 0)  
 	
 	for week in month:
