@@ -1,8 +1,245 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4nclix6r782b"]
+[gd_scene load_steps=19 format=3 uid="uid://dyokiuntvhfpd"]
 
 [ext_resource type="Script" uid="uid://cmstrfwit0tw" path="res://scripts/gd/fridge_behaviour.gd" id="1_7vwyd"]
-[ext_resource type="PackedScene" uid="uid://vtgtqyh3ptt7" path="res://nodes/calendars/03.tscn" id="2_mebpt"]
+[ext_resource type="PackedScene" path="res://nodes/calendars/03.tscn" id="2_mebpt"]
 [ext_resource type="Texture2D" uid="uid://ey0doayo30rt" path="res://assets/images/calendars/00.png" id="2_n5g6r"]
+[ext_resource type="Texture2D" uid="uid://df24glo7mivs3" path="res://assets/images/continua/00_c.png" id="4_oitiy"]
+[ext_resource type="Texture2D" uid="uid://cc60sw8bjaxf1" path="res://assets/images/continua/01_o.png" id="5_xfus4"]
+[ext_resource type="Texture2D" uid="uid://drmy8yttcusk8" path="res://assets/images/continua/02_n.png" id="6_17lom"]
+[ext_resource type="Texture2D" uid="uid://bosgah8dvsp0l" path="res://assets/images/continua/03_t.png" id="7_nnkbh"]
+[ext_resource type="Texture2D" uid="uid://cu06sicib5rp2" path="res://assets/images/continua/04_i.png" id="8_61la0"]
+[ext_resource type="Texture2D" uid="uid://du8jblbtkcgae" path="res://assets/images/continua/05_n.png" id="9_tjs0j"]
+[ext_resource type="Texture2D" uid="uid://b1606k3qvsflj" path="res://assets/images/continua/06_u.png" id="10_tipj5"]
+[ext_resource type="Texture2D" uid="uid://bwexnm3k7sojm" path="res://assets/images/continua/07_a.png" id="11_ri0wj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d6wal"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tyvqe"]
+
+[sub_resource type="Theme" id="Theme_d6wal"]
+Button/styles/disabled = null
+Button/styles/focus = SubResource("StyleBoxEmpty_d6wal")
+Button/styles/hover = SubResource("StyleBoxEmpty_tyvqe")
+Button/styles/normal = null
+Button/styles/pressed = null
+
+[sub_resource type="GDScript" id="GDScript_d6wal"]
+script/source = "extends Button
+
+func _on_mouse_entered() -> void: create_tween().tween_property(self, \"scale\", Vector2.ONE*1.10, 0.1)
+
+func _on_mouse_exited() -> void: create_tween().tween_property(self, \"scale\", Vector2.ONE, 0.1)
+
+func _on_button_down() -> void: create_tween().tween_property(self, \"scale\", Vector2.ONE*0.9, 0.025)
+
+func _on_button_up() -> void: create_tween().tween_property(self, \"scale\", Vector2.ONE, 0.05)
+"
+
+[sub_resource type="Animation" id="Animation_tyvqe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("00C:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("00C2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("00C3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("00C4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("00C5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("00C6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("00C7:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("00C8:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_d6wal"]
+resource_name = "wave_text"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("00C:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("00C2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("00C3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("00C4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("00C5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("00C6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("00C7:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("00C8:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4r2jn"]
+_data = {
+&"RESET": SubResource("Animation_tyvqe"),
+&"wave_text": SubResource("Animation_d6wal")
+}
 
 [node name="Fridge" type="Node2D" node_paths=PackedStringArray("group_stickers", "group_calendar")]
 script = ExtResource("1_7vwyd")
@@ -21,3 +258,111 @@ texture = ExtResource("2_n5g6r")
 
 [node name="GroupCalendar" type="CanvasGroup" parent="."]
 z_index = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ControlContinueBtn" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/ControlContinueBtn"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -705.0
+offset_top = -131.0
+offset_right = -32.0
+offset_bottom = -18.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(337, 57)
+mouse_filter = 2
+theme = SubResource("Theme_d6wal")
+flat = true
+script = SubResource("GDScript_d6wal")
+
+[node name="00C" type="TextureRect" parent="CanvasLayer/ControlContinueBtn/ContinueButton"]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 1374.0
+offset_bottom = 243.0
+scale = Vector2(0.471193, 0.471193)
+texture = ExtResource("4_oitiy")
+
+[node name="00C2" type="TextureRect" parent="CanvasLayer/ControlContinueBtn/ContinueButton"]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 1374.0
+offset_bottom = 243.0
+scale = Vector2(0.471193, 0.471193)
+texture = ExtResource("5_xfus4")
+
+[node name="00C3" type="TextureRect" parent="CanvasLayer/ControlContinueBtn/ContinueButton"]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 1374.0
+offset_bottom = 243.0
+scale = Vector2(0.471193, 0.471193)
+texture = ExtResource("6_17lom")
+
+[node name="00C4" type="TextureRect" parent="CanvasLayer/ControlContinueBtn/ContinueButton"]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 1374.0
+offset_bottom = 243.0
+scale = Vector2(0.471193, 0.471193)
+texture = ExtResource("7_nnkbh")
+
+[node name="00C5" type="TextureRect" parent="CanvasLayer/ControlContinueBtn/ContinueButton"]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 1374.0
+offset_bottom = 243.0
+scale = Vector2(0.471193, 0.471193)
+texture = ExtResource("8_61la0")
+
+[node name="00C6" type="TextureRect" parent="CanvasLayer/ControlContinueBtn/ContinueButton"]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 1374.0
+offset_bottom = 243.0
+scale = Vector2(0.471193, 0.471193)
+texture = ExtResource("9_tjs0j")
+
+[node name="00C7" type="TextureRect" parent="CanvasLayer/ControlContinueBtn/ContinueButton"]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 1374.0
+offset_bottom = 243.0
+scale = Vector2(0.471193, 0.471193)
+texture = ExtResource("10_tipj5")
+
+[node name="00C8" type="TextureRect" parent="CanvasLayer/ControlContinueBtn/ContinueButton"]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 1374.0
+offset_bottom = 243.0
+scale = Vector2(0.471193, 0.471193)
+texture = ExtResource("11_ri0wj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ControlContinueBtn/ContinueButton"]
+libraries = {
+&"": SubResource("AnimationLibrary_4r2jn")
+}
+autoplay = "wave_text"
+
+[connection signal="button_down" from="CanvasLayer/ControlContinueBtn/ContinueButton" to="CanvasLayer/ControlContinueBtn/ContinueButton" method="_on_button_down"]
+[connection signal="button_up" from="CanvasLayer/ControlContinueBtn/ContinueButton" to="CanvasLayer/ControlContinueBtn/ContinueButton" method="_on_button_up"]
+[connection signal="mouse_entered" from="CanvasLayer/ControlContinueBtn/ContinueButton" to="CanvasLayer/ControlContinueBtn/ContinueButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/ControlContinueBtn/ContinueButton" to="CanvasLayer/ControlContinueBtn/ContinueButton" method="_on_mouse_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://fbftvnf2lnbu"]
+[gd_scene load_steps=16 format=3 uid="uid://fbftvnf2lnbu"]
 
 [ext_resource type="Texture2D" uid="uid://df24glo7mivs3" path="res://assets/images/continua/00_c.png" id="1_d6wal"]
 [ext_resource type="Texture2D" uid="uid://cc60sw8bjaxf1" path="res://assets/images/continua/01_o.png" id="2_tyvqe"]
@@ -9,21 +9,42 @@
 [ext_resource type="Texture2D" uid="uid://b1606k3qvsflj" path="res://assets/images/continua/06_u.png" id="7_vi0vg"]
 [ext_resource type="Texture2D" uid="uid://bwexnm3k7sojm" path="res://assets/images/continua/07_a.png" id="8_4istx"]
 
-[sub_resource type="Animation" id="Animation_d6wal"]
-resource_name = "wave_text"
-length = 2.0
-loop_mode = 2
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d6wal"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tyvqe"]
+
+[sub_resource type="Theme" id="Theme_d6wal"]
+Button/styles/disabled = null
+Button/styles/focus = SubResource("StyleBoxEmpty_d6wal")
+Button/styles/hover = SubResource("StyleBoxEmpty_tyvqe")
+Button/styles/normal = null
+Button/styles/pressed = null
+
+[sub_resource type="GDScript" id="GDScript_d6wal"]
+script/source = "extends Button
+
+func _on_mouse_entered() -> void: create_tween().tween_property(self, \"scale\", Vector2.ONE*1.10, 0.1)
+
+func _on_mouse_exited() -> void: create_tween().tween_property(self, \"scale\", Vector2.ONE, 0.1)
+
+func _on_button_down() -> void: create_tween().tween_property(self, \"scale\", Vector2.ONE*0.9, 0.025)
+
+func _on_button_up() -> void: create_tween().tween_property(self, \"scale\", Vector2.ONE, 0.05)
+"
+
+[sub_resource type="Animation" id="Animation_tyvqe"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("00C:position")
-tracks/0/interp = 2
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.2, 0.966667, 1.8),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(12, 0), Vector2(12, -17), Vector2(12, 0)]
+"values": [Vector2(12, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -110,13 +131,15 @@ tracks/7/keys = {
 "values": [Vector2(12, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_tyvqe"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_d6wal"]
+resource_name = "wave_text"
+length = 3.0
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("00C:position")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
@@ -224,8 +247,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="Button" type="Button" parent="Control"]
+[node name="ContinueButton" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -238,8 +262,12 @@ offset_right = -32.0
 offset_bottom = -18.0
 grow_horizontal = 0
 grow_vertical = 0
+pivot_offset = Vector2(337, 57)
+theme = SubResource("Theme_d6wal")
+flat = true
+script = SubResource("GDScript_d6wal")
 
-[node name="00C" type="TextureRect" parent="Control/Button"]
+[node name="00C" type="TextureRect" parent="Control/ContinueButton"]
 layout_mode = 0
 offset_left = 12.0
 offset_right = 1374.0
@@ -247,7 +275,7 @@ offset_bottom = 243.0
 scale = Vector2(0.471193, 0.471193)
 texture = ExtResource("1_d6wal")
 
-[node name="00C2" type="TextureRect" parent="Control/Button"]
+[node name="00C2" type="TextureRect" parent="Control/ContinueButton"]
 layout_mode = 0
 offset_left = 12.0
 offset_right = 1374.0
@@ -255,7 +283,7 @@ offset_bottom = 243.0
 scale = Vector2(0.471193, 0.471193)
 texture = ExtResource("2_tyvqe")
 
-[node name="00C3" type="TextureRect" parent="Control/Button"]
+[node name="00C3" type="TextureRect" parent="Control/ContinueButton"]
 layout_mode = 0
 offset_left = 12.0
 offset_right = 1374.0
@@ -263,7 +291,7 @@ offset_bottom = 243.0
 scale = Vector2(0.471193, 0.471193)
 texture = ExtResource("3_4r2jn")
 
-[node name="00C4" type="TextureRect" parent="Control/Button"]
+[node name="00C4" type="TextureRect" parent="Control/ContinueButton"]
 layout_mode = 0
 offset_left = 12.0
 offset_right = 1374.0
@@ -271,7 +299,7 @@ offset_bottom = 243.0
 scale = Vector2(0.471193, 0.471193)
 texture = ExtResource("4_r0pnw")
 
-[node name="00C5" type="TextureRect" parent="Control/Button"]
+[node name="00C5" type="TextureRect" parent="Control/ContinueButton"]
 layout_mode = 0
 offset_left = 12.0
 offset_right = 1374.0
@@ -279,7 +307,7 @@ offset_bottom = 243.0
 scale = Vector2(0.471193, 0.471193)
 texture = ExtResource("5_qabud")
 
-[node name="00C6" type="TextureRect" parent="Control/Button"]
+[node name="00C6" type="TextureRect" parent="Control/ContinueButton"]
 layout_mode = 0
 offset_left = 12.0
 offset_right = 1374.0
@@ -287,7 +315,7 @@ offset_bottom = 243.0
 scale = Vector2(0.471193, 0.471193)
 texture = ExtResource("6_p2ga1")
 
-[node name="00C7" type="TextureRect" parent="Control/Button"]
+[node name="00C7" type="TextureRect" parent="Control/ContinueButton"]
 layout_mode = 0
 offset_left = 12.0
 offset_right = 1374.0
@@ -295,7 +323,7 @@ offset_bottom = 243.0
 scale = Vector2(0.471193, 0.471193)
 texture = ExtResource("7_vi0vg")
 
-[node name="00C8" type="TextureRect" parent="Control/Button"]
+[node name="00C8" type="TextureRect" parent="Control/ContinueButton"]
 layout_mode = 0
 offset_left = 12.0
 offset_right = 1374.0
@@ -303,8 +331,13 @@ offset_bottom = 243.0
 scale = Vector2(0.471193, 0.471193)
 texture = ExtResource("8_4istx")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Button"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/ContinueButton"]
 libraries = {
 &"": SubResource("AnimationLibrary_4r2jn")
 }
 autoplay = "wave_text"
+
+[connection signal="button_down" from="Control/ContinueButton" to="Control/ContinueButton" method="_on_button_down"]
+[connection signal="button_up" from="Control/ContinueButton" to="Control/ContinueButton" method="_on_button_up"]
+[connection signal="mouse_entered" from="Control/ContinueButton" to="Control/ContinueButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/ContinueButton" to="Control/ContinueButton" method="_on_mouse_exited"]

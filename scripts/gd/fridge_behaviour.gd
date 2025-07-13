@@ -9,6 +9,15 @@ var screen: ColorRect
 func _ready():
 	next_level()
 
+func check_requisites() -> void:
+	if calendar.mission_is_achieved:
+		%ContinueButton.mouse_filter = Control.MOUSE_FILTER_STOP
+		create_tween().tween_property(%ControlContinueBtn, "modulate", Color.WHITE, 0.5).from(Color.TRANSPARENT)
+	else:
+		create_tween().tween_property(%ControlContinueBtn, "modulate", Color.TRANSPARENT, 0.5).from(Color.WHITE)
+		%ContinueButton.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		
+
 func next_level() -> void:
 	var calendar_next: CalendarBehaviour
 	if calendar != null: calendar_next = calendar.next.instantiate()
