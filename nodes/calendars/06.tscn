@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://oibnepoh55k3"]
+[gd_scene load_steps=12 format=3 uid="uid://oibnepoh55k3"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_phkgn"]
 [ext_resource type="PackedScene" uid="uid://vtgtqyh3ptt7" path="res://nodes/calendars/03.tscn" id="2_4reae"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bxaub4c5qlrvu" path="res://assets/images/props/help_windstorm.png" id="4_phkgn"]
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="5_fstfa"]
 [ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/Magnet.tscn" id="6_q43t1"]
+[ext_resource type="Texture2D" uid="uid://cx03q7yuadtdl" path="res://assets/images/post-its/p_no_magnet.png" id="7_2vcs6"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="7_6nj40"]
+[ext_resource type="Texture2D" uid="uid://cv18dhlp5mkos" path="res://assets/images/icons/stickers/s_virgen.png" id="8_4reae"]
 
 [sub_resource type="Theme" id="Theme_nbp2d"]
 
@@ -15,7 +17,8 @@
 script = ExtResource("1_phkgn")
 screen = NodePath("Tray/ColorRect")
 next = ExtResource("2_4reae")
-rules = Array[String](["3_any_rain"])
+sticker_quantity_rules = 1
+rules = Array[String](["any_7_rain", "2_any_wind", "3_any_rain", "4_any_rain"])
 
 [node name="Month" type="Sprite2D" parent="."]
 position = Vector2(885, 604)
@@ -33,6 +36,12 @@ position = Vector2(-44.2515, -46.7642)
 rotation = 0.0161425
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("4_phkgn")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Notas"]
+offset_left = -44.2513
+offset_top = -46.7642
+offset_right = -4.25134
+offset_bottom = -6.76416
 
 [node name="Week1" parent="." instance=ExtResource("5_fstfa")]
 position = Vector2(421, 472)
@@ -82,6 +91,26 @@ position = Vector2(421, 910)
 [node name="Saturday" parent="Week5" index="5"]
 no_magnet = true
 
+[node name="PNoMagnet" type="Sprite2D" parent="."]
+position = Vector2(1294, 439)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_2vcs6")
+
+[node name="PNoMagnet2" type="Sprite2D" parent="."]
+position = Vector2(1293, 546)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_2vcs6")
+
+[node name="PNoMagnet3" type="Sprite2D" parent="."]
+position = Vector2(1292, 656)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_2vcs6")
+
+[node name="PNoMagnet4" type="Sprite2D" parent="."]
+position = Vector2(1293.05, 765.45)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_2vcs6")
+
 [node name="Magnet" parent="." instance=ExtResource("6_q43t1")]
 position = Vector2(1603, 881)
 
@@ -107,6 +136,7 @@ color = Color(0, 0, 0, 0)
 
 [node name="Sticker" parent="Tray/ColorRect" instance=ExtResource("7_6nj40")]
 position = Vector2(924, 637)
+texture = ExtResource("8_4reae")
 
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
 

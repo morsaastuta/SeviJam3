@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cp4ilc1d6ygfu"]
+[gd_scene load_steps=13 format=3 uid="uid://cp4ilc1d6ygfu"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_hsbjh"]
 [ext_resource type="PackedScene" uid="uid://ck70bgoa052mg" path="res://nodes/calendars/05.tscn" id="2_77t68"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cr1je5xoutwqr" path="res://assets/images/props/help_rainbow.png" id="4_nbp2d"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="5_d7mam"]
 [ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/magnet.tscn" id="6_6kooq"]
+[ext_resource type="Texture2D" uid="uid://cx03q7yuadtdl" path="res://assets/images/post-its/p_no_magnet.png" id="7_kwv1y"]
 [ext_resource type="Texture2D" uid="uid://doyh7p3x8pcwb" path="res://assets/images/icons/stickers/s_rainbow_1.png" id="8_s0quv"]
 [ext_resource type="Texture2D" uid="uid://bg4u56nnkvmsn" path="res://assets/images/icons/stickers/s_rainbow_2.png" id="9_77t68"]
 
@@ -66,6 +67,31 @@ requirements = Dictionary[StringName, bool]({
 
 [node name="Week5" parent="." instance=ExtResource("3_d7mam")]
 position = Vector2(421, 910)
+
+[node name="PNoMagnet" type="Sprite2D" parent="."]
+position = Vector2(1294, 439)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_kwv1y")
+
+[node name="PNoMagnet2" type="Sprite2D" parent="."]
+position = Vector2(1293, 546)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_kwv1y")
+
+[node name="PNoMagnet3" type="Sprite2D" parent="."]
+position = Vector2(1292, 656)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_kwv1y")
+
+[node name="PNoMagnet5" type="Sprite2D" parent="."]
+position = Vector2(1294, 874)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_kwv1y")
+
+[node name="PNoMagnet4" type="Sprite2D" parent="."]
+position = Vector2(1293.05, 765.45)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_kwv1y")
 
 [node name="Magnet" parent="." instance=ExtResource("6_6kooq")]
 position = Vector2(1603, 881)
