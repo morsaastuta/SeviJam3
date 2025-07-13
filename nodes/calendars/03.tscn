@@ -1,12 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://vtgtqyh3ptt7"]
+[gd_scene load_steps=11 format=3 uid="uid://vtgtqyh3ptt7"]
 
 [ext_resource type="Texture2D" uid="uid://cqwjfqrmqpvi1" path="res://assets/images/calendars/03_l.png" id="1_1nvgh"]
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_7hm1w"]
 [ext_resource type="PackedScene" uid="uid://cp4ilc1d6ygfu" path="res://nodes/calendars/04.tscn" id="2_8f51t"]
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="2_k35rt"]
 [ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/props/note.png" id="4_mfhnp"]
-[ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/Magnet.tscn" id="5_iv61d"]
-[ext_resource type="Texture2D" uid="uid://2ypckt2xfjqr" path="res://assets/images/post-its/p_rain.png" id="5_liwia"]
+[ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/magnet_0.tscn" id="5_iv61d"]
+[ext_resource type="FontFile" uid="uid://4soe34omom8k" path="res://assets/font/LT Colored Pencil.otf" id="5_liwia"]
+[ext_resource type="Texture2D" uid="uid://2ypckt2xfjqr" path="res://assets/images/post-its/p_rain.png" id="6_7amuo"]
+[ext_resource type="Texture2D" uid="uid://cx03q7yuadtdl" path="res://assets/images/post-its/p_no_magnet.png" id="9_aan61"]
 
 [sub_resource type="Theme" id="Theme_13yls"]
 
@@ -14,7 +16,7 @@
 script = ExtResource("1_7hm1w")
 screen = NodePath("Tray/ColorRect")
 next = ExtResource("2_8f51t")
-rules = Array[String](["3_2_rain", ""])
+rules = Array[String](["3_2_rain"])
 
 [node name="Month" type="Sprite2D" parent="."]
 position = Vector2(885, 604)
@@ -27,10 +29,20 @@ rotation = -0.233924
 scale = Vector2(0.965, 0.965)
 texture = ExtResource("4_mfhnp")
 
+[node name="RichTextLabel3" type="RichTextLabel" parent="Notas"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -177.034
+offset_top = -30.4667
+offset_right = 237.966
+offset_bottom = 59.5333
+theme_override_fonts/normal_font = ExtResource("5_liwia")
+theme_override_font_sizes/normal_font_size = 32
+text = "Debe caer lluvia 2 veces en la 3ª semana"
+
 [node name="PRain" type="Sprite2D" parent="."]
 position = Vector2(675, 658)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("5_liwia")
+texture = ExtResource("6_7amuo")
 
 [node name="Magnet" parent="." instance=ExtResource("5_iv61d")]
 position = Vector2(1781, 731)
@@ -72,6 +84,26 @@ grow_vertical = 2
 mouse_filter = 2
 theme = SubResource("Theme_13yls")
 color = Color(0, 0, 0, 0)
+
+[node name="PNoMagnet" type="Sprite2D" parent="."]
+position = Vector2(1293, 436)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_aan61")
+
+[node name="PNoMagnet2" type="Sprite2D" parent="."]
+position = Vector2(1292, 547)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_aan61")
+
+[node name="PNoMagnet3" type="Sprite2D" parent="."]
+position = Vector2(1294, 658)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_aan61")
+
+[node name="PNoMagnet4" type="Sprite2D" parent="."]
+position = Vector2(1294, 767)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_aan61")
 
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
 

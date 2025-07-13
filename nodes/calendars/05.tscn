@@ -1,11 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://ck70bgoa052mg"]
+[gd_scene load_steps=15 format=3 uid="uid://ck70bgoa052mg"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_7mrer"]
 [ext_resource type="PackedScene" uid="uid://oibnepoh55k3" path="res://nodes/calendars/06.tscn" id="2_5uwkv"]
 [ext_resource type="Texture2D" uid="uid://bo51xe5u8gvfx" path="res://assets/images/calendars/05_l.png" id="2_7mrer"]
 [ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/props/note.png" id="3_xxkkp"]
+[ext_resource type="Texture2D" uid="uid://cx03q7yuadtdl" path="res://assets/images/post-its/p_no_magnet.png" id="5_5uwkv"]
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="5_7ma50"]
-[ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/Magnet.tscn" id="6_nr3uo"]
+[ext_resource type="FontFile" uid="uid://4soe34omom8k" path="res://assets/font/LT Colored Pencil.otf" id="5_eb1uk"]
+[ext_resource type="Texture2D" uid="uid://2ypckt2xfjqr" path="res://assets/images/post-its/p_rain.png" id="6_eb1uk"]
+[ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/magnet_0.tscn" id="6_nr3uo"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="7_eb1uk"]
 [ext_resource type="Texture2D" uid="uid://ixgiwp36v6ve" path="res://assets/images/icons/stickers/s_storm_0.png" id="7_xxkkp"]
 [ext_resource type="Texture2D" uid="uid://t8m3dj8dah7j" path="res://assets/images/icons/stickers/s_storm_1.png" id="8_5uwkv"]
@@ -17,7 +20,8 @@
 script = ExtResource("1_7mrer")
 screen = NodePath("Tray/ColorRect")
 next = ExtResource("2_5uwkv")
-rules = Array[String](["3_any_rain"])
+sticker_quantity_rules = 4
+rules = Array[String](["1_any_rainbow", "2_any_rainbow", "3_any_rainbow", "4_any_rainbow", "1_any_rain", "2_any_rain", "3_any_rain", "4_any_rain", "5_any_rain"])
 
 [node name="Month" type="Sprite2D" parent="."]
 position = Vector2(885, 604)
@@ -30,11 +34,25 @@ rotation = -0.233924
 scale = Vector2(0.965, 0.965)
 texture = ExtResource("3_xxkkp")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Notas"]
-offset_left = -164.0
-offset_top = -50.0
-offset_right = 196.0
-offset_bottom = 40.0
+[node name="RichTextLabel3" type="RichTextLabel" parent="Notas"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -170.931
+offset_top = -69.4931
+offset_right = 189.069
+offset_bottom = 20.5069
+theme_override_fonts/normal_font = ExtResource("5_eb1uk")
+theme_override_font_sizes/normal_font_size = 32
+text = "Debe caer lluvia todas las semanas"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Notas"]
+modulate = Color(0.768627, 0.203922, 0.647059, 1)
+offset_left = -174.845
+offset_top = 76.5832
+offset_right = 243.155
+offset_bottom = 166.583
+theme_override_fonts/normal_font = ExtResource("5_eb1uk")
+theme_override_font_sizes/normal_font_size = 32
+text = "Debe salir el arcoiris todas las semanas"
 
 [node name="Week1" parent="." instance=ExtResource("5_7ma50")]
 position = Vector2(421, 472)
@@ -77,8 +95,33 @@ no_magnet = true
 [node name="Saturday" parent="Week5" index="5"]
 no_magnet = true
 
+[node name="PRain" type="Sprite2D" parent="Week5"]
+position = Vector2(100, -33)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_eb1uk")
+
+[node name="PNoMagnet" type="Sprite2D" parent="."]
+position = Vector2(1293, 436)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_5uwkv")
+
+[node name="PNoMagnet2" type="Sprite2D" parent="."]
+position = Vector2(1292, 547)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_5uwkv")
+
+[node name="PNoMagnet3" type="Sprite2D" parent="."]
+position = Vector2(1294, 658)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_5uwkv")
+
+[node name="PNoMagnet4" type="Sprite2D" parent="."]
+position = Vector2(1294, 767)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_5uwkv")
+
 [node name="Magnet4" parent="." instance=ExtResource("6_nr3uo")]
-position = Vector2(1773, 930)
+position = Vector2(1772, 887)
 
 [node name="Magnet3" parent="." instance=ExtResource("6_nr3uo")]
 position = Vector2(1610, 913)
@@ -87,7 +130,7 @@ position = Vector2(1610, 913)
 position = Vector2(1670, 792)
 
 [node name="Magnet2" parent="." instance=ExtResource("6_nr3uo")]
-position = Vector2(1749, 660)
+position = Vector2(1780, 685)
 
 [node name="Tray" type="CanvasLayer" parent="."]
 layer = 5
