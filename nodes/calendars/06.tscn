@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bxaub4c5qlrvu" path="res://assets/images/props/help_windstorm.png" id="4_phkgn"]
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="5_fstfa"]
 [ext_resource type="FontFile" uid="uid://4soe34omom8k" path="res://assets/font/LT Colored Pencil.otf" id="5_wcfft"]
-[ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/Magnet.tscn" id="6_q43t1"]
+[ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/magnet_0.tscn" id="6_q43t1"]
 [ext_resource type="Texture2D" uid="uid://cx03q7yuadtdl" path="res://assets/images/post-its/p_no_magnet.png" id="7_2vcs6"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="7_6nj40"]
 [ext_resource type="Texture2D" uid="uid://cv18dhlp5mkos" path="res://assets/images/icons/stickers/s_virgen.png" id="8_4reae"]
@@ -33,30 +33,50 @@ scale = Vector2(0.965, 0.965)
 texture = ExtResource("3_wcfft")
 
 [node name="HelpRainbow" type="Sprite2D" parent="Notas"]
-position = Vector2(-44.2515, -46.7642)
+position = Vector2(-54.8083, -69.5201)
 rotation = 0.0161425
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("4_phkgn")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Notas"]
 modulate = Color(0, 0, 0, 1)
-offset_left = -172.534
-offset_top = 35.5879
-offset_right = 187.466
-offset_bottom = 125.588
+offset_left = -173.495
+offset_top = 39.6201
+offset_right = 186.505
+offset_bottom = 129.62
 theme_override_fonts/normal_font = ExtResource("5_wcfft")
 theme_override_font_sizes/normal_font_size = 32
 text = "Debe soplar viento la 2ª semana"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Notas"]
 modulate = Color(0, 0, 0, 1)
-offset_left = -170.148
-offset_top = 114.987
-offset_right = 189.852
-offset_bottom = 204.987
+offset_left = -174.798
+offset_top = 80.8556
+offset_right = 185.202
+offset_bottom = 170.856
 theme_override_fonts/normal_font = ExtResource("5_wcfft")
 theme_override_font_sizes/normal_font_size = 32
 text = "Debe caer lluvia la 3ª semana"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Notas"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -172.404
+offset_top = 115.515
+offset_right = 187.596
+offset_bottom = 205.515
+theme_override_fonts/normal_font = ExtResource("5_wcfft")
+theme_override_font_sizes/normal_font_size = 32
+text = "Debe caer lluvia la 4ª semana"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Notas"]
+modulate = Color(0, 0.411765, 0.847059, 1)
+offset_left = -171.889
+offset_top = 184.881
+offset_right = 188.111
+offset_bottom = 274.881
+theme_override_fonts/normal_font = ExtResource("5_wcfft")
+theme_override_font_sizes/normal_font_size = 32
+text = "Debe caer lluvia al menos 7 días"
 
 [node name="Week1" parent="." instance=ExtResource("5_fstfa")]
 position = Vector2(421, 472)
@@ -139,6 +159,7 @@ position = Vector2(1757, 770)
 layer = 5
 
 [node name="ColorRect" type="ColorRect" parent="Tray"]
+visible = false
 custom_minimum_size = Vector2(6.2, 0)
 anchors_preset = 15
 anchor_right = 1.0
