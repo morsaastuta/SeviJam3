@@ -1,0 +1,115 @@
+[gd_scene load_steps=11 format=3 uid="uid://ck70bgoa052mg"]
+
+[ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_7mrer"]
+[ext_resource type="Texture2D" uid="uid://bo51xe5u8gvfx" path="res://assets/images/calendars/05_l.png" id="2_7mrer"]
+[ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/props/note.png" id="3_xxkkp"]
+[ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="5_7ma50"]
+[ext_resource type="PackedScene" uid="uid://dmhp715jovgre" path="res://nodes/packed/Magnet.tscn" id="6_nr3uo"]
+[ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="7_eb1uk"]
+[ext_resource type="Texture2D" uid="uid://ixgiwp36v6ve" path="res://assets/images/icons/stickers/s_storm_0.png" id="7_xxkkp"]
+[ext_resource type="Texture2D" uid="uid://t8m3dj8dah7j" path="res://assets/images/icons/stickers/s_storm_1.png" id="8_5uwkv"]
+[ext_resource type="Texture2D" uid="uid://c6xojpx4lwle4" path="res://assets/images/icons/stickers/s_storm_2.png" id="9_7ma50"]
+
+[sub_resource type="Theme" id="Theme_nbp2d"]
+
+[node name="Calendar" type="Node2D"]
+script = ExtResource("1_7mrer")
+rules = Array[String](["3_any_rain"])
+
+[node name="Month" type="Sprite2D" parent="."]
+position = Vector2(885, 604)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_7mrer")
+
+[node name="Notas" type="Sprite2D" parent="."]
+position = Vector2(1633, 251)
+rotation = -0.233924
+scale = Vector2(0.965, 0.965)
+texture = ExtResource("3_xxkkp")
+
+[node name="Week1" parent="." instance=ExtResource("5_7ma50")]
+position = Vector2(421, 472)
+
+[node name="Friday" parent="Week1" index="4"]
+effect_default = 2
+
+[node name="Week2" parent="." instance=ExtResource("5_7ma50")]
+position = Vector2(420, 581.5)
+
+[node name="Sunday" parent="Week2" index="6"]
+effect_default = 4
+
+[node name="Week3" parent="." instance=ExtResource("5_7ma50")]
+position = Vector2(421, 691)
+
+[node name="Wednesday" parent="Week3" index="2"]
+effect_default = 4
+
+[node name="Week4" parent="." instance=ExtResource("5_7ma50")]
+position = Vector2(421, 801.5)
+
+[node name="Tuesday" parent="Week4" index="1"]
+position = Vector2(156, 2)
+
+[node name="Week5" parent="." instance=ExtResource("5_7ma50")]
+position = Vector2(421, 910)
+
+[node name="Tuesday" parent="Week5" index="1"]
+requirements = Dictionary[StringName, bool]({
+&"rain": false
+})
+
+[node name="Thursday" parent="Week5" index="3"]
+no_magnet = true
+
+[node name="Friday" parent="Week5" index="4"]
+no_magnet = true
+
+[node name="Saturday" parent="Week5" index="5"]
+no_magnet = true
+
+[node name="Magnet4" parent="." instance=ExtResource("6_nr3uo")]
+position = Vector2(1773, 930)
+
+[node name="Magnet3" parent="." instance=ExtResource("6_nr3uo")]
+position = Vector2(1610, 913)
+
+[node name="Magnet" parent="." instance=ExtResource("6_nr3uo")]
+position = Vector2(1670, 792)
+
+[node name="Magnet2" parent="." instance=ExtResource("6_nr3uo")]
+position = Vector2(1749, 660)
+
+[node name="Tray" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="ColorRect" type="ColorRect" parent="Tray"]
+custom_minimum_size = Vector2(6.2, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_nbp2d")
+color = Color(0, 0, 0, 0)
+
+[node name="Sticker" parent="Tray/ColorRect" instance=ExtResource("7_eb1uk")]
+position = Vector2(651, 745)
+texture = ExtResource("7_xxkkp")
+
+[node name="Sticker2" parent="Tray/ColorRect" instance=ExtResource("7_eb1uk")]
+position = Vector2(981, 637)
+texture = ExtResource("8_5uwkv")
+
+[node name="Sticker3" parent="Tray/ColorRect" instance=ExtResource("7_eb1uk")]
+position = Vector2(1306, 737)
+texture = ExtResource("9_7ma50")
+
+[connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
+
+[editable path="Week1"]
+[editable path="Week2"]
+[editable path="Week3"]
+[editable path="Week4"]
+[editable path="Week5"]

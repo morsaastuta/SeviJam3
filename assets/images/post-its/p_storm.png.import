@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://epl0ixpfo0ke"
-path="res://.godot/imported/postitarcoiris.png-2af4b227bac2270b82750f8e6b552179.ctex"
+uid="uid://dwammq2khg3j1"
+path="res://.godot/imported/p_storm.png-7cd959ed17b8832d5a04d11cceb8c97d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/postitarcoiris.png"
-dest_files=["res://.godot/imported/postitarcoiris.png-2af4b227bac2270b82750f8e6b552179.ctex"]
+source_file="res://assets/images/post-its/p_storm.png"
+dest_files=["res://.godot/imported/p_storm.png-7cd959ed17b8832d5a04d11cceb8c97d.ctex"]
 
 [params]
 

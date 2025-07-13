@@ -1,16 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://vtgtqyh3ptt7"]
+[gd_scene load_steps=8 format=3 uid="uid://vtgtqyh3ptt7"]
 
 [ext_resource type="Texture2D" uid="uid://cqwjfqrmqpvi1" path="res://assets/images/calendars/03_l.png" id="1_1nvgh"]
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_7hm1w"]
 [ext_resource type="PackedScene" uid="uid://cp4ilc1d6ygfu" path="res://nodes/calendars/04.tscn" id="2_8f51t"]
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="2_k35rt"]
 [ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/props/note.png" id="4_mfhnp"]
-[ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/magnet.tscn" id="5_iv61d"]
-[ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="7_liwia"]
+[ext_resource type="PackedScene" uid="uid://dmhp715jovgre" path="res://nodes/packed/Magnet.tscn" id="5_iv61d"]
 
 [sub_resource type="Theme" id="Theme_7amuo"]
 
-[node name="Calendar" type="Node2D"]
+[node name="Calendar2" type="Node2D"]
 script = ExtResource("1_7hm1w")
 next = ExtResource("2_8f51t")
 
@@ -60,14 +59,5 @@ grow_vertical = 2
 mouse_filter = 2
 theme = SubResource("Theme_7amuo")
 color = Color(0, 0, 0, 0.592157)
-
-[node name="Sticker" parent="Tray/ColorRect" instance=ExtResource("7_liwia")]
-position = Vector2(356, 269)
-
-[node name="Sticker2" parent="Tray/ColorRect" instance=ExtResource("7_liwia")]
-position = Vector2(712, 538)
-
-[node name="Sticker3" parent="Tray/ColorRect" instance=ExtResource("7_liwia")]
-position = Vector2(1068, 807)
 
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
