@@ -19,8 +19,12 @@ func check_requisites() -> void:
 		
 func _on_continue_button_pressed() -> void:
 	if not calendar.mission_is_achieved: return
+	
 	if calendar.sticker_is_achieved: show_stickers(true)
 	else: next_level()
+	
+	create_tween().tween_property(%ControlContinueBtn, "modulate", Color.TRANSPARENT, 0.5).from(Color.WHITE)
+	%ContinueButton.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func next_level() -> void:
 	var calendar_next: CalendarBehaviour
