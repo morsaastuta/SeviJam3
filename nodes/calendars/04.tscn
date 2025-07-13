@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="3_d7mam"]
 [ext_resource type="Texture2D" uid="uid://cr1je5xoutwqr" path="res://assets/images/props/help_rainbow.png" id="4_nbp2d"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="5_d7mam"]
-[ext_resource type="PackedScene" uid="uid://crfcam2h8mdpv" path="res://nodes/packed/magnet.tscn" id="6_6kooq"]
+[ext_resource type="PackedScene" uid="uid://dmhp715jovgre" path="res://nodes/packed/magnet.tscn" id="6_6kooq"]
 
 [sub_resource type="Theme" id="Theme_nbp2d"]
 
@@ -39,78 +39,14 @@ position = Vector2(420, 581.5)
 [node name="Week3" parent="." instance=ExtResource("3_d7mam")]
 position = Vector2(421, 691)
 
-[node name="Monday" parent="Week3" index="0"]
-no_magnet = null
-requirements = null
-effect_default = null
-
-[node name="Tuesday" parent="Week3" index="1"]
-no_magnet = null
-requirements = null
-effect_default = null
-
-[node name="Wednesday" parent="Week3" index="2"]
-no_magnet = null
-requirements = null
-effect_default = null
-
 [node name="Thursday" parent="Week3" index="3"]
-no_magnet = null
-requirements = null
 effect_default = 2
-
-[node name="Friday" parent="Week3" index="4"]
-no_magnet = null
-requirements = null
-effect_default = null
-
-[node name="Saturday" parent="Week3" index="5"]
-no_magnet = null
-requirements = null
-effect_default = null
-
-[node name="Sunday" parent="Week3" index="6"]
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Week4" parent="." instance=ExtResource("3_d7mam")]
 position = Vector2(421, 801.5)
 
-[node name="Monday" parent="Week4" index="0"]
-no_magnet = null
-requirements = null
-effect_default = null
-
-[node name="Tuesday" parent="Week4" index="1"]
-no_magnet = null
-requirements = null
-effect_default = null
-
-[node name="Wednesday" parent="Week4" index="2"]
-no_magnet = null
-requirements = null
-effect_default = null
-
-[node name="Thursday" parent="Week4" index="3"]
-no_magnet = null
-requirements = null
-effect_default = null
-
-[node name="Friday" parent="Week4" index="4"]
-no_magnet = null
-requirements = null
-effect_default = null
-
 [node name="Saturday" parent="Week4" index="5"]
 no_magnet = true
-requirements = null
-effect_default = null
-
-[node name="Sunday" parent="Week4" index="6"]
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Week5" parent="." instance=ExtResource("3_d7mam")]
 position = Vector2(421, 910)

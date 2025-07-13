@@ -7,6 +7,7 @@ class_name DayBehaviour extends Area2D
 @export var magnet_marker: Marker2D
 var magnet_position: Vector2
 var magnet_hover: MagnetBehaviour
+var magnet_safe: MagnetBehaviour
 
 var magnet_applied: MagnetBehaviour:
 	get:
@@ -35,6 +36,15 @@ func _ready() -> void:
 	Global.check_day.connect(_self_check)
 	effect_applied = effect_default
 
+func _on_magnet_grabbed(magnet: MagnetBehaviour) -> void:
+	if (not magnet_applied) || magnet_applied != magnet: return
+	
+	magnet_safe = magnet_applied
+	magnet_hover = magnet_applied
+	magnet_applied.day = null
+	magnet_applied = null
+	Global.check_day.emit()
+
 func _on_magnet_dropped(magnet: MagnetBehaviour) -> void:
 	if (not magnet_hover) || magnet.day != null: return
 	
@@ -47,15 +57,14 @@ func _on_magnet_dropped(magnet: MagnetBehaviour) -> void:
 		magnet_applied = magnet_hover
 		magnet_applied.day = self
 	
-	Global.check_day.emit()
 	magnet_hover = null
+	Global.check_day.emit()
 
-func _on_magnet_grabbed(magnet: MagnetBehaviour) -> void:
-	if (not magnet_applied) || magnet_applied != magnet: return
-	
-	magnet_hover = magnet_applied
-	magnet_applied.day = null
-	magnet_applied = null
+func _on_magnet_aborted(magnet: MagnetBehaviour) -> void:
+	magnet_hover = null
+	if magnet_safe != magnet: return
+	magnet_applied = magnet
+	magnet_applied.day = self
 	Global.check_day.emit()
 
 func _on_body_entered(body: Node2D) -> void:

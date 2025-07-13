@@ -15,7 +15,7 @@ var mission_is_achieved: bool
 func _ready() -> void:
 	var index:int = 0
 	for child in get_children():
-		if child is WeekBehaviour: 
+		if child is WeekBehaviour:
 			month.append([])
 			for grandchild in child.get_children():
 				month[index].append(grandchild)

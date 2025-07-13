@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://crfcam2h8mdpv"]
+[gd_scene load_steps=7 format=3 uid="uid://dmhp715jovgre"]
 
 [ext_resource type="Script" uid="uid://bsmr3og4rsc35" path="res://scripts/gd/magnet_behaviour.gd" id="1_ytlxt"]
 [ext_resource type="Texture2D" uid="uid://y6klxd3jyp68" path="res://assets/images/icons/magnets/m_rain_0.png" id="2_od1py"]
