@@ -91,7 +91,9 @@ func _sticker_achieved() -> bool:
 	if sticker_quantity_rules >= 1:
 		var sticker_is_achieved: bool = true
 		for i in range(sticker_quantity_rules):
-			if not evaluation[i]: sticker_is_achieved = false; break
+			if not evaluation[i]:
+				sticker_is_achieved = false
+				break
 		return sticker_is_achieved
 	else: return false
 
@@ -103,10 +105,8 @@ func evaluator() -> Array[Array]:
 		
 		var week_index: int
 		match str_array[0]:
-			"any":
-				week_index = -1
-			_:
-				week_index = str_array[0].to_int()
+			"any": week_index = -1
+			_: week_index = str_array[0].to_int()
 				
 		var how_many: int = str_array[1].to_int()
 		

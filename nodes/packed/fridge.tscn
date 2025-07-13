@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b4nclix6r782b"]
+[gd_scene load_steps=21 format=3 uid="uid://b4nclix6r782b"]
 
 [ext_resource type="Script" uid="uid://cmstrfwit0tw" path="res://scripts/gd/fridge_behaviour.gd" id="1_7vwyd"]
 [ext_resource type="Texture2D" uid="uid://ey0doayo30rt" path="res://assets/images/calendars/00_u.png" id="2_n5g6r"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://du8jblbtkcgae" path="res://assets/images/continua/05_n.png" id="9_tjs0j"]
 [ext_resource type="Texture2D" uid="uid://b1606k3qvsflj" path="res://assets/images/continua/06_u.png" id="10_tipj5"]
 [ext_resource type="Texture2D" uid="uid://bwexnm3k7sojm" path="res://assets/images/continua/07_a.png" id="11_ri0wj"]
+[ext_resource type="AudioStream" uid="uid://bxbxgpyskxcms" path="res://assets/audio/bgm/lavirgen.ogg" id="13_17lom"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d6wal"]
 
@@ -365,6 +366,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_4r2jn")
 }
 autoplay = "wave_text"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_17lom")
+autoplay = true
 
 [connection signal="button_down" from="CanvasLayer/ControlContinueBtn/ContinueButton" to="CanvasLayer/ControlContinueBtn/ContinueButton" method="_on_button_down"]
 [connection signal="button_up" from="CanvasLayer/ControlContinueBtn/ContinueButton" to="CanvasLayer/ControlContinueBtn/ContinueButton" method="_on_button_up"]

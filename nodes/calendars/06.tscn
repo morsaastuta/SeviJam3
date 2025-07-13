@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://oibnepoh55k3"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_phkgn"]
-[ext_resource type="PackedScene" uid="uid://ckw7icje268sg" path="res://nodes/packed/day.tscn" id="2_4reae"]
+[ext_resource type="PackedScene" uid="uid://vtgtqyh3ptt7" path="res://nodes/calendars/03.tscn" id="2_fstfa"]
 [ext_resource type="Texture2D" uid="uid://decaujma2tlbp" path="res://assets/images/calendars/06_l.png" id="2_phkgn"]
 [ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/props/note.png" id="3_wcfft"]
 [ext_resource type="Texture2D" uid="uid://bxaub4c5qlrvu" path="res://assets/images/props/help_windstorm.png" id="4_phkgn"]
@@ -17,9 +17,9 @@
 [node name="Calendar" type="Node2D" node_paths=PackedStringArray("screen")]
 script = ExtResource("1_phkgn")
 screen = NodePath("Tray/ColorRect")
-next = ExtResource("2_4reae")
-sticker_quantity_rules = 1
-rules = Array[String](["any_7_rain", "1_any_wind", "2_any_rain", "3_any_rain"])
+next = ExtResource("2_fstfa")
+sticker_quantity_rules = 4
+rules = Array[String](["1_3_rain", "2_2_rain", "3_1_rain", "4_1_rain", "1_1_wind", "2_1_rain", "3_1_rain"])
 
 [node name="Month" type="Sprite2D" parent="."]
 position = Vector2(885, 604)
@@ -94,18 +94,12 @@ no_magnet = true
 position = Vector2(420, 581.5)
 
 [node name="Friday" parent="Week2" index="4"]
-requirements = Dictionary[StringName, bool]({
-&"rain": false
-})
 effect_default = 3
 
 [node name="Week3" parent="." instance=ExtResource("5_fstfa")]
 position = Vector2(421, 691)
 
 [node name="Tuesday" parent="Week3" index="1"]
-effect_default = 2
-
-[node name="Thursday" parent="Week3" index="3"]
 effect_default = 2
 
 [node name="Week4" parent="." instance=ExtResource("5_fstfa")]
@@ -115,9 +109,6 @@ position = Vector2(421, 801.5)
 position = Vector2(156, 2)
 
 [node name="Friday" parent="Week4" index="4"]
-requirements = Dictionary[StringName, bool]({
-&"rain": false
-})
 effect_default = 3
 
 [node name="Week5" parent="." instance=ExtResource("5_fstfa")]
