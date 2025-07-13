@@ -1,0 +1,1 @@
+class_name WeekBehaviour extends Node2D

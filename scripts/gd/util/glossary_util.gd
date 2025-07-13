@@ -3,6 +3,7 @@ class_name Name extends Node
 # Groups
 const MAGNETS: StringName = &"magnets"
 const STICKERS: StringName = &"stickers"
+const DAYS: StringName = &"days"
 
 # Required names
 const RAIN: StringName = &"rain"

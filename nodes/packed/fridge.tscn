@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://dyokiuntvhfpd"]
+[gd_scene load_steps=19 format=3 uid="uid://b4nclix6r782b"]
 
 [ext_resource type="Script" uid="uid://cmstrfwit0tw" path="res://scripts/gd/fridge_behaviour.gd" id="1_7vwyd"]
-[ext_resource type="PackedScene" path="res://nodes/calendars/03.tscn" id="2_mebpt"]
+[ext_resource type="PackedScene" uid="uid://vtgtqyh3ptt7" path="res://nodes/calendars/03.tscn" id="2_mebpt"]
 [ext_resource type="Texture2D" uid="uid://ey0doayo30rt" path="res://assets/images/calendars/00.png" id="2_n5g6r"]
 [ext_resource type="Texture2D" uid="uid://df24glo7mivs3" path="res://assets/images/continua/00_c.png" id="4_oitiy"]
 [ext_resource type="Texture2D" uid="uid://cc60sw8bjaxf1" path="res://assets/images/continua/01_o.png" id="5_xfus4"]

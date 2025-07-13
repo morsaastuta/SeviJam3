@@ -1,11 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bd2jiaw5hiskq"]
+[gd_scene load_steps=3 format=3 uid="uid://bd2jiaw5hiskq"]
 
+[ext_resource type="Script" uid="uid://bl2w0f2n5txi4" path="res://scripts/gd/week.gd" id="1_dem0u"]
 [ext_resource type="PackedScene" uid="uid://ckw7icje268sg" path="res://nodes/packed/day.tscn" id="1_m5piv"]
 
 [node name="Week1" type="Node2D"]
+script = ExtResource("1_dem0u")
 
 [node name="Monday" parent="." instance=ExtResource("1_m5piv")]
-position = Vector2(0, 0)
 scale = Vector2(7.2, 5)
 
 [node name="Tuesday" parent="." instance=ExtResource("1_m5piv")]

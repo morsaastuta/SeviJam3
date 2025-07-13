@@ -16,7 +16,8 @@ var magnet_applied: MagnetBehaviour:
 		if magnet_applied: effect_applied = Name.Effect.RAIN
 		else: effect_applied = Name.Effect.NONE
 
-var effect_applied: Name.Effect = Name.Effect.NONE:
+@export var effect_default: Name.Effect = Name.Effect.NONE
+var effect_applied: Name.Effect:
 	get:
 		return effect_applied
 	set(value):
@@ -31,6 +32,7 @@ func _ready() -> void:
 		else: magnet_position = magnet_marker.global_position
 	Global.dropped.connect(_on_magnet_dropped)
 	Global.check_day.connect(_self_check)
+	effect_applied = effect_default
 
 func _on_magnet_dropped(magnet: MagnetBehaviour) -> void:
 	if (not magnet_hover) || magnet.day != null: return
@@ -48,7 +50,7 @@ func _on_magnet_dropped(magnet: MagnetBehaviour) -> void:
 	magnet_hover = null
 
 func _on_magnet_grabbed(magnet: MagnetBehaviour) -> void:
-	if not magnet_applied: return
+	if (not magnet_applied) || magnet_applied != magnet: return
 	
 	magnet_hover = magnet_applied
 	magnet_applied.day = null
@@ -66,7 +68,12 @@ func _on_body_exited(body: Node2D) -> void:
 func _self_check() -> void:
 	for key in requirements.keys():
 		requirements[key] = effect_applied == key
-
+		
 func set_effect(e: Name.Effect):
-	if effect_applied != null: return
+	if effect_applied != Name.Effect.NONE: return
 	effect_applied = e
+
+func rem_effect():
+	if effect_default == Name.Effect.NONE && effect_applied != Name.Effect.NONE:
+		print("removing")
+		effect_applied = Name.Effect.NONE

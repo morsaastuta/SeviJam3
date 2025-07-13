@@ -8,7 +8,6 @@ class_name CalendarBehaviour extends Node2D
 var selected_magnet: MagnetBehaviour
 var held: bool = false
 var month: Array[Array]
-var month_straight: Array[DayBehaviour]
 
 var sticker_is_achieved: bool
 var mission_is_achieved: bool
@@ -16,60 +15,64 @@ var mission_is_achieved: bool
 func _ready() -> void:
 	var index:int = 0
 	for child in get_children():
-		month.append([])
-		for grandchild in child.get_children():
-			month[index].append(grandchild)
-			month_straight.append(grandchild)
-		index += 1
+		if child is WeekBehaviour: 
+			month.append([])
+			for grandchild in child.get_children():
+				month[index].append(grandchild)
+			index += 1
 		
 	Global.grabbed.connect(_on_magnet_grabbed_dropped)
 	Global.dropped.connect(_on_magnet_grabbed_dropped)
-	
+	print(month)
 
-func _on_magnet_grabbed_dropped():
+func _on_magnet_grabbed_dropped(magnet: MagnetBehaviour):
 	generate_climate()
 	mission_is_achieved = _mission_achieved()
 	sticker_is_achieved = _sticker_achieved()
 	Global.fridge.check_requisites()
 
 func generate_climate():
-	for day: DayBehaviour in month_straight:
-		var idx: int = month_straight.find(day)
+	var days: Array[DayBehaviour]
+	days.append_array(get_tree().get_nodes_in_group(Name.DAYS))
+	for day: DayBehaviour in days:
+		if !day.magnet_applied: day.rem_effect()
+	for day: DayBehaviour in days:
+		var idx: int = days.find(day)
 		if day.effect_applied == Name.Effect.NONE:
 			# WIND
 			if (idx >= 2 &&
-			month_straight[idx-1].effect_applied == Name.Effect.RAIN &&
-			month_straight[idx-2].effect_applied == Name.Effect.RAIN):
+			days[idx-1].effect_applied == Name.Effect.RAIN &&
+			days[idx-2].effect_applied == Name.Effect.RAIN):
 				day.set_effect(Name.Effect.WIND)
 			# RAINBOW A
 			elif (idx >= 2 &&
-			month_straight[idx-1].effect_applied == Name.Effect.RAIN &&
-			month_straight[idx-2].effect_applied == Name.Effect.SUN):
+			days[idx-1].effect_applied == Name.Effect.RAIN &&
+			days[idx-2].effect_applied == Name.Effect.SUN):
 				day.set_effect(Name.Effect.RAINBOW)
 			# RAINBOW B
 			elif (idx >= 2 &&
-			month_straight[idx-1].effect_applied == Name.Effect.SUN &&
-			month_straight[idx-2].effect_applied == Name.Effect.RAIN):
+			days[idx-1].effect_applied == Name.Effect.SUN &&
+			days[idx-2].effect_applied == Name.Effect.RAIN):
 				day.set_effect(Name.Effect.RAINBOW)
 			# STORM
-			elif (idx >= 1 && idx <= month_straight.size()-2 &&
-			month_straight[idx-1].effect_applied == Name.Effect.RAIN &&
-			month_straight[idx+1].effect_applied == Name.Effect.RAIN):
-				day.set_effect(Name.Effect.STORM)
+			elif (idx >= 1 && idx <= days.size()-2 &&
+			days[idx-1].effect_applied == Name.Effect.RAIN &&
+			days[idx+1].effect_applied == Name.Effect.RAIN):
+				day.set_effect(Name.Effect.STORM); print("try stormy")
 			# RAIN A
 			elif (idx >= 2 &&
-			month_straight[idx-1].effect_applied == Name.Effect.STORM &&
-			month_straight[idx-2].effect_applied == Name.Effect.WIND):
+			days[idx-1].effect_applied == Name.Effect.STORM &&
+			days[idx-2].effect_applied == Name.Effect.WIND):
 				day.set_effect(Name.Effect.RAIN)
 			# RAIN B
 			elif (idx >= 8 &&
-			month_straight[idx-7].effect_applied == Name.Effect.STORM &&
-			month_straight[idx-8].effect_applied == Name.Effect.WIND):
+			days[idx-7].effect_applied == Name.Effect.STORM &&
+			days[idx-8].effect_applied == Name.Effect.WIND):
 				day.set_effect(Name.Effect.RAIN)
 			# DUPLICATE
 			elif (idx >= 14 &&
-			month_straight[idx-7].effect_applied == Name.Effect.RAINBOW):
-				day.set_effect(month_straight[idx-14].effect_applied)
+			days[idx-7].effect_applied == Name.Effect.RAINBOW):
+				day.set_effect(days[idx-14].effect_applied)
 
 func _mission_achieved() -> bool:
 	var evaluation := evaluator()
@@ -115,7 +118,7 @@ func evaluator() -> Array[Array]:
 		array_evaluations[0].append(how_many <= 0)  
 	
 	for week in month:
-		for day:DayBehaviour in week:
+		for day: DayBehaviour in week:
 			for requirement in day.requirements.values():
 				array_evaluations[1].append(requirement)
 	

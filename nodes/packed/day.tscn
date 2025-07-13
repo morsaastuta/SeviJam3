@@ -11,9 +11,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twf8d"]
 
-[node name="Day" type="Area2D" node_paths=PackedStringArray("sprite")]
-position = Vector2(389, 257)
-scale = Vector2(3.015, 3.015)
+[node name="Day" type="Area2D" node_paths=PackedStringArray("sprite") groups=["days"]]
+scale = Vector2(3, 3)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_nvsrj")
@@ -31,9 +30,10 @@ textures = Dictionary[int, Texture2D]({
 shape = SubResource("RectangleShape2D_twf8d")
 
 [node name="SpriteEffect" type="Sprite2D" parent="."]
+scale = Vector2(0.02, 0.02)
 
 [node name="SpriteMagnet" type="Sprite2D" parent="."]
-position = Vector2(8, -8)
+position = Vector2(-8, -8)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

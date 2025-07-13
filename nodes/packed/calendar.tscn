@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqj2mtplk50rj"]
+[gd_scene load_steps=4 format=3 uid="uid://bbgp6l7oii4lw"]
 
 [ext_resource type="Texture2D" uid="uid://cqwjfqrmqpvi1" path="res://assets/images/calendars/03.png" id="1_h5j1g"]
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_mtc6k"]
 [ext_resource type="PackedScene" uid="uid://ckw7icje268sg" path="res://nodes/packed/day.tscn" id="1_qkihu"]
 
-[node name="Calendar" type="Node2D"]
+[node name="Calendar2" type="Node2D"]
 
 [node name="Page" type="Sprite2D" parent="."]
 position = Vector2(882.8, 592.325)
