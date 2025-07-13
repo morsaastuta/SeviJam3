@@ -23,6 +23,7 @@ func _ready() -> void:
 		
 	Global.grabbed.connect(_on_magnet_grabbed_dropped)
 	Global.dropped.connect(_on_magnet_grabbed_dropped)
+	Global.aborted.connect(_on_magnet_grabbed_dropped)
 	print(month)
 
 func _on_magnet_grabbed_dropped(magnet: MagnetBehaviour):

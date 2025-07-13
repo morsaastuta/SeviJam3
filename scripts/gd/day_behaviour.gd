@@ -31,6 +31,7 @@ func _ready() -> void:
 		if not magnet_marker: magnet_position = self.global_position
 		else: magnet_position = magnet_marker.global_position
 	Global.dropped.connect(_on_magnet_dropped)
+	Global.aborted.connect(_on_magnet_aborted)
 	Global.check_day.connect(_self_check)
 	effect_applied = effect_default
 
