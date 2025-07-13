@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://vtgtqyh3ptt7"]
+[gd_scene load_steps=11 format=3 uid="uid://vtgtqyh3ptt7"]
 
 [ext_resource type="Texture2D" uid="uid://cqwjfqrmqpvi1" path="res://assets/images/calendars/03_l.png" id="1_1nvgh"]
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_7hm1w"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/magnet_0.tscn" id="5_iv61d"]
 [ext_resource type="FontFile" uid="uid://4soe34omom8k" path="res://assets/font/LT Colored Pencil.otf" id="5_liwia"]
 [ext_resource type="Texture2D" uid="uid://2ypckt2xfjqr" path="res://assets/images/post-its/p_rain.png" id="6_7amuo"]
+[ext_resource type="Texture2D" uid="uid://cx03q7yuadtdl" path="res://assets/images/post-its/p_no_magnet.png" id="9_aan61"]
 
 [sub_resource type="Theme" id="Theme_13yls"]
 
@@ -83,6 +84,26 @@ grow_vertical = 2
 mouse_filter = 2
 theme = SubResource("Theme_13yls")
 color = Color(0, 0, 0, 0)
+
+[node name="PNoMagnet" type="Sprite2D" parent="."]
+position = Vector2(1293, 436)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_aan61")
+
+[node name="PNoMagnet2" type="Sprite2D" parent="."]
+position = Vector2(1292, 547)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_aan61")
+
+[node name="PNoMagnet3" type="Sprite2D" parent="."]
+position = Vector2(1294, 658)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_aan61")
+
+[node name="PNoMagnet4" type="Sprite2D" parent="."]
+position = Vector2(1294, 767)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_aan61")
 
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
 

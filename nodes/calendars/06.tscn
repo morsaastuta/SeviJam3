@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bxaub4c5qlrvu" path="res://assets/images/props/help_windstorm.png" id="4_phkgn"]
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="5_fstfa"]
 [ext_resource type="FontFile" uid="uid://4soe34omom8k" path="res://assets/font/LT Colored Pencil.otf" id="5_wcfft"]
-[ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/magnet_0.tscn" id="6_q43t1"]
 [ext_resource type="Texture2D" uid="uid://cx03q7yuadtdl" path="res://assets/images/post-its/p_no_magnet.png" id="7_2vcs6"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="7_6nj40"]
 [ext_resource type="Texture2D" uid="uid://cv18dhlp5mkos" path="res://assets/images/icons/stickers/s_virgen.png" id="8_4reae"]
+[ext_resource type="PackedScene" uid="uid://fjghibbvx8dn" path="res://nodes/packed/magnet_1.tscn" id="9_fstfa"]
 
 [sub_resource type="Theme" id="Theme_nbp2d"]
 
@@ -146,14 +146,14 @@ position = Vector2(1293.05, 765.45)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_2vcs6")
 
-[node name="Magnet" parent="." instance=ExtResource("6_q43t1")]
-position = Vector2(1603, 881)
+[node name="Magnet4" parent="." instance=ExtResource("9_fstfa")]
+position = Vector2(1626, 719)
 
-[node name="Magnet3" parent="." instance=ExtResource("6_q43t1")]
-position = Vector2(1737, 914)
+[node name="Magnet5" parent="." instance=ExtResource("9_fstfa")]
+position = Vector2(1600, 919)
 
-[node name="Magnet2" parent="." instance=ExtResource("6_q43t1")]
-position = Vector2(1757, 770)
+[node name="Magnet6" parent="." instance=ExtResource("9_fstfa")]
+position = Vector2(1784, 815)
 
 [node name="Tray" type="CanvasLayer" parent="."]
 layer = 5
