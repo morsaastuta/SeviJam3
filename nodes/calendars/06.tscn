@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://oibnepoh55k3"]
+[gd_scene load_steps=13 format=3 uid="uid://oibnepoh55k3"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_phkgn"]
 [ext_resource type="PackedScene" uid="uid://vtgtqyh3ptt7" path="res://nodes/calendars/03.tscn" id="2_4reae"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/props/note.png" id="3_wcfft"]
 [ext_resource type="Texture2D" uid="uid://bxaub4c5qlrvu" path="res://assets/images/props/help_windstorm.png" id="4_phkgn"]
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="5_fstfa"]
+[ext_resource type="FontFile" uid="uid://4soe34omom8k" path="res://assets/font/LT Colored Pencil.otf" id="5_wcfft"]
 [ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/Magnet.tscn" id="6_q43t1"]
 [ext_resource type="Texture2D" uid="uid://cx03q7yuadtdl" path="res://assets/images/post-its/p_no_magnet.png" id="7_2vcs6"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="7_6nj40"]
@@ -38,10 +39,24 @@ scale = Vector2(0.45, 0.45)
 texture = ExtResource("4_phkgn")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Notas"]
-offset_left = -44.2513
-offset_top = -46.7642
-offset_right = -4.25134
-offset_bottom = -6.76416
+modulate = Color(0, 0, 0, 1)
+offset_left = -172.534
+offset_top = 35.5879
+offset_right = 187.466
+offset_bottom = 125.588
+theme_override_fonts/normal_font = ExtResource("5_wcfft")
+theme_override_font_sizes/normal_font_size = 32
+text = "Debe soplar viento la 2ª semana"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Notas"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -170.148
+offset_top = 114.987
+offset_right = 189.852
+offset_bottom = 204.987
+theme_override_fonts/normal_font = ExtResource("5_wcfft")
+theme_override_font_sizes/normal_font_size = 32
+text = "Debe caer lluvia la 3ª semana"
 
 [node name="Week1" parent="." instance=ExtResource("5_fstfa")]
 position = Vector2(421, 472)
