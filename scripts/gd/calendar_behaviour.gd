@@ -20,6 +20,7 @@ func _ready() -> void:
 			for grandchild in child.get_children():
 				month[index].append(grandchild)
 			index += 1
+	Global.fridge.screen = screen
 		
 	Global.grabbed.connect(_on_magnet_grabbed_dropped)
 	Global.dropped.connect(_on_magnet_grabbed_dropped)
