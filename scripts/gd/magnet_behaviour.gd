@@ -1,6 +1,8 @@
 class_name MagnetBehaviour extends RigidBody2D
 
 @export var area: Area2D
+@export var audio_grab: AudioStreamPlayer
+@export var audio_drop: AudioStreamPlayer
 var origin: Vector2
 var held: bool = false
 var day: DayBehaviour
@@ -19,12 +21,14 @@ func _physics_process(delta) -> void:
 	global_position.y = lerp(global_position.y, get_global_mouse_position().y, 0.35)
 
 func grab() -> void:
+	audio_grab.play()
 	set_collision_layer_value(1, false)
 	set_collision_mask_value(1, false)
 	grab_commons()
 	Global.grabbed.emit(self)
 	
 func drop() -> void:
+	audio_drop.play()
 	set_collision_layer_value(1, true)
 	set_collision_mask_value(1, true)
 	drop_commons()

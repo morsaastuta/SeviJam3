@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://voinhe3w734h"]
+[gd_scene load_steps=7 format=3 uid="uid://voinhe3w734h"]
 
 [ext_resource type="Texture2D" uid="uid://b8bttqm7xb1yr" path="res://assets/images/icons/stickers/s_rainbow_0.png" id="1_8nhou"]
 [ext_resource type="Shader" uid="uid://0qq7ftnrf05e" path="res://scripts/shader/dynamic_shadow.gdshader" id="1_djujm"]
@@ -27,12 +27,16 @@ shader_parameter/mouse_screen_pos_test = Vector2(0, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjg13"]
 size = Vector2(823.333, 823.334)
 
-[node name="Sticker" type="Sprite2D" node_paths=PackedStringArray("area") groups=["stickers"]]
+[sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_djujm"]
+
+[node name="Sticker" type="Sprite2D" node_paths=PackedStringArray("audio_grab", "audio_drop", "area") groups=["stickers"]]
 z_index = 5
 material = SubResource("ShaderMaterial_e1k6i")
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_8nhou")
 script = ExtResource("1_gvdio")
+audio_grab = NodePath("AudioStreamPlayer")
+audio_drop = NodePath("AudioStreamPlayer2")
 area = NodePath("Area2D")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -41,4 +45,14 @@ area = NodePath("Area2D")
 position = Vector2(-5.00004, 1.90735e-05)
 shape = SubResource("RectangleShape2D_cjg13")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamOggVorbis_djujm")
+bus = &"Sfx"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamOggVorbis_djujm")
+bus = &"Sfx"
+
 [connection signal="input_event" from="Area2D" to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

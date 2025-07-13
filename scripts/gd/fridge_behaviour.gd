@@ -38,12 +38,10 @@ func next_level() -> void:
 
 func show_stickers(on: bool) -> void:
 	if on:
-		print("bombo")
 		screen.show()
 		for magnet: MagnetBehaviour in get_tree().get_nodes_in_group(Name.MAGNETS): magnet.set_input_pickable(false)
 		create_tween().tween_property(screen, "color", Color(0,0,0,.6), 0.5)
 	else:
-		print(screen)
 		screen.color = Color.TRANSPARENT
 		create_tween().tween_property(screen, "color", Color.TRANSPARENT, 0.5)
 		await get_tree().create_timer(0.5).timeout
