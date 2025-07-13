@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://crfcam2h8mdpv"]
+[gd_scene load_steps=5 format=3 uid="uid://crfcam2h8mdpv"]
 
 [ext_resource type="Script" uid="uid://bsmr3og4rsc35" path="res://scripts/gd/magnet_behaviour.gd" id="1_ytlxt"]
+[ext_resource type="Texture2D" uid="uid://y6klxd3jyp68" path="res://assets/images/icons/magnets/m_rain_0.png" id="2_od1py"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m442f"]
-radius = 7.28011
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_od1py"]
+radius = 50.04
 
 [node name="Magnet" type="RigidBody2D" node_paths=PackedStringArray("area") groups=["magnets"]]
 collision_layer = 3
@@ -11,12 +15,16 @@ gravity_scale = 0.0
 script = ExtResource("1_ytlxt")
 area = NodePath("Area2D")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_od1py")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_m442f")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_m442f")
+shape = SubResource("CircleShape2D_od1py")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_input_event"]

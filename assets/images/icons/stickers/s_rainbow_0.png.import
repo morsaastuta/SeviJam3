@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtysrl848qsdk"
-path="res://.godot/imported/arcoiris.png-b6103a72e324135e426c608bd92c1dfd.ctex"
+uid="uid://b8bttqm7xb1yr"
+path="res://.godot/imported/s_rainbow_0.png-89e22db468605edb4b0be8cdbec23119.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/icons/arcoiris.png"
-dest_files=["res://.godot/imported/arcoiris.png-b6103a72e324135e426c608bd92c1dfd.ctex"]
+source_file="res://assets/images/icons/stickers/s_rainbow_0.png"
+dest_files=["res://.godot/imported/s_rainbow_0.png-89e22db468605edb4b0be8cdbec23119.ctex"]
 
 [params]
 

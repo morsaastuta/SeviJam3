@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://vtgtqyh3ptt7"]
+
+[ext_resource type="Texture2D" uid="uid://cqwjfqrmqpvi1" path="res://assets/images/calendars/03.png" id="1_1nvgh"]
+[ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="2_k35rt"]
+
+[node name="Calendar" type="Node2D"]
+
+[node name="Month" type="Sprite2D" parent="."]
+position = Vector2(885, 604)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_1nvgh")
+
+[node name="Week1" parent="." instance=ExtResource("2_k35rt")]
+position = Vector2(421, 472)
+
+[node name="Monday" parent="Week1" index="0"]
+no_magnet = true
+
+[node name="Tuesday" parent="Week1" index="1"]
+no_magnet = true
+
+[node name="Sunday" parent="Week1" index="6"]
+no_magnet = true
+
+[node name="Week2" parent="." instance=ExtResource("2_k35rt")]
+position = Vector2(420, 581.5)
+
+[node name="Week3" parent="." instance=ExtResource("2_k35rt")]
+position = Vector2(421, 691)
+
+[node name="Week4" parent="." instance=ExtResource("2_k35rt")]
+position = Vector2(421, 801.5)
+
+[node name="Week5" parent="." instance=ExtResource("2_k35rt")]
+position = Vector2(421, 910)
+
+[editable path="Week1"]

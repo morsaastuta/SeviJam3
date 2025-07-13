@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkscdqwgdtcxp"
-path="res://.godot/imported/sol.png-99177c8f5a2def2d869abd5416f978c7.ctex"
+uid="uid://cpd3pdt24kix5"
+path="res://.godot/imported/d_rain.png-25fd230c26e6cc82c61a51790f796d52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/icons/sol.png"
-dest_files=["res://.godot/imported/sol.png-99177c8f5a2def2d869abd5416f978c7.ctex"]
+source_file="res://assets/images/icons/drawings/d_rain.png"
+dest_files=["res://.godot/imported/d_rain.png-25fd230c26e6cc82c61a51790f796d52.ctex"]
 
 [params]
 

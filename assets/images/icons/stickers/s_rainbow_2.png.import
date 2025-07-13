@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdsyypfqrd7rf"
-path="res://.godot/imported/tormenta.png-16031c17ba077d5b1c90b556738033b5.ctex"
+uid="uid://bg4u56nnkvmsn"
+path="res://.godot/imported/s_rainbow_2.png-5a6430dedd4021ecce5f751bddc78ed9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/icons/tormenta.png"
-dest_files=["res://.godot/imported/tormenta.png-16031c17ba077d5b1c90b556738033b5.ctex"]
+source_file="res://assets/images/icons/stickers/s_rainbow_2.png"
+dest_files=["res://.godot/imported/s_rainbow_2.png-5a6430dedd4021ecce5f751bddc78ed9.ctex"]
 
 [params]
 

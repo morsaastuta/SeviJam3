@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7i8pxgbdtdph"
-path="res://.godot/imported/viento.png-2e14baa3df39a802275fc91323bb5fc5.ctex"
+uid="uid://ixgiwp36v6ve"
+path="res://.godot/imported/s_storm_0.png-ea83beb272c3a631f550ea9c3c8fdfe9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/icons/viento.png"
-dest_files=["res://.godot/imported/viento.png-2e14baa3df39a802275fc91323bb5fc5.ctex"]
+source_file="res://assets/images/icons/stickers/s_storm_0.png"
+dest_files=["res://.godot/imported/s_storm_0.png-ea83beb272c3a631f550ea9c3c8fdfe9.ctex"]
 
 [params]
 

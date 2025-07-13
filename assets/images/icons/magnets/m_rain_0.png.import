@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpd3pdt24kix5"
-path="res://.godot/imported/lluvia.png-df1de6b8a5b9d2e2f08c56bbab9a19d4.ctex"
+uid="uid://y6klxd3jyp68"
+path="res://.godot/imported/m_rain_0.png-1c3ff399d1a14b555dbe283ffe0276cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/icons/lluvia.png"
-dest_files=["res://.godot/imported/lluvia.png-df1de6b8a5b9d2e2f08c56bbab9a19d4.ctex"]
+source_file="res://assets/images/icons/magnets/m_rain_0.png"
+dest_files=["res://.godot/imported/m_rain_0.png-1c3ff399d1a14b555dbe283ffe0276cf.ctex"]
 
 [params]
 

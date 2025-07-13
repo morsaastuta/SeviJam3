@@ -6,28 +6,28 @@
 
 [node name="Monday" parent="." instance=ExtResource("1_m5piv")]
 position = Vector2(0, 0)
-scale = Vector2(7, 5)
+scale = Vector2(7.2, 5)
 
 [node name="Tuesday" parent="." instance=ExtResource("1_m5piv")]
-position = Vector2(136, 0)
-scale = Vector2(6, 5)
+position = Vector2(156, 0)
+scale = Vector2(7, 5)
 
 [node name="Wednesday" parent="." instance=ExtResource("1_m5piv")]
-position = Vector2(256, 0)
-scale = Vector2(6, 5)
+position = Vector2(308.045, 0)
+scale = Vector2(7, 5)
 
 [node name="Thursday" parent="." instance=ExtResource("1_m5piv")]
-position = Vector2(384, 0)
-scale = Vector2(6, 5)
+position = Vector2(462.255, 0)
+scale = Vector2(7, 5)
 
 [node name="Friday" parent="." instance=ExtResource("1_m5piv")]
-position = Vector2(512, 0)
-scale = Vector2(6, 5)
+position = Vector2(615.73, 0)
+scale = Vector2(7, 5)
 
 [node name="Saturday" parent="." instance=ExtResource("1_m5piv")]
-position = Vector2(640, 0)
-scale = Vector2(6, 5)
+position = Vector2(769.515, 0)
+scale = Vector2(7, 5)
 
 [node name="Sunday" parent="." instance=ExtResource("1_m5piv")]
-position = Vector2(768, 0)
-scale = Vector2(6, 5)
+position = Vector2(927.155, 0)
+scale = Vector2(7.5, 5)

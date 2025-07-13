@@ -27,10 +27,9 @@ screen = NodePath("Tray/ColorRect")
 next = SubResource("PackedScene_kvbc6")
 
 [node name="Month" parent="." instance=ExtResource("5_kvbc6")]
-position = Vector2(400, 200)
 
 [node name="Magnet" parent="." instance=ExtResource("1_6yxhk")]
-position = Vector2(352, 251)
+position = Vector2(731, 806)
 
 [node name="Magnet2" parent="." instance=ExtResource("1_6yxhk")]
 position = Vector2(483, 326)

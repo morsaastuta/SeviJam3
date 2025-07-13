@@ -16,8 +16,6 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_n5g6r")
 
 [node name="GroupStickers" type="CanvasGroup" parent="."]
-scale = Vector2(1.2, 1.2)
 
 [node name="GroupCalendar" type="CanvasGroup" parent="."]
 z_index = 1
-scale = Vector2(1.2, 1.2)

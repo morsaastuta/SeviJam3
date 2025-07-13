@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://ckw7icje268sg"]
 
 [ext_resource type="Script" uid="uid://32onbcd1rnxf" path="res://scripts/gd/day_behaviour.gd" id="1_nvsrj"]
-[ext_resource type="Texture2D" uid="uid://cpd3pdt24kix5" path="res://assets/images/icons/lluvia.png" id="2_pta2i"]
-[ext_resource type="Texture2D" uid="uid://bkscdqwgdtcxp" path="res://assets/images/icons/sol.png" id="3_5700h"]
-[ext_resource type="Texture2D" uid="uid://cdsyypfqrd7rf" path="res://assets/images/icons/tormenta.png" id="4_c040t"]
-[ext_resource type="Texture2D" uid="uid://dtysrl848qsdk" path="res://assets/images/icons/arcoiris.png" id="5_xvgxs"]
-[ext_resource type="Texture2D" uid="uid://b7i8pxgbdtdph" path="res://assets/images/icons/viento.png" id="6_1a1yd"]
+[ext_resource type="Texture2D" uid="uid://cpd3pdt24kix5" path="res://assets/images/icons/drawings/d_rain.png" id="2_pta2i"]
+[ext_resource type="Texture2D" uid="uid://bkscdqwgdtcxp" path="res://assets/images/icons/drawings/d_sun.png" id="3_5700h"]
+[ext_resource type="Texture2D" uid="uid://cdsyypfqrd7rf" path="res://assets/images/icons/drawings/d_storm.png" id="4_c040t"]
+[ext_resource type="Texture2D" uid="uid://dtysrl848qsdk" path="res://assets/images/icons/drawings/d_rainbow.png" id="5_xvgxs"]
+[ext_resource type="Texture2D" uid="uid://b7i8pxgbdtdph" path="res://assets/images/icons/drawings/d_wind.png" id="6_1a1yd"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uisq6"]
 
