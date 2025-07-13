@@ -53,6 +53,12 @@ position = Vector2(1630, 857)
 [node name="Week1" parent="." instance=ExtResource("2_k35rt")]
 position = Vector2(421, 472)
 
+[node name="Monday" parent="Week1" index="0"]
+no_magnet = true
+
+[node name="Tuesday" parent="Week1" index="1"]
+no_magnet = true
+
 [node name="Week2" parent="." instance=ExtResource("2_k35rt")]
 position = Vector2(420, 581.5)
 
@@ -69,6 +75,9 @@ position = Vector2(421, 801.5)
 
 [node name="Week5" parent="." instance=ExtResource("2_k35rt")]
 position = Vector2(421, 910)
+
+[node name="Saturday" parent="Week5" index="5"]
+no_magnet = true
 
 [node name="Tray" type="CanvasLayer" parent="."]
 layer = 5
@@ -107,4 +116,6 @@ texture = ExtResource("9_aan61")
 
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
 
+[editable path="Week1"]
 [editable path="Week3"]
+[editable path="Week5"]
