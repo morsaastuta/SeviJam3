@@ -16,7 +16,7 @@
 script = ExtResource("1_7hm1w")
 screen = NodePath("Tray/ColorRect")
 next = ExtResource("2_8f51t")
-rules = Array[String](["3_2_rain"])
+rules = Array[String](["2_2_rain"])
 
 [node name="Month" type="Sprite2D" parent="."]
 position = Vector2(885, 604)
