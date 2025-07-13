@@ -18,7 +18,8 @@ func _ready() -> void:
 		if child is WeekBehaviour:
 			month.append([])
 			for grandchild in child.get_children():
-				month[index].append(grandchild)
+				if grandchild is DayBehaviour:
+					month[index].append(grandchild)
 			index += 1
 	Global.fridge.screen = screen
 		
@@ -111,7 +112,7 @@ func evaluator() -> Array[Array]:
 		
 		var effect: String = str_array[2]
 		if week_index >= 0:
-			for day:DayBehaviour in month[week_index]:
+			for day in month[week_index]:
 				if day.effect_applied == Global.effect_by_name(effect):
 					how_many -= 1
 		else:

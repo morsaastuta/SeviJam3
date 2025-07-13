@@ -24,6 +24,7 @@ func grab() -> void:
 	Global.fridge.show_stickers(false)
 
 func drop() -> void:
+	self.z_index = 0
 	reparent(Global.fridge.group_stickers)
 	held = false
 	Global.fridge.calendar.held = false

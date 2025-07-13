@@ -28,6 +28,7 @@ shader_parameter/mouse_screen_pos_test = Vector2(0, 0)
 size = Vector2(823.333, 823.334)
 
 [node name="Sticker" type="Sprite2D" node_paths=PackedStringArray("area") groups=["stickers"]]
+z_index = 5
 material = SubResource("ShaderMaterial_e1k6i")
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_8nhou")

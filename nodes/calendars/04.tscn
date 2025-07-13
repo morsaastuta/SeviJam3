@@ -20,6 +20,7 @@
 script = ExtResource("1_hsbjh")
 screen = NodePath("Tray/ColorRect")
 next = ExtResource("2_77t68")
+sticker_quantity_rules = 1
 rules = Array[String](["any_2_storm", "any_4_rain"])
 
 [node name="Month" type="Sprite2D" parent="."]
@@ -140,13 +141,16 @@ theme = SubResource("Theme_nbp2d")
 color = Color(0, 0, 0, 0)
 
 [node name="Sticker" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
+z_index = 3
 position = Vector2(632, 677)
 
 [node name="Sticker2" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
+z_index = 3
 position = Vector2(911, 593)
 texture = ExtResource("8_s0quv")
 
 [node name="Sticker3" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
+z_index = 3
 position = Vector2(1183, 685)
 texture = ExtResource("9_77t68")
 
