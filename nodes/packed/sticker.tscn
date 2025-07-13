@@ -16,7 +16,6 @@ area = NodePath("Area2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-5.00004, 1.90735e-05)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_cjg13")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_input_event"]

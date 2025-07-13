@@ -28,6 +28,7 @@ func _on_continue_button_pressed() -> void:
 	%ContinueButton.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func next_level() -> void:
+	show_stickers(false)
 	var calendar_next: CalendarBehaviour
 	if calendar != null: calendar_next = calendar.next.instantiate()
 	else: calendar_next = calendar_default.instantiate()
@@ -39,8 +40,13 @@ func next_level() -> void:
 
 func show_stickers(on: bool) -> void:
 	if on:
+		screen.modulate = Color.TRANSPARENT
+		screen.show()
 		for magnet: MagnetBehaviour in get_tree().get_nodes_in_group(Name.MAGNETS): magnet.set_input_pickable(false)
 		create_tween().tween_property(screen, "color", Color(0,0,0,0.6), 0.5)
 	else:
+		screen.modulate = Color.TRANSPARENT
 		create_tween().tween_property(screen, "color", Color.TRANSPARENT, 0.5)
+		await get_tree().create_timer(0.5).timeout
+		screen.show()
 		for magnet: MagnetBehaviour in get_tree().get_nodes_in_group(Name.MAGNETS): magnet.set_input_pickable(true)

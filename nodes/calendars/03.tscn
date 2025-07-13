@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://vtgtqyh3ptt7"]
+[gd_scene load_steps=8 format=3 uid="uid://vtgtqyh3ptt7"]
 
 [ext_resource type="Texture2D" uid="uid://cqwjfqrmqpvi1" path="res://assets/images/calendars/03_l.png" id="1_1nvgh"]
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_7hm1w"]
@@ -6,15 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="2_k35rt"]
 [ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/props/note.png" id="4_mfhnp"]
 [ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/Magnet.tscn" id="5_iv61d"]
-[ext_resource type="FontFile" uid="uid://4soe34omom8k" path="res://assets/font/LT Colored Pencil.otf" id="5_liwia"]
-[ext_resource type="Texture2D" uid="uid://2ypckt2xfjqr" path="res://assets/images/post-its/p_rain.png" id="6_7amuo"]
 
 [sub_resource type="Theme" id="Theme_7amuo"]
 
 [node name="Calendar2" type="Node2D"]
 script = ExtResource("1_7hm1w")
 next = ExtResource("2_8f51t")
-rules = Array[String](["3_2_rain"])
 
 [node name="Month" type="Sprite2D" parent="."]
 position = Vector2(885, 604)
@@ -26,23 +23,6 @@ position = Vector2(1633, 251)
 rotation = -0.233924
 scale = Vector2(0.965, 0.965)
 texture = ExtResource("4_mfhnp")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Notas"]
-modulate = Color(0, 0, 0, 1)
-offset_left = -174.963
-offset_top = -70.4539
-offset_right = 211.037
-offset_bottom = -26.4539
-theme_override_fonts/normal_font = ExtResource("5_liwia")
-theme_override_font_sizes/normal_font_size = 32
-text = "Debe caer lluvia 2 veces la 3ª semana"
-fit_content = true
-scroll_active = false
-
-[node name="PRain" type="Sprite2D" parent="."]
-position = Vector2(681, 660)
-scale = Vector2(0.118629, 0.118629)
-texture = ExtResource("6_7amuo")
 
 [node name="Magnet" parent="." instance=ExtResource("5_iv61d")]
 position = Vector2(1781, 731)
@@ -59,11 +39,6 @@ position = Vector2(420, 581.5)
 [node name="Week3" parent="." instance=ExtResource("2_k35rt")]
 position = Vector2(421, 691)
 
-[node name="Wednesday" parent="Week3" index="2"]
-requirements = Dictionary[StringName, bool]({
-&"rain": false
-})
-
 [node name="Week4" parent="." instance=ExtResource("2_k35rt")]
 position = Vector2(421, 801.5)
 
@@ -72,9 +47,9 @@ position = Vector2(421, 910)
 
 [node name="Tray" type="CanvasLayer" parent="."]
 layer = 5
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Tray"]
-visible = false
 custom_minimum_size = Vector2(6.2, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -86,5 +61,3 @@ theme = SubResource("Theme_7amuo")
 color = Color(0, 0, 0, 0.592157)
 
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
-
-[editable path="Week3"]
