@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cp4ilc1d6ygfu"]
+[gd_scene load_steps=9 format=3 uid="uid://cp4ilc1d6ygfu"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_hsbjh"]
-[ext_resource type="Texture2D" uid="uid://brhd7uoqfjv48" path="res://assets/images/calendars/04.png" id="2_hsbjh"]
-[ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/calendars/notas.png" id="3_2uj7b"]
+[ext_resource type="Texture2D" uid="uid://brhd7uoqfjv48" path="res://assets/images/calendars/04_l.png" id="2_hsbjh"]
+[ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/props/note.png" id="3_2uj7b"]
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="3_d7mam"]
+[ext_resource type="Texture2D" uid="uid://cr1je5xoutwqr" path="res://assets/images/props/help_rainbow.png" id="4_nbp2d"]
+[ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="5_d7mam"]
+[ext_resource type="PackedScene" uid="uid://crfcam2h8mdpv" path="res://nodes/packed/magnet.tscn" id="6_6kooq"]
+
+[sub_resource type="Theme" id="Theme_nbp2d"]
 
 [node name="Calendar" type="Node2D"]
 script = ExtResource("1_hsbjh")
@@ -14,9 +19,16 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_hsbjh")
 
 [node name="Notas" type="Sprite2D" parent="."]
-position = Vector2(1678, 773)
-scale = Vector2(0.9, 0.9)
+position = Vector2(1633, 251)
+rotation = -0.233924
+scale = Vector2(0.965, 0.965)
 texture = ExtResource("3_2uj7b")
+
+[node name="HelpRainbow" type="Sprite2D" parent="Notas"]
+position = Vector2(-66.1895, 219.656)
+rotation = 0.000739086
+scale = Vector2(0.279793, 0.279793)
+texture = ExtResource("4_nbp2d")
 
 [node name="Week1" parent="." instance=ExtResource("3_d7mam")]
 position = Vector2(421, 472)
@@ -27,8 +39,113 @@ position = Vector2(420, 581.5)
 [node name="Week3" parent="." instance=ExtResource("3_d7mam")]
 position = Vector2(421, 691)
 
+[node name="Monday" parent="Week3" index="0"]
+no_magnet = null
+requirements = null
+effect_default = null
+
+[node name="Tuesday" parent="Week3" index="1"]
+no_magnet = null
+requirements = null
+effect_default = null
+
+[node name="Wednesday" parent="Week3" index="2"]
+no_magnet = null
+requirements = null
+effect_default = null
+
+[node name="Thursday" parent="Week3" index="3"]
+no_magnet = null
+requirements = null
+effect_default = 2
+
+[node name="Friday" parent="Week3" index="4"]
+no_magnet = null
+requirements = null
+effect_default = null
+
+[node name="Saturday" parent="Week3" index="5"]
+no_magnet = null
+requirements = null
+effect_default = null
+
+[node name="Sunday" parent="Week3" index="6"]
+no_magnet = null
+requirements = null
+effect_default = null
+
 [node name="Week4" parent="." instance=ExtResource("3_d7mam")]
 position = Vector2(421, 801.5)
 
+[node name="Monday" parent="Week4" index="0"]
+no_magnet = null
+requirements = null
+effect_default = null
+
+[node name="Tuesday" parent="Week4" index="1"]
+no_magnet = null
+requirements = null
+effect_default = null
+
+[node name="Wednesday" parent="Week4" index="2"]
+no_magnet = null
+requirements = null
+effect_default = null
+
+[node name="Thursday" parent="Week4" index="3"]
+no_magnet = null
+requirements = null
+effect_default = null
+
+[node name="Friday" parent="Week4" index="4"]
+no_magnet = null
+requirements = null
+effect_default = null
+
+[node name="Saturday" parent="Week4" index="5"]
+no_magnet = true
+requirements = null
+effect_default = null
+
+[node name="Sunday" parent="Week4" index="6"]
+no_magnet = null
+requirements = null
+effect_default = null
+
 [node name="Week5" parent="." instance=ExtResource("3_d7mam")]
 position = Vector2(421, 910)
+
+[node name="Magnet" parent="." instance=ExtResource("6_6kooq")]
+position = Vector2(1714, 852)
+
+[node name="Magnet2" parent="." instance=ExtResource("6_6kooq")]
+position = Vector2(1645, 695)
+
+[node name="Tray" type="CanvasLayer" parent="."]
+layer = 5
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Tray"]
+custom_minimum_size = Vector2(6.2, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_nbp2d")
+color = Color(0, 0, 0, 0.592157)
+
+[node name="Sticker" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
+position = Vector2(356, 269)
+
+[node name="Sticker2" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
+position = Vector2(712, 538)
+
+[node name="Sticker3" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
+position = Vector2(1068, 807)
+
+[connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
+
+[editable path="Week3"]
+[editable path="Week4"]
