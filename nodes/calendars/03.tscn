@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cp4ilc1d6ygfu" path="res://nodes/calendars/04.tscn" id="2_8f51t"]
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="2_k35rt"]
 [ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/props/note.png" id="4_mfhnp"]
-[ext_resource type="PackedScene" uid="uid://dmhp715jovgre" path="res://nodes/packed/magnet.tscn" id="5_iv61d"]
+[ext_resource type="PackedScene" uid="uid://dmhp715jovgre" path="res://nodes/packed/Magnet.tscn" id="5_iv61d"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="7_liwia"]
 
 [sub_resource type="Theme" id="Theme_7amuo"]
@@ -34,6 +34,12 @@ position = Vector2(1630, 857)
 [node name="Week1" parent="." instance=ExtResource("2_k35rt")]
 position = Vector2(421, 472)
 
+[node name="Monday" parent="Week1" index="0"]
+no_magnet = true
+
+[node name="Tuesday" parent="Week1" index="1"]
+no_magnet = true
+
 [node name="Week2" parent="." instance=ExtResource("2_k35rt")]
 position = Vector2(420, 581.5)
 
@@ -45,6 +51,9 @@ position = Vector2(421, 801.5)
 
 [node name="Week5" parent="." instance=ExtResource("2_k35rt")]
 position = Vector2(421, 910)
+
+[node name="Saturday" parent="Week5" index="5"]
+no_magnet = true
 
 [node name="Tray" type="CanvasLayer" parent="."]
 layer = 5
@@ -71,3 +80,6 @@ position = Vector2(712, 538)
 position = Vector2(1068, 807)
 
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
+
+[editable path="Week1"]
+[editable path="Week5"]

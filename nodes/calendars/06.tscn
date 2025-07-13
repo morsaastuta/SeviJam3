@@ -1,37 +1,37 @@
-[gd_scene load_steps=9 format=3 uid="uid://cp4ilc1d6ygfu"]
+[gd_scene load_steps=9 format=3 uid="uid://oibnepoh55k3"]
 
-[ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_hsbjh"]
-[ext_resource type="Texture2D" uid="uid://brhd7uoqfjv48" path="res://assets/images/calendars/04_l.png" id="2_hsbjh"]
-[ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/props/note.png" id="3_2uj7b"]
-[ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="3_d7mam"]
-[ext_resource type="Texture2D" uid="uid://cr1je5xoutwqr" path="res://assets/images/props/help_rainbow.png" id="4_nbp2d"]
-[ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="5_d7mam"]
-[ext_resource type="PackedScene" uid="uid://dmhp715jovgre" path="res://nodes/packed/Magnet.tscn" id="6_6kooq"]
+[ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_phkgn"]
+[ext_resource type="Texture2D" uid="uid://decaujma2tlbp" path="res://assets/images/calendars/06_l.png" id="2_phkgn"]
+[ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/props/note.png" id="3_wcfft"]
+[ext_resource type="Texture2D" uid="uid://cr1je5xoutwqr" path="res://assets/images/props/help_rainbow.png" id="4_2vcs6"]
+[ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="5_fstfa"]
+[ext_resource type="PackedScene" uid="uid://dmhp715jovgre" path="res://nodes/packed/Magnet.tscn" id="6_q43t1"]
+[ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="7_6nj40"]
 
 [sub_resource type="Theme" id="Theme_nbp2d"]
 
 [node name="Calendar" type="Node2D"]
-script = ExtResource("1_hsbjh")
+script = ExtResource("1_phkgn")
 rules = Array[String](["3_any_rain"])
 
 [node name="Month" type="Sprite2D" parent="."]
 position = Vector2(885, 604)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("2_hsbjh")
+texture = ExtResource("2_phkgn")
 
 [node name="Notas" type="Sprite2D" parent="."]
 position = Vector2(1633, 251)
 rotation = -0.233924
 scale = Vector2(0.965, 0.965)
-texture = ExtResource("3_2uj7b")
+texture = ExtResource("3_wcfft")
 
 [node name="HelpRainbow" type="Sprite2D" parent="Notas"]
 position = Vector2(-66.1895, 219.656)
 rotation = 0.000739086
 scale = Vector2(0.279793, 0.279793)
-texture = ExtResource("4_nbp2d")
+texture = ExtResource("4_2vcs6")
 
-[node name="Week1" parent="." instance=ExtResource("3_d7mam")]
+[node name="Week1" parent="." instance=ExtResource("5_fstfa")]
 position = Vector2(421, 472)
 
 [node name="Monday" parent="Week1" index="0"]
@@ -43,13 +43,7 @@ no_magnet = true
 [node name="Wednesday" parent="Week1" index="2"]
 no_magnet = true
 
-[node name="Thursday" parent="Week1" index="3"]
-no_magnet = true
-
-[node name="Friday" parent="Week1" index="4"]
-no_magnet = true
-
-[node name="Week2" parent="." instance=ExtResource("3_d7mam")]
+[node name="Week2" parent="." instance=ExtResource("5_fstfa")]
 position = Vector2(420, 581.5)
 
 [node name="Friday" parent="Week2" index="4"]
@@ -57,13 +51,13 @@ requirements = Dictionary[StringName, bool]({
 &"rain": false
 })
 
-[node name="Week3" parent="." instance=ExtResource("3_d7mam")]
+[node name="Week3" parent="." instance=ExtResource("5_fstfa")]
 position = Vector2(421, 691)
 
 [node name="Thursday" parent="Week3" index="3"]
 effect_default = 2
 
-[node name="Week4" parent="." instance=ExtResource("3_d7mam")]
+[node name="Week4" parent="." instance=ExtResource("5_fstfa")]
 position = Vector2(421, 801.5)
 
 [node name="Tuesday" parent="Week4" index="1"]
@@ -74,13 +68,16 @@ requirements = Dictionary[StringName, bool]({
 &"rain": false
 })
 
-[node name="Week5" parent="." instance=ExtResource("3_d7mam")]
+[node name="Week5" parent="." instance=ExtResource("5_fstfa")]
 position = Vector2(421, 910)
 
-[node name="Magnet" parent="." instance=ExtResource("6_6kooq")]
+[node name="Saturday" parent="Week5" index="5"]
+no_magnet = true
+
+[node name="Magnet" parent="." instance=ExtResource("6_q43t1")]
 position = Vector2(1603, 881)
 
-[node name="Magnet2" parent="." instance=ExtResource("6_6kooq")]
+[node name="Magnet2" parent="." instance=ExtResource("6_q43t1")]
 position = Vector2(1757, 770)
 
 [node name="Tray" type="CanvasLayer" parent="."]
@@ -98,13 +95,13 @@ mouse_filter = 2
 theme = SubResource("Theme_nbp2d")
 color = Color(0, 0, 0, 0.592157)
 
-[node name="Sticker" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
+[node name="Sticker" parent="Tray/ColorRect" instance=ExtResource("7_6nj40")]
 position = Vector2(356, 269)
 
-[node name="Sticker2" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
+[node name="Sticker2" parent="Tray/ColorRect" instance=ExtResource("7_6nj40")]
 position = Vector2(712, 538)
 
-[node name="Sticker3" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
+[node name="Sticker3" parent="Tray/ColorRect" instance=ExtResource("7_6nj40")]
 position = Vector2(1068, 807)
 
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
@@ -113,3 +110,4 @@ position = Vector2(1068, 807)
 [editable path="Week2"]
 [editable path="Week3"]
 [editable path="Week4"]
+[editable path="Week5"]
