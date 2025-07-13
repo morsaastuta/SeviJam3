@@ -11,7 +11,6 @@ func _ready():
 
 func check_requisites() -> void:
 	if calendar.mission_is_achieved:
-		print("a")
 		%ContinueButton.mouse_filter = Control.MOUSE_FILTER_STOP
 		create_tween().tween_property(%ControlContinueBtn, "modulate", Color.WHITE, 0.5)
 	else:
@@ -39,6 +38,7 @@ func next_level() -> void:
 
 func show_stickers(on: bool) -> void:
 	if on:
+		print("bombo")
 		screen.modulate = Color.TRANSPARENT
 		screen.show()
 		for magnet: MagnetBehaviour in get_tree().get_nodes_in_group(Name.MAGNETS): magnet.set_input_pickable(false)

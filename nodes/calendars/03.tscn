@@ -12,7 +12,7 @@
 
 [sub_resource type="Theme" id="Theme_13yls"]
 
-[node name="Calendar2" type="Node2D" node_paths=PackedStringArray("screen")]
+[node name="Calendar3" type="Node2D" node_paths=PackedStringArray("screen")]
 script = ExtResource("1_7hm1w")
 screen = NodePath("Tray/ColorRect")
 next = ExtResource("2_8f51t")
