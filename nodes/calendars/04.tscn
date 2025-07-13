@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cp4ilc1d6ygfu"]
+[gd_scene load_steps=12 format=3 uid="uid://cp4ilc1d6ygfu"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_hsbjh"]
+[ext_resource type="PackedScene" uid="uid://ck70bgoa052mg" path="res://nodes/calendars/05.tscn" id="2_77t68"]
 [ext_resource type="Texture2D" uid="uid://brhd7uoqfjv48" path="res://assets/images/calendars/04_l.png" id="2_hsbjh"]
 [ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/props/note.png" id="3_2uj7b"]
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="3_d7mam"]
@@ -14,6 +15,7 @@
 
 [node name="Calendar2" type="Node2D"]
 script = ExtResource("1_hsbjh")
+next = ExtResource("2_77t68")
 rules = Array[String](["3_any_rain"])
 
 [node name="Month" type="Sprite2D" parent="."]
