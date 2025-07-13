@@ -7,7 +7,6 @@ class_name DayBehaviour extends Area2D
 @export var magnet_marker: Marker2D
 var magnet_position: Vector2
 var magnet_hover: MagnetBehaviour
-var magnet_safe: MagnetBehaviour
 
 var magnet_applied: MagnetBehaviour:
 	get:
@@ -29,28 +28,17 @@ var effect_applied: Name.Effect:
 func _ready() -> void:
 	if not no_magnet:
 		Global.grabbed.connect(_on_magnet_grabbed)
-		if not magnet_marker: magnet_position = self.global_position
+		if not magnet_marker: magnet_position = global_position
 		else: magnet_position = magnet_marker.global_position
 	Global.dropped.connect(_on_magnet_dropped)
-	Global.aborted.connect(_on_magnet_aborted)
 	Global.check_day.connect(_self_check)
 	effect_applied = effect_default
-
-func _on_magnet_grabbed(magnet: MagnetBehaviour) -> void:
-	if (not magnet_applied) || magnet_applied != magnet: return
-	
-	magnet_safe = magnet_applied
-	magnet_hover = magnet_applied
-	magnet_applied.day = null
-	magnet_applied = null
-	Global.check_day.emit()
 
 func _on_magnet_dropped(magnet: MagnetBehaviour) -> void:
 	if (not magnet_hover) || magnet.day != null: return
 	
-	if no_magnet or magnet_applied: 
+	if no_magnet || effect_applied != Name.Effect.NONE:
 		magnet_hover.abort()
-		if self.global_position == magnet_hover.origin: magnet_applied = magnet_hover
 	else:
 		create_tween().tween_property(magnet_hover, "global_position", magnet_position, 0.15)
 		#.from(magnet_hover.global_position)
@@ -60,11 +48,11 @@ func _on_magnet_dropped(magnet: MagnetBehaviour) -> void:
 	magnet_hover = null
 	Global.check_day.emit()
 
-func _on_magnet_aborted(magnet: MagnetBehaviour) -> void:
-	magnet_hover = null
-	if magnet_safe != magnet: return
-	magnet_applied = magnet
-	magnet_applied.day = self
+func _on_magnet_grabbed(magnet: MagnetBehaviour) -> void:
+	if (not magnet_applied) || magnet_applied != magnet: return
+	magnet_hover = magnet_applied
+	magnet_applied.day = null
+	magnet_applied = null
 	Global.check_day.emit()
 
 func _on_body_entered(body: Node2D) -> void:
@@ -77,13 +65,13 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _self_check() -> void:
 	for key in requirements.keys():
-		requirements[key] = effect_applied == key
+		requirements[key] = effect_applied == Global.effect_by_name(key)
 		
 func set_effect(e: Name.Effect):
 	if effect_applied != Name.Effect.NONE: return
 	effect_applied = e
+	_self_check()
 
 func rem_effect():
 	if effect_default == Name.Effect.NONE && effect_applied != Name.Effect.NONE:
-		print("removing")
 		effect_applied = Name.Effect.NONE

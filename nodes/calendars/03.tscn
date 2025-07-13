@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cp4ilc1d6ygfu" path="res://nodes/calendars/04.tscn" id="2_8f51t"]
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="2_k35rt"]
 [ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/props/note.png" id="4_mfhnp"]
-[ext_resource type="PackedScene" uid="uid://crfcam2h8mdpv" path="res://nodes/packed/magnet.tscn" id="5_iv61d"]
+[ext_resource type="PackedScene" uid="uid://dmhp715jovgre" path="res://nodes/packed/magnet.tscn" id="5_iv61d"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="7_liwia"]
 
 [sub_resource type="Theme" id="Theme_7amuo"]
@@ -26,10 +26,10 @@ scale = Vector2(0.965, 0.965)
 texture = ExtResource("4_mfhnp")
 
 [node name="Magnet" parent="." instance=ExtResource("5_iv61d")]
-position = Vector2(1813, 651)
+position = Vector2(1781, 731)
 
 [node name="Magnet2" parent="." instance=ExtResource("5_iv61d")]
-position = Vector2(1619, 662)
+position = Vector2(1630, 857)
 
 [node name="Week1" parent="." instance=ExtResource("2_k35rt")]
 position = Vector2(421, 472)

@@ -267,6 +267,7 @@ layer = 4
 
 [node name="ControlContinueBtn" type="Control" parent="CanvasLayer"]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -277,7 +278,6 @@ mouse_filter = 2
 
 [node name="ContinueButton" type="Button" parent="CanvasLayer/ControlContinueBtn"]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

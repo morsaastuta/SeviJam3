@@ -11,10 +11,11 @@ func _ready():
 
 func check_requisites() -> void:
 	if calendar.mission_is_achieved:
+		print("a")
 		%ContinueButton.mouse_filter = Control.MOUSE_FILTER_STOP
-		create_tween().tween_property(%ControlContinueBtn, "modulate", Color.WHITE, 0.5).from(Color.TRANSPARENT)
+		create_tween().tween_property(%ControlContinueBtn, "modulate", Color.WHITE, 0.5)
 	else:
-		create_tween().tween_property(%ControlContinueBtn, "modulate", Color.TRANSPARENT, 0.5).from(Color.WHITE)
+		create_tween().tween_property(%ControlContinueBtn, "modulate", Color.TRANSPARENT, 0.5)
 		%ContinueButton.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		
 func _on_continue_button_pressed() -> void:
