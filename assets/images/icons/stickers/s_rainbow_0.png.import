@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkscdqwgdtcxp"
-path="res://.godot/imported/sol.png-ffccb8691c610cf4ad9a6e0b48579e5c.ctex"
+uid="uid://b8bttqm7xb1yr"
+path="res://.godot/imported/s_rainbow_0.png-89e22db468605edb4b0be8cdbec23119.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/sol.png"
-dest_files=["res://.godot/imported/sol.png-ffccb8691c610cf4ad9a6e0b48579e5c.ctex"]
+source_file="res://assets/images/icons/stickers/s_rainbow_0.png"
+dest_files=["res://.godot/imported/s_rainbow_0.png-89e22db468605edb4b0be8cdbec23119.ctex"]
 
 [params]
 

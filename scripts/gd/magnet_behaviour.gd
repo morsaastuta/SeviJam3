@@ -3,6 +3,7 @@ class_name MagnetBehaviour extends RigidBody2D
 @export var area: Area2D
 var origin: Vector2
 var held: bool = false
+var day: DayBehaviour
 
 func _on_input_event(viewport, event, shape_idx) -> void:
 	if event is InputEventMouseButton:

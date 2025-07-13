@@ -1,11 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyokiuntvhfpd"]
+[gd_scene load_steps=3 format=3 uid="uid://b4nclix6r782b"]
 
 [ext_resource type="Script" uid="uid://cmstrfwit0tw" path="res://scripts/gd/fridge_behaviour.gd" id="1_7vwyd"]
+[ext_resource type="Texture2D" uid="uid://ey0doayo30rt" path="res://assets/images/calendars/00.png" id="2_n5g6r"]
 
 [node name="Fridge" type="Node2D" node_paths=PackedStringArray("group_stickers", "group_calendar")]
 script = ExtResource("1_7vwyd")
 group_stickers = NodePath("GroupStickers")
 group_calendar = NodePath("GroupCalendar")
+
+[node name="Background" type="Sprite2D" parent="."]
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(831.8, 395.8)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_n5g6r")
 
 [node name="GroupStickers" type="CanvasGroup" parent="."]
 

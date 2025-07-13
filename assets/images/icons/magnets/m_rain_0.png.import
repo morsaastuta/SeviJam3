@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtysrl848qsdk"
-path="res://.godot/imported/arcoiris.png-8ed6c2871e72596b225f95c51ff52ed5.ctex"
+uid="uid://y6klxd3jyp68"
+path="res://.godot/imported/m_rain_0.png-1c3ff399d1a14b555dbe283ffe0276cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/arcoiris.png"
-dest_files=["res://.godot/imported/arcoiris.png-8ed6c2871e72596b225f95c51ff52ed5.ctex"]
+source_file="res://assets/images/icons/magnets/m_rain_0.png"
+dest_files=["res://.godot/imported/m_rain_0.png-1c3ff399d1a14b555dbe283ffe0276cf.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7i8pxgbdtdph"
-path="res://.godot/imported/viento.png-46bdf11a73e564b45d6bca41f7068066.ctex"
+uid="uid://cpd3pdt24kix5"
+path="res://.godot/imported/d_rain.png-25fd230c26e6cc82c61a51790f796d52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/viento.png"
-dest_files=["res://.godot/imported/viento.png-46bdf11a73e564b45d6bca41f7068066.ctex"]
+source_file="res://assets/images/icons/drawings/d_rain.png"
+dest_files=["res://.godot/imported/d_rain.png-25fd230c26e6cc82c61a51790f796d52.ctex"]
 
 [params]
 

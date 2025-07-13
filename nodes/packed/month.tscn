@@ -1,19 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://yiqdc46tksyb"]
+[gd_scene load_steps=3 format=3 uid="uid://yiqdc46tksyb"]
 
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="1_kl0re"]
+[ext_resource type="Texture2D" uid="uid://cqwjfqrmqpvi1" path="res://assets/images/calendars/03.png" id="1_krheb"]
 
 [node name="Calendar" type="Node2D"]
 
+[node name="Month" type="Sprite2D" parent="."]
+position = Vector2(885, 604)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_krheb")
+
 [node name="Week1" parent="." instance=ExtResource("1_kl0re")]
+position = Vector2(421, 472)
 
 [node name="Week2" parent="." instance=ExtResource("1_kl0re")]
-position = Vector2(0, 24)
+position = Vector2(420, 581.5)
 
 [node name="Week3" parent="." instance=ExtResource("1_kl0re")]
-position = Vector2(0, 48)
+position = Vector2(421, 691)
 
 [node name="Week4" parent="." instance=ExtResource("1_kl0re")]
-position = Vector2(0, 72)
+position = Vector2(421, 801.5)
 
 [node name="Week5" parent="." instance=ExtResource("1_kl0re")]
-position = Vector2(0, 96)
+position = Vector2(421, 910)

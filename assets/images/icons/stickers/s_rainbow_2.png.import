@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpd3pdt24kix5"
-path="res://.godot/imported/lluvia.png-79e778e5cc0489d6b7e2265b78248717.ctex"
+uid="uid://bg4u56nnkvmsn"
+path="res://.godot/imported/s_rainbow_2.png-5a6430dedd4021ecce5f751bddc78ed9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/lluvia.png"
-dest_files=["res://.godot/imported/lluvia.png-79e778e5cc0489d6b7e2265b78248717.ctex"]
+source_file="res://assets/images/icons/stickers/s_rainbow_2.png"
+dest_files=["res://.godot/imported/s_rainbow_2.png-5a6430dedd4021ecce5f751bddc78ed9.ctex"]
 
 [params]
 
