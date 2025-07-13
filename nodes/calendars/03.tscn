@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://vtgtqyh3ptt7"]
+[gd_scene load_steps=7 format=3 uid="uid://vtgtqyh3ptt7"]
 
 [ext_resource type="Texture2D" uid="uid://cqwjfqrmqpvi1" path="res://assets/images/calendars/03_l.png" id="1_1nvgh"]
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_7hm1w"]
@@ -7,10 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/props/note.png" id="4_mfhnp"]
 [ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/Magnet.tscn" id="5_iv61d"]
 
-[sub_resource type="Theme" id="Theme_7amuo"]
-
-[node name="Calendar2" type="Node2D"]
+[node name="Calendar2" type="Node2D" node_paths=PackedStringArray("screen")]
 script = ExtResource("1_7hm1w")
+screen = NodePath("")
 next = ExtResource("2_8f51t")
 
 [node name="Month" type="Sprite2D" parent="."]
@@ -48,16 +47,3 @@ position = Vector2(421, 910)
 [node name="Tray" type="CanvasLayer" parent="."]
 layer = 5
 visible = false
-
-[node name="ColorRect" type="ColorRect" parent="Tray"]
-custom_minimum_size = Vector2(6.2, 0)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme = SubResource("Theme_7amuo")
-color = Color(0, 0, 0, 0.592157)
-
-[connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
