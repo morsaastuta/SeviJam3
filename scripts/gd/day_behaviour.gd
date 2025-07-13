@@ -66,3 +66,7 @@ func _on_body_exited(body: Node2D) -> void:
 func _self_check() -> void:
 	for key in requirements.keys():
 		requirements[key] = effect_applied == key
+
+func set_effect(e: Name.Effect):
+	if effect_applied != null: return
+	effect_applied = e

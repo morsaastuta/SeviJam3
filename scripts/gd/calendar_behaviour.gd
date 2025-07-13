@@ -2,12 +2,13 @@ class_name CalendarBehaviour extends Node2D
 
 @export var screen: ColorRect
 @export var next: PackedScene
-@export var sticker_quantity_rules:int
+@export var sticker_quantity_rules: int
 @export var rules: Array[String]
 
 var selected_magnet: MagnetBehaviour
 var held: bool = false
 var month: Array[Array]
+var month_straight: Array[DayBehaviour]
 
 var sticker_is_achieved: bool
 var mission_is_achieved: bool
@@ -18,6 +19,7 @@ func _ready() -> void:
 		month.append([])
 		for grandchild in child.get_children():
 			month[index].append(grandchild)
+			month_straight.append(grandchild)
 		index += 1
 		
 	Global.grabbed.connect(_on_magnet_grabbed_dropped)
@@ -25,20 +27,58 @@ func _ready() -> void:
 	
 
 func _on_magnet_grabbed_dropped():
+	generate_climate()
 	mission_is_achieved = _mission_achieved()
 	sticker_is_achieved = _sticker_achieved()
+	Global.fridge.check_requisites()
 
+func generate_climate():
+	for day: DayBehaviour in month_straight:
+		var idx: int = month_straight.find(day)
+		if day.effect_applied == Name.Effect.NONE:
+			# WIND
+			if (idx >= 2 &&
+			month_straight[idx-1].effect_applied == Name.Effect.RAIN &&
+			month_straight[idx-2].effect_applied == Name.Effect.RAIN):
+				day.set_effect(Name.Effect.WIND)
+			# RAINBOW A
+			elif (idx >= 2 &&
+			month_straight[idx-1].effect_applied == Name.Effect.RAIN &&
+			month_straight[idx-2].effect_applied == Name.Effect.SUN):
+				day.set_effect(Name.Effect.RAINBOW)
+			# RAINBOW B
+			elif (idx >= 2 &&
+			month_straight[idx-1].effect_applied == Name.Effect.SUN &&
+			month_straight[idx-2].effect_applied == Name.Effect.RAIN):
+				day.set_effect(Name.Effect.RAINBOW)
+			# STORM
+			elif (idx >= 1 && idx <= month_straight.size()-2 &&
+			month_straight[idx-1].effect_applied == Name.Effect.RAIN &&
+			month_straight[idx+1].effect_applied == Name.Effect.RAIN):
+				day.set_effect(Name.Effect.STORM)
+			# RAIN A
+			elif (idx >= 2 &&
+			month_straight[idx-1].effect_applied == Name.Effect.STORM &&
+			month_straight[idx-2].effect_applied == Name.Effect.WIND):
+				day.set_effect(Name.Effect.RAIN)
+			# RAIN B
+			elif (idx >= 8 &&
+			month_straight[idx-7].effect_applied == Name.Effect.STORM &&
+			month_straight[idx-8].effect_applied == Name.Effect.WIND):
+				day.set_effect(Name.Effect.RAIN)
+			# DUPLICATE
+			elif (idx >= 14 &&
+			month_straight[idx-7].effect_applied == Name.Effect.RAINBOW):
+				day.set_effect(month_straight[idx-14].effect_applied)
 
 func _mission_achieved() -> bool:
 	var evaluation := evaluator()
-	
 	var m_is_achieved: bool = true
 	var n_is_achieved: bool = true
 	for i in range(sticker_quantity_rules, evaluation[0].size()):
 		if not evaluation[0][i]: m_is_achieved = false; break
 	for n in evaluation[1]:
 		if not n: n_is_achieved = false; break
-	
 	return n_is_achieved and m_is_achieved
 
 func _sticker_achieved() -> bool:
