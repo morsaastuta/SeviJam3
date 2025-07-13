@@ -1,18 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://oibnepoh55k3"]
+[gd_scene load_steps=11 format=3 uid="uid://oibnepoh55k3"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_phkgn"]
 [ext_resource type="Texture2D" uid="uid://decaujma2tlbp" path="res://assets/images/calendars/06_l.png" id="2_phkgn"]
 [ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/props/note.png" id="3_wcfft"]
 [ext_resource type="Texture2D" uid="uid://bxaub4c5qlrvu" path="res://assets/images/props/help_windstorm.png" id="4_phkgn"]
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="5_fstfa"]
-[ext_resource type="PackedScene" uid="uid://dmhp715jovgre" path="res://nodes/packed/Magnet.tscn" id="6_q43t1"]
+[ext_resource type="FontFile" uid="uid://4soe34omom8k" path="res://assets/font/LT Colored Pencil.otf" id="5_wcfft"]
+[ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/Magnet.tscn" id="6_q43t1"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="7_6nj40"]
+[ext_resource type="Texture2D" uid="uid://cv18dhlp5mkos" path="res://assets/images/icons/stickers/s_virgen.png" id="8_4reae"]
 
 [sub_resource type="Theme" id="Theme_nbp2d"]
 
 [node name="Calendar" type="Node2D"]
 script = ExtResource("1_phkgn")
-rules = Array[String](["3_any_rain"])
+sticker_quantity_rules = 1
+rules = Array[String](["any_7_rain", "2_any_wind", "3_any_rain", "4_any_rain"])
 
 [node name="Month" type="Sprite2D" parent="."]
 position = Vector2(885, 604)
@@ -30,6 +33,42 @@ position = Vector2(-44.2515, -46.7642)
 rotation = 0.0161425
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("4_phkgn")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Notas"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -173.837
+offset_top = 76.8234
+offset_right = 212.163
+offset_bottom = 120.823
+theme_override_fonts/normal_font = ExtResource("5_wcfft")
+theme_override_font_sizes/normal_font_size = 32
+text = "Debe hacer viento 1 día de la 2ª semana"
+fit_content = true
+scroll_active = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Notas"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -170.778
+offset_top = 148.926
+offset_right = 215.222
+offset_bottom = 192.926
+theme_override_fonts/normal_font = ExtResource("5_wcfft")
+theme_override_font_sizes/normal_font_size = 32
+text = "Debe caer lluvia 1 día de la 3ª semana"
+fit_content = true
+scroll_active = false
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Notas"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -179.241
+offset_top = 224.676
+offset_right = 206.759
+offset_bottom = 268.676
+theme_override_fonts/normal_font = ExtResource("5_wcfft")
+theme_override_font_sizes/normal_font_size = 32
+text = "Debe caer lluvia 1 día de la 4ª semana"
+fit_content = true
+scroll_active = false
 
 [node name="Week1" parent="." instance=ExtResource("5_fstfa")]
 position = Vector2(421, 472)
@@ -92,6 +131,7 @@ position = Vector2(1757, 770)
 layer = 5
 
 [node name="ColorRect" type="ColorRect" parent="Tray"]
+visible = false
 custom_minimum_size = Vector2(6.2, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -104,6 +144,7 @@ color = Color(0, 0, 0, 0)
 
 [node name="Sticker" parent="Tray/ColorRect" instance=ExtResource("7_6nj40")]
 position = Vector2(924, 637)
+texture = ExtResource("8_4reae")
 
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
 

@@ -257,10 +257,10 @@ position = Vector2(831.8, 395.8)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_n5g6r")
 
-[node name="GroupStickers" type="CanvasGroup" parent="."]
-
 [node name="GroupCalendar" type="CanvasGroup" parent="."]
 z_index = 1
+
+[node name="GroupStickers" type="CanvasGroup" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 4

@@ -55,7 +55,6 @@ shape = SubResource("RectangleShape2D_twf8d")
 [node name="SpriteEffect" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_c040t")
 scale = Vector2(0.16, 0.16)
-texture = ExtResource("2_pta2i")
 
 [node name="SpriteMagnet" type="Sprite2D" parent="."]
 position = Vector2(-8, -8)

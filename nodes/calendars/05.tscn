@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bo51xe5u8gvfx" path="res://assets/images/calendars/05_l.png" id="2_7mrer"]
 [ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/props/note.png" id="3_xxkkp"]
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="5_7ma50"]
-[ext_resource type="PackedScene" uid="uid://dmhp715jovgre" path="res://nodes/packed/Magnet.tscn" id="6_nr3uo"]
+[ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/Magnet.tscn" id="6_nr3uo"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="7_eb1uk"]
 [ext_resource type="Texture2D" uid="uid://ixgiwp36v6ve" path="res://assets/images/icons/stickers/s_storm_0.png" id="7_xxkkp"]
 [ext_resource type="Texture2D" uid="uid://t8m3dj8dah7j" path="res://assets/images/icons/stickers/s_storm_1.png" id="8_5uwkv"]
@@ -26,6 +26,12 @@ position = Vector2(1633, 251)
 rotation = -0.233924
 scale = Vector2(0.965, 0.965)
 texture = ExtResource("3_xxkkp")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Notas"]
+offset_left = -164.0
+offset_top = -50.0
+offset_right = 196.0
+offset_bottom = 40.0
 
 [node name="Week1" parent="." instance=ExtResource("5_7ma50")]
 position = Vector2(421, 472)
@@ -84,6 +90,7 @@ position = Vector2(1749, 660)
 layer = 5
 
 [node name="ColorRect" type="ColorRect" parent="Tray"]
+visible = false
 custom_minimum_size = Vector2(6.2, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,11 +106,11 @@ position = Vector2(651, 745)
 texture = ExtResource("7_xxkkp")
 
 [node name="Sticker2" parent="Tray/ColorRect" instance=ExtResource("7_eb1uk")]
-position = Vector2(981, 637)
+position = Vector2(964, 637)
 texture = ExtResource("8_5uwkv")
 
 [node name="Sticker3" parent="Tray/ColorRect" instance=ExtResource("7_eb1uk")]
-position = Vector2(1306, 737)
+position = Vector2(1289, 743)
 texture = ExtResource("9_7ma50")
 
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]

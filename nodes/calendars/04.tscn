@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="3_d7mam"]
 [ext_resource type="Texture2D" uid="uid://cr1je5xoutwqr" path="res://assets/images/props/help_rainbow.png" id="4_nbp2d"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="5_d7mam"]
-[ext_resource type="PackedScene" uid="uid://dmhp715jovgre" path="res://nodes/packed/Magnet.tscn" id="6_6kooq"]
+[ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/Magnet.tscn" id="6_6kooq"]
 [ext_resource type="Texture2D" uid="uid://doyh7p3x8pcwb" path="res://assets/images/icons/stickers/s_rainbow_1.png" id="8_s0quv"]
 [ext_resource type="Texture2D" uid="uid://bg4u56nnkvmsn" path="res://assets/images/icons/stickers/s_rainbow_2.png" id="9_77t68"]
 
@@ -74,6 +74,7 @@ position = Vector2(1757, 770)
 layer = 5
 
 [node name="ColorRect" type="ColorRect" parent="Tray"]
+visible = false
 custom_minimum_size = Vector2(6.2, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,7 +93,7 @@ position = Vector2(911, 593)
 texture = ExtResource("8_s0quv")
 
 [node name="Sticker3" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
-position = Vector2(1170, 689)
+position = Vector2(1183, 685)
 texture = ExtResource("9_77t68")
 
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
