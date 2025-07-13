@@ -1,26 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://vtgtqyh3ptt7"]
+[gd_scene load_steps=7 format=3 uid="uid://vtgtqyh3ptt7"]
 
 [ext_resource type="Texture2D" uid="uid://cqwjfqrmqpvi1" path="res://assets/images/calendars/03.png" id="1_1nvgh"]
+[ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_7hm1w"]
+[ext_resource type="PackedScene" uid="uid://cp4ilc1d6ygfu" path="res://nodes/calendars/04.tscn" id="2_8f51t"]
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="2_k35rt"]
+[ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/calendars/notas.png" id="4_mfhnp"]
+[ext_resource type="PackedScene" uid="uid://crfcam2h8mdpv" path="res://nodes/packed/magnet.tscn" id="5_iv61d"]
 
 [node name="Calendar" type="Node2D"]
+script = ExtResource("1_7hm1w")
+next = ExtResource("2_8f51t")
 
 [node name="Month" type="Sprite2D" parent="."]
 position = Vector2(885, 604)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_1nvgh")
 
+[node name="Notas" type="Sprite2D" parent="."]
+position = Vector2(1678, 773)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("4_mfhnp")
+
+[node name="Magnet" parent="." instance=ExtResource("5_iv61d")]
+position = Vector2(1761, 244)
+
+[node name="Magnet2" parent="." instance=ExtResource("5_iv61d")]
+position = Vector2(1606, 402)
+
 [node name="Week1" parent="." instance=ExtResource("2_k35rt")]
 position = Vector2(421, 472)
-
-[node name="Monday" parent="Week1" index="0"]
-no_magnet = true
-
-[node name="Tuesday" parent="Week1" index="1"]
-no_magnet = true
-
-[node name="Sunday" parent="Week1" index="6"]
-no_magnet = true
 
 [node name="Week2" parent="." instance=ExtResource("2_k35rt")]
 position = Vector2(420, 581.5)
@@ -33,5 +41,3 @@ position = Vector2(421, 801.5)
 
 [node name="Week5" parent="." instance=ExtResource("2_k35rt")]
 position = Vector2(421, 910)
-
-[editable path="Week1"]

@@ -2,7 +2,6 @@ class_name FridgeBehaviour extends Node2D
 
 @export var calendar_default: PackedScene
 var calendar: CalendarBehaviour
-var calendar_next: CalendarBehaviour
 @export var group_stickers: CanvasGroup
 @export var group_calendar: CanvasGroup
 var screen: ColorRect
@@ -11,13 +10,13 @@ func _ready():
 	next_level()
 
 func next_level() -> void:
-	if not calendar: calendar_next = calendar_default.instantiate()
-	else: calendar_next = calendar.next.instantiate()
-	
+	var calendar_next: CalendarBehaviour
+	if calendar != null: calendar_next = calendar.next.instantiate()
+	else: calendar_next = calendar_default.instantiate()
 	group_calendar.add_child(calendar_next)
 	# esperar a que cargue
 	# animar calendar
-	if calendar: calendar.queue_free()
+	if calendar != null: calendar.queue_free()
 	calendar = calendar_next
 
 func show_stickers(on: bool) -> void:
