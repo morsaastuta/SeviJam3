@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmhp715jovgre"]
+[gd_scene load_steps=8 format=3 uid="uid://dmhp715jovgre"]
 
 [ext_resource type="Script" uid="uid://bsmr3og4rsc35" path="res://scripts/gd/magnet_behaviour.gd" id="1_ytlxt"]
 [ext_resource type="Texture2D" uid="uid://y6klxd3jyp68" path="res://assets/images/icons/magnets/m_rain_0.png" id="2_od1py"]
@@ -18,12 +18,38 @@ shader_parameter/cull_back = true
 shader_parameter/y_rot = 0.0
 shader_parameter/x_rot = 0.0
 shader_parameter/inset = 0.0
-shader_parameter/hovering = 1.0
 shader_parameter/rand_trans_power = 1.0
-shader_parameter/rand_seed = 0.0
+shader_parameter/rand_seed = 2.155
 shader_parameter/vortex_amt = 0.0
 shader_parameter/rotation = 0.0
 shader_parameter/mouse_screen_pos_test = Vector2(0, 0)
+
+[sub_resource type="GDScript" id="GDScript_vshok"]
+script/source = "extends Sprite2D
+
+func _ready() -> void:
+	self.set_instance_shader_parameter(\"mouse_screen_pos\",self.global_position)
+	Global.grabbed.connect(_on_grabbed_magnet)
+	Global.dropped.connect(_on_dropped_magnet)
+	
+
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseMotion:
+		self.set_instance_shader_parameter(\"mouse_screen_pos\",get_global_mouse_position())
+	
+func _on_grabbed_magnet(magnet: MagnetBehaviour):
+	if not self.get_parent() == magnet: return
+	create_tween().tween_property(self, \"scale\", Vector2.ONE*0.115, 0.2)
+	self.set_instance_shader_parameter(\"hovering\",0.1)
+	
+
+func _on_dropped_magnet(magnet: MagnetBehaviour):
+	if not self.get_parent() == magnet: return
+	create_tween().tween_property(self, \"scale\", Vector2.ONE*0.1, 0.2)
+	self.set_instance_shader_parameter(\"hovering\",1)
+	
+	
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m442f"]
 radius = 50.0
@@ -42,13 +68,17 @@ area = NodePath("Area2D")
 material = SubResource("ShaderMaterial_vtgsf")
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_od1py")
+script = SubResource("GDScript_vshok")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_m442f")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("CircleShape2D_od1py")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_input_event"]
+[connection signal="input_event" from="Area2D" to="Sprite2D" method="_on_area_2d_input_event"]

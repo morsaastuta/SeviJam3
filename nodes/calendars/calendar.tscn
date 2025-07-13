@@ -22,8 +22,6 @@ textures = Dictionary[int, Texture2D]({
 5: null
 })
 no_magnet = true
-requirements = null
-effect_default = null
 
 [node name="Day02" parent="Month/week01" instance=ExtResource("2_3ce4g")]
 position = Vector2(22, 0)
@@ -37,9 +35,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Day03" parent="Month/week01" instance=ExtResource("2_3ce4g")]
 position = Vector2(44, 0)
@@ -53,9 +48,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Day04" parent="Month/week01" instance=ExtResource("2_3ce4g")]
 position = Vector2(66, 0)
@@ -69,9 +61,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Day05" parent="Month/week01" instance=ExtResource("2_3ce4g")]
 position = Vector2(88, 0)
@@ -85,9 +74,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Day06" parent="Month/week01" instance=ExtResource("2_3ce4g")]
 position = Vector2(110, 0)
@@ -101,9 +87,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Day07" parent="Month/week01" instance=ExtResource("2_3ce4g")]
 position = Vector2(133, 0)
@@ -117,9 +100,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="week02" type="Node2D" parent="Month"]
 position = Vector2(0, 26)
@@ -136,8 +116,6 @@ textures = Dictionary[int, Texture2D]({
 5: null
 })
 no_magnet = true
-requirements = null
-effect_default = null
 
 [node name="Day02" parent="Month/week02" instance=ExtResource("2_3ce4g")]
 position = Vector2(22, 0)
@@ -151,9 +129,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Day03" parent="Month/week02" instance=ExtResource("2_3ce4g")]
 position = Vector2(44, 0)
@@ -167,9 +142,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Day04" parent="Month/week02" instance=ExtResource("2_3ce4g")]
 position = Vector2(66, 0)
@@ -183,9 +155,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Day05" parent="Month/week02" instance=ExtResource("2_3ce4g")]
 position = Vector2(88, 0)
@@ -199,9 +168,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Day06" parent="Month/week02" instance=ExtResource("2_3ce4g")]
 position = Vector2(110, 0)
@@ -215,9 +181,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Day07" parent="Month/week02" instance=ExtResource("2_3ce4g")]
 position = Vector2(133, 0)
@@ -231,9 +194,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="week03" type="Node2D" parent="Month"]
 position = Vector2(0, 55)
@@ -250,8 +210,6 @@ textures = Dictionary[int, Texture2D]({
 5: null
 })
 no_magnet = true
-requirements = null
-effect_default = null
 
 [node name="Day02" parent="Month/week03" instance=ExtResource("2_3ce4g")]
 position = Vector2(22, 0)
@@ -265,9 +223,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Day03" parent="Month/week03" instance=ExtResource("2_3ce4g")]
 position = Vector2(44, 0)
@@ -281,9 +236,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Day04" parent="Month/week03" instance=ExtResource("2_3ce4g")]
 position = Vector2(66, 0)
@@ -297,9 +249,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Day05" parent="Month/week03" instance=ExtResource("2_3ce4g")]
 position = Vector2(88, 0)
@@ -313,9 +262,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Day06" parent="Month/week03" instance=ExtResource("2_3ce4g")]
 position = Vector2(110, 0)
@@ -329,9 +275,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Day07" parent="Month/week03" instance=ExtResource("2_3ce4g")]
 position = Vector2(133, 0)
@@ -345,9 +288,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="week04" type="Node2D" parent="Month"]
 position = Vector2(0, 55)
@@ -364,8 +304,6 @@ textures = Dictionary[int, Texture2D]({
 5: null
 })
 no_magnet = true
-requirements = null
-effect_default = null
 
 [node name="Day02" parent="Month/week04" instance=ExtResource("2_3ce4g")]
 position = Vector2(22, 0)
@@ -379,9 +317,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Day03" parent="Month/week04" instance=ExtResource("2_3ce4g")]
 position = Vector2(44, 0)
@@ -395,9 +330,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Day04" parent="Month/week04" instance=ExtResource("2_3ce4g")]
 position = Vector2(66, 0)
@@ -411,9 +343,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Day05" parent="Month/week04" instance=ExtResource("2_3ce4g")]
 position = Vector2(88, 0)
@@ -427,9 +356,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Day06" parent="Month/week04" instance=ExtResource("2_3ce4g")]
 position = Vector2(110, 0)
@@ -443,9 +369,6 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
 
 [node name="Day07" parent="Month/week04" instance=ExtResource("2_3ce4g")]
 position = Vector2(133, 0)
@@ -459,6 +382,3 @@ textures = Dictionary[int, Texture2D]({
 4: null,
 5: null
 })
-no_magnet = null
-requirements = null
-effect_default = null
