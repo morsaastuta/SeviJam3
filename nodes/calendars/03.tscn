@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://vtgtqyh3ptt7"]
+[gd_scene load_steps=15 format=3 uid="uid://vtgtqyh3ptt7"]
 
 [ext_resource type="Texture2D" uid="uid://cqwjfqrmqpvi1" path="res://assets/images/calendars/03_l.png" id="1_1nvgh"]
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_7hm1w"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://4soe34omom8k" path="res://assets/font/LT Colored Pencil.otf" id="5_liwia"]
 [ext_resource type="Texture2D" uid="uid://2ypckt2xfjqr" path="res://assets/images/post-its/p_rain.png" id="6_7amuo"]
 [ext_resource type="Texture2D" uid="uid://cx03q7yuadtdl" path="res://assets/images/post-its/p_no_magnet.png" id="9_aan61"]
+[ext_resource type="AudioStream" uid="uid://cslkhwaeautx5" path="res://assets/audio/sfx/write.ogg" id="10_mibjj"]
 
 [sub_resource type="Theme" id="Theme_13yls"]
 
@@ -154,6 +155,9 @@ position = Vector2(777.212, -352.772)
 rotation = -0.261799
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_mibjj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_mibjj")
 
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
 
