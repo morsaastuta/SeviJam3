@@ -113,6 +113,21 @@ text = "Debe haber temporal 2 veces"
 [node name="Week1" parent="." instance=ExtResource("3_d7mam")]
 position = Vector2(421, 472)
 
+[node name="Monday" parent="Week1" index="0"]
+no_magnet = true
+
+[node name="Tuesday" parent="Week1" index="1"]
+no_magnet = true
+
+[node name="Wednesday" parent="Week1" index="2"]
+no_magnet = true
+
+[node name="Thursday" parent="Week1" index="3"]
+no_magnet = true
+
+[node name="Friday" parent="Week1" index="4"]
+no_magnet = true
+
 [node name="Week2" parent="." instance=ExtResource("3_d7mam")]
 position = Vector2(420, 581.5)
 
@@ -255,6 +270,7 @@ stream = ExtResource("15_85a1h")
 
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
 
+[editable path="Week1"]
 [editable path="Week3"]
 [editable path="Week4"]
 [editable path="Tray/ColorRect/Sticker"]

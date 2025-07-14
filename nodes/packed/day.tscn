@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckw7icje268sg"]
+[gd_scene load_steps=10 format=3 uid="uid://ckw7icje268sg"]
 
 [ext_resource type="Script" uid="uid://32onbcd1rnxf" path="res://scripts/gd/day_behaviour.gd" id="1_nvsrj"]
 [ext_resource type="Texture2D" uid="uid://cpd3pdt24kix5" path="res://assets/images/icons/drawings/d_rain.png" id="2_pta2i"]
@@ -7,8 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dtysrl848qsdk" path="res://assets/images/icons/drawings/d_rainbow.png" id="5_xvgxs"]
 [ext_resource type="Texture2D" uid="uid://b7i8pxgbdtdph" path="res://assets/images/icons/drawings/d_wind.png" id="6_1a1yd"]
 [ext_resource type="Shader" uid="uid://b6j6o140o6x0m" path="res://scripts/shader/fade.gdshader" id="7_5700h"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uisq6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twf8d"]
 
@@ -40,7 +38,7 @@ collision_mask = 2
 script = ExtResource("1_nvsrj")
 sprite = NodePath("SpriteEffect")
 textures = Dictionary[int, Texture2D]({
-0: SubResource("CompressedTexture2D_uisq6"),
+0: null,
 1: ExtResource("2_pta2i"),
 2: ExtResource("3_5700h"),
 3: ExtResource("4_c040t"),
@@ -55,9 +53,6 @@ shape = SubResource("RectangleShape2D_twf8d")
 [node name="SpriteEffect" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_c040t")
 scale = Vector2(0.16, 0.16)
-
-[node name="SpriteMagnet" type="Sprite2D" parent="."]
-position = Vector2(-8, -8)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -36,6 +36,7 @@ func _ready() -> void:
 	
 func _process(delta):
 	if magnet_applied: magnet_applied.global_position = global_position
+	print(%SpriteEffect.texture)
 
 func _on_magnet_dropped(magnet: MagnetBehaviour) -> void:
 	if (not magnet_hover) || magnet.day != null: return
