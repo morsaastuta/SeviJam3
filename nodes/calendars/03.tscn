@@ -15,23 +15,23 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8dp28"]
 shader = ExtResource("3_13yls")
-shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.235294)
-shader_parameter/shadow_offset = Vector2(0.005, 0.005)
+shader_parameter/r = 0.0
+shader_parameter/offset = -0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cq6m0"]
 shader = ExtResource("3_13yls")
-shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.235294)
-shader_parameter/shadow_offset = Vector2(0.005, 0.005)
+shader_parameter/r = 0.0
+shader_parameter/offset = -0.00999953
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i62ix"]
 shader = ExtResource("3_13yls")
-shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.235294)
-shader_parameter/shadow_offset = Vector2(0.005, 0.005)
+shader_parameter/r = 0.0
+shader_parameter/offset = -0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_13yls"]
 shader = ExtResource("3_13yls")
-shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.5)
-shader_parameter/shadow_offset = Vector2(0.01, 0.05)
+shader_parameter/r = 0.0
+shader_parameter/offset = -0.1
 
 [sub_resource type="Theme" id="Theme_13yls"]
 
@@ -86,15 +86,11 @@ position = Vector2(675, 658)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_7amuo")
 
-[node name="Magnet" parent="." node_paths=PackedStringArray("audio_grab", "audio_drop") instance=ExtResource("5_iv61d")]
+[node name="Magnet" parent="." instance=ExtResource("5_iv61d")]
 position = Vector2(1781, 731)
-audio_grab = NodePath("AudioStreamPlayer")
-audio_drop = NodePath("AudioStreamPlayer2")
 
-[node name="Magnet2" parent="." node_paths=PackedStringArray("audio_grab", "audio_drop") instance=ExtResource("5_iv61d")]
+[node name="Magnet2" parent="." instance=ExtResource("5_iv61d")]
 position = Vector2(1630, 857)
-audio_grab = NodePath("AudioStreamPlayer")
-audio_drop = NodePath("AudioStreamPlayer2")
 
 [node name="Week1" parent="." instance=ExtResource("2_k35rt")]
 position = Vector2(421, 472)
