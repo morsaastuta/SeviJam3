@@ -30,31 +30,32 @@ func _ready() -> void:
 	Global.aborted.connect(_on_magnet_dropped)
 
 func _on_magnet_grabbed(magnet: MagnetBehaviour):
-	generate_climate(false)
+	await generate_climate(false)
 	mission_is_achieved = _mission_achieved()
 	sticker_is_achieved = _sticker_achieved()
 	Global.fridge.check_requisites()
 
 func _on_magnet_dropped(magnet: MagnetBehaviour):
-	generate_climate(true)
+	await generate_climate(true)
 	mission_is_achieved = _mission_achieved()
 	sticker_is_achieved = _sticker_achieved()
 	Global.fridge.check_requisites()
 
-func generate_climate(dropping: bool):
+func generate_climate(dropping: bool) -> void:
 	var days: Array[DayBehaviour]
 	days.append_array(get_tree().get_nodes_in_group(Name.DAYS))
 	if !dropping:
 		for day: DayBehaviour in days:
 			if !day.magnet_applied: day.rem_effect()
 	sounded = false
+	var awaited: float = 0
 	for day: DayBehaviour in days:
 		var idx: int = days.find(day)
 		if day.effect_applied == Name.Effect.NONE:
 			# DUPLICATE
 			if (idx >= 14 &&
+			days[idx-14].effect_applied != Name.Effect.NONE &&
 			days[idx-7].effect_applied == Name.Effect.RAINBOW):
-				sounded = true
 				if dropping: await get_tree().create_timer(0.1).timeout
 				set_weather(day, days[idx-14].effect_applied, dropping)
 			# WIND
@@ -62,35 +63,30 @@ func generate_climate(dropping: bool):
 			days[idx-1].effect_applied == Name.Effect.RAIN &&
 			days[idx-2].effect_applied == Name.Effect.RAIN):
 				days[idx-14].effect_applied
-				sounded = true
 				if dropping: await get_tree().create_timer(0.1).timeout
 				set_weather(day, Name.Effect.WIND, dropping)
 			# RAINBOW A
 			elif (idx >= 2 &&
 			days[idx-1].effect_applied == Name.Effect.RAIN &&
 			days[idx-2].effect_applied == Name.Effect.SUN):
-				sounded = true
 				if dropping: await get_tree().create_timer(0.1).timeout
 				set_weather(day, Name.Effect.RAINBOW, dropping)
 			# RAINBOW B
 			elif (idx >= 2 &&
 			days[idx-1].effect_applied == Name.Effect.SUN &&
 			days[idx-2].effect_applied == Name.Effect.RAIN):
-				sounded = true
 				if dropping: await get_tree().create_timer(0.1).timeout
 				set_weather(day, Name.Effect.RAINBOW, dropping)
 			# RAIN A
 			elif (idx >= 2 &&
 			days[idx-1].effect_applied == Name.Effect.STORM &&
 			days[idx-2].effect_applied == Name.Effect.WIND):
-				sounded = true
 				if dropping: await get_tree().create_timer(0.1).timeout
 				set_weather(day, Name.Effect.RAIN, dropping)
 			# RAIN B
 			elif (idx >= 8 &&
 			days[idx-7].effect_applied == Name.Effect.STORM &&
 			days[idx-8].effect_applied == Name.Effect.WIND):
-				sounded = true
 				if dropping: await get_tree().create_timer(0.1).timeout
 				set_weather(day, Name.Effect.RAIN, dropping)
 	for day: DayBehaviour in days:
@@ -100,13 +96,16 @@ func generate_climate(dropping: bool):
 			if (idx >= 1 && idx <= days.size()-2 &&
 			days[idx-1].effect_applied == Name.Effect.RAIN &&
 			days[idx+1].effect_applied == Name.Effect.RAIN):
-				sounded = true
 				if dropping: await get_tree().create_timer(0.1).timeout
 				set_weather(day, Name.Effect.STORM, dropping)
-	if dropping && sounded: sounder.play()
 	
 func set_weather(day: DayBehaviour, weather: Name.Effect, dropping: bool) -> void:
+	try_play_sound(dropping)
 	day.set_effect(weather)
+	
+func try_play_sound(dropping: bool):
+	if dropping && !sounded: sounder.play()
+	sounded = true
 
 func _mission_achieved() -> bool:
 	var evaluation := evaluator()
