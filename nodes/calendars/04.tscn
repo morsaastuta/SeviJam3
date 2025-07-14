@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cp4ilc1d6ygfu"]
+[gd_scene load_steps=16 format=3 uid="uid://cp4ilc1d6ygfu"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_hsbjh"]
 [ext_resource type="PackedScene" uid="uid://ck70bgoa052mg" path="res://nodes/calendars/05.tscn" id="2_77t68"]
@@ -11,8 +11,9 @@
 [ext_resource type="FontFile" uid="uid://4soe34omom8k" path="res://assets/font/LT Colored Pencil.otf" id="6_l2qjx"]
 [ext_resource type="Texture2D" uid="uid://cx03q7yuadtdl" path="res://assets/images/post-its/p_no_magnet.png" id="7_kwv1y"]
 [ext_resource type="Texture2D" uid="uid://2ypckt2xfjqr" path="res://assets/images/post-its/p_rain.png" id="7_m7bf4"]
-[ext_resource type="Texture2D" uid="uid://doyh7p3x8pcwb" path="res://assets/images/icons/stickers/s_rainbow_1.png" id="8_s0quv"]
-[ext_resource type="Texture2D" uid="uid://bg4u56nnkvmsn" path="res://assets/images/icons/stickers/s_rainbow_2.png" id="9_77t68"]
+[ext_resource type="Texture2D" uid="uid://ixgiwp36v6ve" path="res://assets/images/icons/stickers/s_storm_0.png" id="12_0l05d"]
+[ext_resource type="Texture2D" uid="uid://t8m3dj8dah7j" path="res://assets/images/icons/stickers/s_storm_1.png" id="13_85a1h"]
+[ext_resource type="Texture2D" uid="uid://c6xojpx4lwle4" path="res://assets/images/icons/stickers/s_storm_2.png" id="14_tfnyj"]
 
 [sub_resource type="Theme" id="Theme_nbp2d"]
 
@@ -143,16 +144,17 @@ color = Color(0, 0, 0, 0)
 [node name="Sticker" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
 z_index = 3
 position = Vector2(632, 677)
+texture = ExtResource("12_0l05d")
 
 [node name="Sticker2" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
 z_index = 3
 position = Vector2(911, 593)
-texture = ExtResource("8_s0quv")
+texture = ExtResource("13_85a1h")
 
 [node name="Sticker3" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
 z_index = 3
 position = Vector2(1183, 685)
-texture = ExtResource("9_77t68")
+texture = ExtResource("14_tfnyj")
 
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
 

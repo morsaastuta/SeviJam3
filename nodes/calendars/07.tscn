@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_dc2a8"]
 
-[node name="Calendar" type="Node2D" node_paths=PackedStringArray("screen")]
+[node name="Calendar" type="Node2D"]
 script = ExtResource("1_dc2a8")
-screen = NodePath("")
 sticker_quantity_rules = 4
 rules = Array[String](["1_3_rain", "2_2_rain", "3_1_rain", "4_1_rain", "1_1_wind", "2_1_rain", "3_1_rain"])

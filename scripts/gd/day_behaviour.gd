@@ -67,11 +67,11 @@ func _self_check() -> void:
 	for key in requirements.keys():
 		requirements[key] = effect_applied == Global.effect_by_name(key)
 		
-func set_effect(e: Name.Effect):
+func set_effect(e: Name.Effect) -> void:
 	if effect_applied != Name.Effect.NONE: return
 	effect_applied = e
 	_self_check()
 
-func rem_effect():
+func rem_effect() -> void:
 	if effect_default == Name.Effect.NONE && effect_applied != Name.Effect.NONE:
 		effect_applied = Name.Effect.NONE
