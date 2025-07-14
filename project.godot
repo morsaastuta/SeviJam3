@@ -13,7 +13,8 @@ config_version=5
 config/name="SeviJam3"
 run/main_scene="uid://b4nclix6r782b"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="uid://y6klxd3jyp68"
+config/icon="uid://y6klxd3jyp68"
 
 [autoload]
 
