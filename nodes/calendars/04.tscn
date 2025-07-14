@@ -40,12 +40,13 @@ size = Vector2(2599, 2453.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdumg"]
 size = Vector2(591.106, 668.713)
 
-[node name="Calendar2" type="Node2D" node_paths=PackedStringArray("screen")]
+[node name="Calendar2" type="Node2D" node_paths=PackedStringArray("screen", "sounder")]
 script = ExtResource("1_hsbjh")
 screen = NodePath("Tray/ColorRect")
 next = ExtResource("2_77t68")
 sticker_quantity_rules = 1
 rules = Array[String](["any_2_storm", "any_4_rain"])
+sounder = NodePath("AudioStreamPlayer")
 
 [node name="Month" type="Sprite2D" parent="."]
 position = Vector2(885, 604)
@@ -224,7 +225,6 @@ shape = SubResource("RectangleShape2D_ull2n")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StickerCanceller"]
 position = Vector2(777.212, -352.772)
 rotation = -0.261799
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_rdumg")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

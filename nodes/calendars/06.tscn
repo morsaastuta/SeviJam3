@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://oibnepoh55k3"]
+[gd_scene load_steps=14 format=3 uid="uid://oibnepoh55k3"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_phkgn"]
 [ext_resource type="PackedScene" uid="uid://hvhfmf0dvefq" path="res://nodes/calendars/07.tscn" id="2_fstfa"]
@@ -11,15 +11,17 @@
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="7_6nj40"]
 [ext_resource type="Texture2D" uid="uid://cv18dhlp5mkos" path="res://assets/images/icons/stickers/s_virgen.png" id="8_4reae"]
 [ext_resource type="PackedScene" uid="uid://fjghibbvx8dn" path="res://nodes/packed/magnet_1.tscn" id="9_fstfa"]
+[ext_resource type="AudioStream" uid="uid://cslkhwaeautx5" path="res://assets/audio/sfx/write.ogg" id="12_q43t1"]
 
 [sub_resource type="Theme" id="Theme_nbp2d"]
 
-[node name="Calendar" type="Node2D" node_paths=PackedStringArray("screen")]
+[node name="Calendar" type="Node2D" node_paths=PackedStringArray("screen", "sounder")]
 script = ExtResource("1_phkgn")
 screen = NodePath("Tray/ColorRect")
 next = ExtResource("2_fstfa")
 sticker_quantity_rules = 4
 rules = Array[String](["1_3_rain", "2_2_rain", "3_1_rain", "4_1_rain", "1_1_wind", "2_1_rain", "3_1_rain"])
+sounder = NodePath("AudioStreamPlayer")
 
 [node name="Month" type="Sprite2D" parent="."]
 position = Vector2(885, 604)
@@ -163,6 +165,9 @@ color = Color(0, 0, 0, 0)
 [node name="Sticker" parent="Tray/ColorRect" instance=ExtResource("7_6nj40")]
 position = Vector2(924, 637)
 texture = ExtResource("8_4reae")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_q43t1")
 
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
 
