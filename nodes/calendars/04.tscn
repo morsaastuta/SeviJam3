@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cp4ilc1d6ygfu"]
+[gd_scene load_steps=29 format=3 uid="uid://cp4ilc1d6ygfu"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_hsbjh"]
 [ext_resource type="PackedScene" uid="uid://ck70bgoa052mg" path="res://nodes/calendars/05.tscn" id="2_77t68"]
@@ -17,6 +17,11 @@
 [ext_resource type="Texture2D" uid="uid://t8m3dj8dah7j" path="res://assets/images/icons/stickers/s_storm_1.png" id="13_85a1h"]
 [ext_resource type="Texture2D" uid="uid://c6xojpx4lwle4" path="res://assets/images/icons/stickers/s_storm_2.png" id="14_tfnyj"]
 [ext_resource type="AudioStream" uid="uid://cslkhwaeautx5" path="res://assets/audio/sfx/write.ogg" id="15_85a1h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ull2n"]
+shader = ExtResource("9_ull2n")
+shader_parameter/r = 0.0
+shader_parameter/offset = -0.0349995
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rdumg"]
 shader = ExtResource("9_ull2n")
@@ -61,16 +66,19 @@ rules = Array[String](["any_2_storm", "any_4_rain"])
 sounder = NodePath("AudioStreamPlayer")
 
 [node name="BackgroundCalendar" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ull2n")
 position = Vector2(831.8, 395.8)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_tfnyj")
 
 [node name="Month" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ull2n")
 position = Vector2(885, 604)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_hsbjh")
 
 [node name="Notas" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ull2n")
 position = Vector2(1633, 251)
 rotation = -0.233924
 scale = Vector2(0.965, 0.965)
@@ -164,20 +172,14 @@ position = Vector2(1292, 872)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_kwv1y")
 
-[node name="Magnet" parent="." node_paths=PackedStringArray("audio_grab", "audio_drop") instance=ExtResource("6_6kooq")]
+[node name="Magnet" parent="." instance=ExtResource("6_6kooq")]
 position = Vector2(1603, 881)
-audio_grab = NodePath("AudioStreamPlayer")
-audio_drop = NodePath("AudioStreamPlayer2")
 
-[node name="Magnet2" parent="." node_paths=PackedStringArray("audio_grab", "audio_drop") instance=ExtResource("6_6kooq")]
+[node name="Magnet2" parent="." instance=ExtResource("6_6kooq")]
 position = Vector2(1730, 842)
-audio_grab = NodePath("AudioStreamPlayer")
-audio_drop = NodePath("AudioStreamPlayer2")
 
-[node name="Magnet3" parent="." node_paths=PackedStringArray("audio_grab", "audio_drop") instance=ExtResource("6_6kooq")]
+[node name="Magnet3" parent="." instance=ExtResource("6_6kooq")]
 position = Vector2(1628, 754)
-audio_grab = NodePath("AudioStreamPlayer")
-audio_drop = NodePath("AudioStreamPlayer2")
 
 [node name="Tray" type="CanvasLayer" parent="."]
 layer = 5

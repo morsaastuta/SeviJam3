@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ck70bgoa052mg"]
+[gd_scene load_steps=25 format=3 uid="uid://ck70bgoa052mg"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_7mrer"]
 [ext_resource type="PackedScene" uid="uid://oibnepoh55k3" path="res://nodes/calendars/06.tscn" id="2_5uwkv"]
@@ -15,6 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://doyh7p3x8pcwb" path="res://assets/images/icons/stickers/s_rainbow_1.png" id="11_nr3uo"]
 [ext_resource type="Texture2D" uid="uid://bg4u56nnkvmsn" path="res://assets/images/icons/stickers/s_rainbow_2.png" id="12_eb1uk"]
 [ext_resource type="AudioStream" uid="uid://cslkhwaeautx5" path="res://assets/audio/sfx/write.ogg" id="13_eb1uk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kvclw"]
+shader = ExtResource("8_kvclw")
+shader_parameter/r = 0.0
+shader_parameter/offset = -0.0349995
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k0gdx"]
 shader = ExtResource("8_kvclw")
@@ -52,16 +57,19 @@ rules = Array[String](["0_1_rainbow", "1_1_rainbow", "2_1_rainbow", "3_1_rainbow
 sounder = NodePath("AudioStreamPlayer")
 
 [node name="BackgroundCalendar" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_kvclw")
 position = Vector2(831.8, 395.8)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_1q1ak")
 
 [node name="Month" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_kvclw")
 position = Vector2(885, 604)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_7mrer")
 
 [node name="Notas" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_kvclw")
 position = Vector2(1633, 251)
 rotation = -0.233924
 scale = Vector2(0.965, 0.965)

@@ -337,6 +337,8 @@ libraries = {
 }
 autoplay = "wave_text"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+
 [connection signal="button_down" from="Control/ContinueButton" to="Control/ContinueButton" method="_on_button_down"]
 [connection signal="button_up" from="Control/ContinueButton" to="Control/ContinueButton" method="_on_button_up"]
 [connection signal="mouse_entered" from="Control/ContinueButton" to="Control/ContinueButton" method="_on_mouse_entered"]

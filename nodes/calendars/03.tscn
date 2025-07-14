@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://vtgtqyh3ptt7"]
+[gd_scene load_steps=22 format=3 uid="uid://vtgtqyh3ptt7"]
 
 [ext_resource type="Texture2D" uid="uid://cqwjfqrmqpvi1" path="res://assets/images/calendars/03_l.png" id="1_1nvgh"]
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_7hm1w"]
@@ -16,17 +16,17 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8dp28"]
 shader = ExtResource("3_13yls")
 shader_parameter/r = 0.0
-shader_parameter/offset = -0.1
+shader_parameter/offset = -0.0349995
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cq6m0"]
 shader = ExtResource("3_13yls")
 shader_parameter/r = 0.0
-shader_parameter/offset = -0.00999953
+shader_parameter/offset = -0.0349995
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i62ix"]
 shader = ExtResource("3_13yls")
 shader_parameter/r = 0.0
-shader_parameter/offset = -0.1
+shader_parameter/offset = -0.0349995
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_13yls"]
 shader = ExtResource("3_13yls")
@@ -34,6 +34,11 @@ shader_parameter/r = 0.0
 shader_parameter/offset = -0.1
 
 [sub_resource type="Theme" id="Theme_13yls"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c7xge"]
+shader = ExtResource("3_13yls")
+shader_parameter/r = 0.0
+shader_parameter/offset = -0.1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aan61"]
 size = Vector2(1276, 1125)
@@ -137,21 +142,25 @@ theme = SubResource("Theme_13yls")
 color = Color(0, 0, 0, 0)
 
 [node name="PNoMagnet" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_c7xge")
 position = Vector2(1293, 436)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("9_aan61")
 
 [node name="PNoMagnet2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_c7xge")
 position = Vector2(1292, 547)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("9_aan61")
 
 [node name="PNoMagnet3" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_c7xge")
 position = Vector2(1294, 658)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("9_aan61")
 
 [node name="PNoMagnet4" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_c7xge")
 position = Vector2(1294, 767)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("9_aan61")
