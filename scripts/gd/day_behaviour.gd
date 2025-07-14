@@ -71,7 +71,6 @@ func _self_check() -> void:
 		requirements[key] = effect_applied == Global.effect_by_name(key)
 		
 func set_effect(e: Name.Effect) -> void:
-	await get_tree().create_timer(0.05).timeout
 	if effect_applied != Name.Effect.NONE: return
 	effect_applied = e
 	_self_check()
