@@ -1,20 +1,32 @@
-[gd_scene load_steps=24 format=3 uid="uid://cp4ilc1d6ygfu"]
+[gd_scene load_steps=28 format=3 uid="uid://cp4ilc1d6ygfu"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_hsbjh"]
 [ext_resource type="PackedScene" uid="uid://ck70bgoa052mg" path="res://nodes/calendars/05.tscn" id="2_77t68"]
 [ext_resource type="Texture2D" uid="uid://brhd7uoqfjv48" path="res://assets/images/calendars/04_l.png" id="2_hsbjh"]
 [ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/props/note.png" id="3_2uj7b"]
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="3_d7mam"]
+[ext_resource type="Texture2D" uid="uid://ey0doayo30rt" path="res://assets/images/calendars/00_u.png" id="3_tfnyj"]
 [ext_resource type="Texture2D" uid="uid://cr1je5xoutwqr" path="res://assets/images/props/help_rainbow.png" id="4_nbp2d"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="5_d7mam"]
 [ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/magnet_0.tscn" id="6_6kooq"]
 [ext_resource type="FontFile" uid="uid://4soe34omom8k" path="res://assets/font/LT Colored Pencil.otf" id="6_l2qjx"]
 [ext_resource type="Texture2D" uid="uid://cx03q7yuadtdl" path="res://assets/images/post-its/p_no_magnet.png" id="7_kwv1y"]
 [ext_resource type="Texture2D" uid="uid://2ypckt2xfjqr" path="res://assets/images/post-its/p_rain.png" id="7_m7bf4"]
+[ext_resource type="Shader" uid="uid://d1as0k3j4r023" path="res://scripts/shader/shadow.gdshader" id="9_ull2n"]
 [ext_resource type="Texture2D" uid="uid://ixgiwp36v6ve" path="res://assets/images/icons/stickers/s_storm_0.png" id="12_0l05d"]
 [ext_resource type="Texture2D" uid="uid://t8m3dj8dah7j" path="res://assets/images/icons/stickers/s_storm_1.png" id="13_85a1h"]
 [ext_resource type="Texture2D" uid="uid://c6xojpx4lwle4" path="res://assets/images/icons/stickers/s_storm_2.png" id="14_tfnyj"]
 [ext_resource type="AudioStream" uid="uid://cslkhwaeautx5" path="res://assets/audio/sfx/write.ogg" id="15_85a1h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rdumg"]
+shader = ExtResource("9_ull2n")
+shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_offset = Vector2(0.01, 0.05)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_34tny"]
+shader = ExtResource("9_ull2n")
+shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_offset = Vector2(0.01, 0.05)
 
 [sub_resource type="Theme" id="Theme_nbp2d"]
 
@@ -47,6 +59,11 @@ next = ExtResource("2_77t68")
 sticker_quantity_rules = 1
 rules = Array[String](["any_2_storm", "any_4_rain"])
 sounder = NodePath("AudioStreamPlayer")
+
+[node name="BackgroundCalendar" type="Sprite2D" parent="."]
+position = Vector2(831.8, 395.8)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_tfnyj")
 
 [node name="Month" type="Sprite2D" parent="."]
 position = Vector2(885, 604)
@@ -112,31 +129,37 @@ requirements = Dictionary[StringName, bool]({
 position = Vector2(421, 910)
 
 [node name="PRain" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_rdumg")
 position = Vector2(679, 766)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_m7bf4")
 
 [node name="PNoMagnet" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_34tny")
 position = Vector2(1293, 436)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_kwv1y")
 
 [node name="PNoMagnet2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_rdumg")
 position = Vector2(1292, 547)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_kwv1y")
 
 [node name="PNoMagnet3" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_rdumg")
 position = Vector2(1294, 658)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_kwv1y")
 
 [node name="PNoMagnet4" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_rdumg")
 position = Vector2(1294, 767)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_kwv1y")
 
 [node name="PNoMagnet5" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_rdumg")
 position = Vector2(1292, 872)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_kwv1y")
@@ -212,14 +235,6 @@ shape = SubResource("RectangleShape2D_ull2n")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StickerCanceller"]
 position = Vector2(2314, -161)
-shape = SubResource("RectangleShape2D_ull2n")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StickerCanceller"]
-position = Vector2(-56, 1697)
-shape = SubResource("RectangleShape2D_ull2n")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StickerCanceller"]
-position = Vector2(-2140, -708.25)
 shape = SubResource("RectangleShape2D_ull2n")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StickerCanceller"]

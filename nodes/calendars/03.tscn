@@ -1,15 +1,37 @@
-[gd_scene load_steps=15 format=3 uid="uid://vtgtqyh3ptt7"]
+[gd_scene load_steps=21 format=3 uid="uid://vtgtqyh3ptt7"]
 
 [ext_resource type="Texture2D" uid="uid://cqwjfqrmqpvi1" path="res://assets/images/calendars/03_l.png" id="1_1nvgh"]
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_7hm1w"]
 [ext_resource type="PackedScene" uid="uid://cp4ilc1d6ygfu" path="res://nodes/calendars/04.tscn" id="2_8f51t"]
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="2_k35rt"]
+[ext_resource type="Shader" uid="uid://d1as0k3j4r023" path="res://scripts/shader/shadow.gdshader" id="3_13yls"]
+[ext_resource type="Texture2D" uid="uid://ey0doayo30rt" path="res://assets/images/calendars/00_u.png" id="3_ajd14"]
 [ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/props/note.png" id="4_mfhnp"]
 [ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/magnet_0.tscn" id="5_iv61d"]
 [ext_resource type="FontFile" uid="uid://4soe34omom8k" path="res://assets/font/LT Colored Pencil.otf" id="5_liwia"]
 [ext_resource type="Texture2D" uid="uid://2ypckt2xfjqr" path="res://assets/images/post-its/p_rain.png" id="6_7amuo"]
 [ext_resource type="Texture2D" uid="uid://cx03q7yuadtdl" path="res://assets/images/post-its/p_no_magnet.png" id="9_aan61"]
 [ext_resource type="AudioStream" uid="uid://cslkhwaeautx5" path="res://assets/audio/sfx/write.ogg" id="10_mibjj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8dp28"]
+shader = ExtResource("3_13yls")
+shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.235294)
+shader_parameter/shadow_offset = Vector2(0.005, 0.005)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cq6m0"]
+shader = ExtResource("3_13yls")
+shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.235294)
+shader_parameter/shadow_offset = Vector2(0.005, 0.005)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i62ix"]
+shader = ExtResource("3_13yls")
+shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.235294)
+shader_parameter/shadow_offset = Vector2(0.005, 0.005)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_13yls"]
+shader = ExtResource("3_13yls")
+shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_offset = Vector2(0.01, 0.05)
 
 [sub_resource type="Theme" id="Theme_13yls"]
 
@@ -29,12 +51,20 @@ next = ExtResource("2_8f51t")
 rules = Array[String](["2_2_rain"])
 sounder = NodePath("AudioStreamPlayer")
 
+[node name="BackgroundCalendar" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_8dp28")
+position = Vector2(831.8, 395.8)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_ajd14")
+
 [node name="Month" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_cq6m0")
 position = Vector2(885, 604)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_1nvgh")
 
 [node name="Notas" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_i62ix")
 position = Vector2(1633, 251)
 rotation = -0.233924
 scale = Vector2(0.965, 0.965)
@@ -51,6 +81,7 @@ theme_override_font_sizes/normal_font_size = 32
 text = "Debe caer lluvia 2 veces en la 3ª semana"
 
 [node name="PRain" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_13yls")
 position = Vector2(675, 658)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_7amuo")
@@ -141,14 +172,6 @@ shape = SubResource("RectangleShape2D_ajd14")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StickerCanceller"]
 position = Vector2(2314, -161)
-shape = SubResource("RectangleShape2D_ajd14")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StickerCanceller"]
-position = Vector2(-56, 1697)
-shape = SubResource("RectangleShape2D_ajd14")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StickerCanceller"]
-position = Vector2(-2140, -708.25)
 shape = SubResource("RectangleShape2D_ajd14")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StickerCanceller"]

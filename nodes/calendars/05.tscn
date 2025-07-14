@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://ck70bgoa052mg"]
+[gd_scene load_steps=24 format=3 uid="uid://ck70bgoa052mg"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_7mrer"]
 [ext_resource type="PackedScene" uid="uid://oibnepoh55k3" path="res://nodes/calendars/06.tscn" id="2_5uwkv"]
 [ext_resource type="Texture2D" uid="uid://bo51xe5u8gvfx" path="res://assets/images/calendars/05_l.png" id="2_7mrer"]
+[ext_resource type="Texture2D" uid="uid://ey0doayo30rt" path="res://assets/images/calendars/00_u.png" id="3_1q1ak"]
 [ext_resource type="Texture2D" uid="uid://dilph6rippfoj" path="res://assets/images/props/note.png" id="3_xxkkp"]
 [ext_resource type="Texture2D" uid="uid://cx03q7yuadtdl" path="res://assets/images/post-its/p_no_magnet.png" id="5_5uwkv"]
 [ext_resource type="PackedScene" uid="uid://bd2jiaw5hiskq" path="res://nodes/packed/week.tscn" id="5_7ma50"]
@@ -10,9 +11,15 @@
 [ext_resource type="Texture2D" uid="uid://2ypckt2xfjqr" path="res://assets/images/post-its/p_rain.png" id="6_eb1uk"]
 [ext_resource type="PackedScene" uid="uid://b1fa3o8y0dt2n" path="res://nodes/packed/magnet_0.tscn" id="6_nr3uo"]
 [ext_resource type="PackedScene" uid="uid://voinhe3w734h" path="res://nodes/packed/sticker.tscn" id="7_eb1uk"]
+[ext_resource type="Shader" uid="uid://d1as0k3j4r023" path="res://scripts/shader/shadow.gdshader" id="8_kvclw"]
 [ext_resource type="Texture2D" uid="uid://doyh7p3x8pcwb" path="res://assets/images/icons/stickers/s_rainbow_1.png" id="11_nr3uo"]
 [ext_resource type="Texture2D" uid="uid://bg4u56nnkvmsn" path="res://assets/images/icons/stickers/s_rainbow_2.png" id="12_eb1uk"]
 [ext_resource type="AudioStream" uid="uid://cslkhwaeautx5" path="res://assets/audio/sfx/write.ogg" id="13_eb1uk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k0gdx"]
+shader = ExtResource("8_kvclw")
+shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_offset = Vector2(0.01, 0.05)
 
 [sub_resource type="Theme" id="Theme_nbp2d"]
 
@@ -43,6 +50,11 @@ next = ExtResource("2_5uwkv")
 sticker_quantity_rules = 4
 rules = Array[String](["0_1_rainbow", "1_1_rainbow", "2_1_rainbow", "3_1_rainbow", "0_1_rain", "1_1_rain", "2_1_rain", "3_1_rain"])
 sounder = NodePath("AudioStreamPlayer")
+
+[node name="BackgroundCalendar" type="Sprite2D" parent="."]
+position = Vector2(831.8, 395.8)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_1q1ak")
 
 [node name="Month" type="Sprite2D" parent="."]
 position = Vector2(885, 604)
@@ -117,26 +129,31 @@ no_magnet = true
 no_magnet = true
 
 [node name="PRain" type="Sprite2D" parent="Week5"]
+material = SubResource("ShaderMaterial_k0gdx")
 position = Vector2(100, -33)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_eb1uk")
 
 [node name="PNoMagnet" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_k0gdx")
 position = Vector2(1293, 436)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_5uwkv")
 
 [node name="PNoMagnet2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_k0gdx")
 position = Vector2(1292, 547)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_5uwkv")
 
 [node name="PNoMagnet3" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_k0gdx")
 position = Vector2(1294, 658)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_5uwkv")
 
 [node name="PNoMagnet4" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_k0gdx")
 position = Vector2(1294, 767)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_5uwkv")
@@ -211,14 +228,6 @@ shape = SubResource("RectangleShape2D_kvclw")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StickerCanceller"]
 position = Vector2(2314, -161)
-shape = SubResource("RectangleShape2D_kvclw")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StickerCanceller"]
-position = Vector2(-56, 1697)
-shape = SubResource("RectangleShape2D_kvclw")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StickerCanceller"]
-position = Vector2(-2140, -708.25)
 shape = SubResource("RectangleShape2D_kvclw")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StickerCanceller"]
