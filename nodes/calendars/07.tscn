@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://hvhfmf0dvefq"]
+[gd_scene load_steps=5 format=3 uid="uid://hvhfmf0dvefq"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_dc2a8"]
 [ext_resource type="FontFile" uid="uid://4soe34omom8k" path="res://assets/font/LT Colored Pencil.otf" id="2_errx5"]
+[ext_resource type="Script" uid="uid://cgwclh66imvx7" path="res://scripts/gd/meta_config.gd" id="3_4bx47"]
 
 [sub_resource type="Theme" id="Theme_errx5"]
 RichTextLabel/fonts/normal_font = ExtResource("2_errx5")
 
-[node name="Calendar" type="Node2D"]
+[node name="Calendar" type="Node2D" node_paths=PackedStringArray("screen")]
 script = ExtResource("1_dc2a8")
+screen = NodePath("CanvasLayer/Control2")
 sticker_quantity_rules = 4
 rules = Array[String](["1_3_rain", "2_2_rain", "3_1_rain", "4_1_rain", "1_1_wind", "2_1_rain", "3_1_rain"])
 
@@ -21,26 +23,105 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_errx5")
+script = ExtResource("3_4bx47")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
 modulate = Color(0, 0, 0, 1)
-offset_left = 291.0
-offset_top = 211.0
-offset_right = 1372.0
-offset_bottom = 874.0
+layout_mode = 0
+offset_left = 292.0
+offset_top = 223.0
+offset_right = 1353.0
+offset_bottom = 862.0
 rotation = -0.096445
 theme_override_font_sizes/normal_font_size = 160
 text = "¡GRACIAS
               POR
                   JUGAR!"
+fit_content = true
+scroll_active = false
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Control"]
 modulate = Color(0, 0, 0, 1)
-offset_left = 442.0
-offset_top = 760.0
-offset_right = 1110.0
-offset_bottom = 891.0
+layout_mode = 0
+offset_left = 535.0
+offset_top = 790.0
+offset_right = 1100.0
+offset_bottom = 897.0
 rotation = 0.0872583
 theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
 text = "(alt + f4 para [font_size=80]c[/font_size]errar el juego)"
+fit_content = true
+scroll_active = false
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 1419.0
+offset_top = 324.0
+offset_right = 1808.0
+offset_bottom = 496.0
+rotation = 0.0731103
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "Programación:
+[url=https://alexode4.itch.io/]AlexOde[/url] & [url=https://morsaastuta.itch.io/]Morsa[/url]
+"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="CanvasLayer/Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 1457.0
+offset_top = 591.0
+offset_right = 1846.0
+offset_bottom = 763.0
+rotation = -0.125653
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "Música:
+[url=https://kalensensei.itch.io/]KalenSensei[/url]
+"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer/Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 1195.0
+offset_top = 174.0
+offset_right = 1634.0
+offset_bottom = 346.0
+rotation = -0.261799
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "Ilustración:
+[url=https://koemi.itch.io/]Koemi_44[/url] & [url=https://bsky.app/profile/daerune.bsky.social]Daerune[/url] 
+"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Control2" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4018.0
+offset_top = -1894.0
+offset_right = 4018.0
+offset_bottom = -1894.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_errx5")
+color = Color(1, 1, 1, 0)
+script = ExtResource("3_4bx47")
+
+[connection signal="meta_clicked" from="CanvasLayer/Control/RichTextLabel3" to="CanvasLayer/Control" method="_on_rich_text_label_5_meta_clicked"]
+[connection signal="meta_clicked" from="CanvasLayer/Control/RichTextLabel5" to="CanvasLayer/Control" method="_on_rich_text_label_5_meta_clicked"]
+[connection signal="meta_clicked" from="CanvasLayer/Control/RichTextLabel4" to="CanvasLayer/Control" method="_on_rich_text_label_5_meta_clicked"]
