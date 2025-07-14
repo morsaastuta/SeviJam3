@@ -1,8 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://hvhfmf0dvefq"]
+[gd_scene load_steps=4 format=3 uid="uid://hvhfmf0dvefq"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_dc2a8"]
+[ext_resource type="FontFile" uid="uid://4soe34omom8k" path="res://assets/font/LT Colored Pencil.otf" id="2_errx5"]
+
+[sub_resource type="Theme" id="Theme_errx5"]
+RichTextLabel/fonts/normal_font = ExtResource("2_errx5")
 
 [node name="Calendar" type="Node2D"]
 script = ExtResource("1_dc2a8")
 sticker_quantity_rules = 4
 rules = Array[String](["1_3_rain", "2_2_rain", "3_1_rain", "4_1_rain", "1_1_wind", "2_1_rain", "3_1_rain"])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_errx5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 291.0
+offset_top = 211.0
+offset_right = 1372.0
+offset_bottom = 874.0
+rotation = -0.096445
+theme_override_font_sizes/normal_font_size = 160
+text = "¡GRACIAS
+              POR
+                  JUGAR!"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Control"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 442.0
+offset_top = 760.0
+offset_right = 1110.0
+offset_bottom = 891.0
+rotation = 0.0872583
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "(alt + f4 para [font_size=80]c[/font_size]errar el juego)"
