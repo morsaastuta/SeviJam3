@@ -54,6 +54,7 @@ func generate_climate(dropping: bool):
 			# DUPLICATE
 			if (idx >= 14 &&
 			days[idx-7].effect_applied == Name.Effect.RAINBOW):
+				sounded = true
 				if dropping: await get_tree().create_timer(0.1).timeout
 				set_weather(day, days[idx-14].effect_applied, dropping)
 			# WIND
@@ -61,30 +62,35 @@ func generate_climate(dropping: bool):
 			days[idx-1].effect_applied == Name.Effect.RAIN &&
 			days[idx-2].effect_applied == Name.Effect.RAIN):
 				days[idx-14].effect_applied
+				sounded = true
 				if dropping: await get_tree().create_timer(0.1).timeout
 				set_weather(day, Name.Effect.WIND, dropping)
 			# RAINBOW A
 			elif (idx >= 2 &&
 			days[idx-1].effect_applied == Name.Effect.RAIN &&
 			days[idx-2].effect_applied == Name.Effect.SUN):
+				sounded = true
 				if dropping: await get_tree().create_timer(0.1).timeout
 				set_weather(day, Name.Effect.RAINBOW, dropping)
 			# RAINBOW B
 			elif (idx >= 2 &&
 			days[idx-1].effect_applied == Name.Effect.SUN &&
 			days[idx-2].effect_applied == Name.Effect.RAIN):
+				sounded = true
 				if dropping: await get_tree().create_timer(0.1).timeout
 				set_weather(day, Name.Effect.RAINBOW, dropping)
 			# RAIN A
 			elif (idx >= 2 &&
 			days[idx-1].effect_applied == Name.Effect.STORM &&
 			days[idx-2].effect_applied == Name.Effect.WIND):
+				sounded = true
 				if dropping: await get_tree().create_timer(0.1).timeout
 				set_weather(day, Name.Effect.RAIN, dropping)
 			# RAIN B
 			elif (idx >= 8 &&
 			days[idx-7].effect_applied == Name.Effect.STORM &&
 			days[idx-8].effect_applied == Name.Effect.WIND):
+				sounded = true
 				if dropping: await get_tree().create_timer(0.1).timeout
 				set_weather(day, Name.Effect.RAIN, dropping)
 	for day: DayBehaviour in days:
@@ -94,12 +100,12 @@ func generate_climate(dropping: bool):
 			if (idx >= 1 && idx <= days.size()-2 &&
 			days[idx-1].effect_applied == Name.Effect.RAIN &&
 			days[idx+1].effect_applied == Name.Effect.RAIN):
+				sounded = true
 				if dropping: await get_tree().create_timer(0.1).timeout
 				set_weather(day, Name.Effect.STORM, dropping)
-	if sounded: sounder.play()
+	if dropping && sounded: sounder.play()
 	
 func set_weather(day: DayBehaviour, weather: Name.Effect, dropping: bool) -> void:
-	sounded = true
 	day.set_effect(weather)
 
 func _mission_achieved() -> bool:
