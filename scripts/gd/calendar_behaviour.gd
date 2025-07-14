@@ -101,7 +101,7 @@ func generate_climate(dropping: bool) -> void:
 	
 func set_weather(day: DayBehaviour, weather: Name.Effect, dropping: bool) -> void:
 	try_play_sound(dropping)
-	day.set_effect(weather)
+	day.set_effect(weather, dropping)
 	
 func try_play_sound(dropping: bool):
 	if dropping && !sounded: sounder.play()

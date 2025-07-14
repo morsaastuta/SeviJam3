@@ -5,8 +5,17 @@ class_name DayBehaviour extends Area2D
 @export var no_magnet: bool
 @export var requirements: Dictionary[StringName, bool]
 @export var magnet_marker: Marker2D
+@export var animation_fade: AnimationPlayer
+@export var progress_anim: float = -0.1:
+	get:
+		return progress_anim
+	set(value):
+		progress_anim = value
+		if sprite.texture: sprite.set_instance_shader_parameter("progress", progress_anim)
+	
 var magnet_position: Vector2
 var magnet_hover: MagnetBehaviour
+var is_playing_backwards: bool 
 
 var magnet_applied: MagnetBehaviour:
 	get:
@@ -17,19 +26,46 @@ var magnet_applied: MagnetBehaviour:
 		else: effect_applied = Name.Effect.NONE
 
 @export var effect_default: Name.Effect = Name.Effect.NONE
+
+var will_animate: bool = true
+var previous_effect_applied: Name.Effect
+
 var effect_applied: Name.Effect:
 	get:
 		return effect_applied
 	set(value):
+		if effect_applied == value: return
+		print(self,"PRE effect:",effect_applied, " value:",value ," previous:",previous_effect_applied)
+		previous_effect_applied = effect_applied
 		effect_applied = value
-		if magnet_applied: sprite.texture = textures[0]
-		else: sprite.texture = textures[effect_applied]
+		print(will_animate)
+		print(self,"POST effect:",effect_applied, " value:",value ," previous:",previous_effect_applied)
+		
+		if magnet_applied: 
+			sprite.texture = textures[Name.Effect.NONE]
+		else:
+			if will_animate:
+					if effect_applied == 0 : 
+						is_playing_backwards = true
+						animation_fade.play_backwards("fade")
+					else: 
+						sprite.texture = textures[effect_applied]
+						animation_fade.play("fade")
+			else:
+				sprite.texture = textures[effect_applied]
+				animation_fade.play("NORESET")
+				will_animate = true
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "RESET" or not is_playing_backwards:return
+	sprite.texture = textures[effect_applied]
+	is_playing_backwards = false
 
 func _ready() -> void:
+	animation_fade.play("RESET")
 	if not no_magnet:
 		Global.grabbed.connect(_on_magnet_grabbed)
-		if not magnet_marker: magnet_position = global_position
-		else: magnet_position = magnet_marker.global_position
+		magnet_position = self.global_position
 	Global.dropped.connect(_on_magnet_dropped)
 	Global.check_day.connect(_self_check)
 	effect_applied = effect_default
@@ -70,8 +106,9 @@ func _self_check() -> void:
 	for key in requirements.keys():
 		requirements[key] = effect_applied == Global.effect_by_name(key)
 		
-func set_effect(e: Name.Effect) -> void:
+func set_effect(e: Name.Effect, d:bool) -> void:
 	if effect_applied != Name.Effect.NONE: return
+	if e == previous_effect_applied and not d: will_animate = false
 	effect_applied = e
 	_self_check()
 
