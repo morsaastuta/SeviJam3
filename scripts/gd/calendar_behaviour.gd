@@ -4,6 +4,7 @@ class_name CalendarBehaviour extends Node2D
 @export var next: PackedScene
 @export var sticker_quantity_rules: int
 @export var rules: Array[String]
+@export var sounder: AudioStreamPlayer
 
 var selected_magnet: MagnetBehaviour
 var held: bool = false
@@ -38,43 +39,48 @@ func generate_climate():
 	days.append_array(get_tree().get_nodes_in_group(Name.DAYS))
 	for day: DayBehaviour in days:
 		if !day.magnet_applied: day.rem_effect()
+	var sounded: bool = false
 	for day: DayBehaviour in days:
 		var idx: int = days.find(day)
 		if day.effect_applied == Name.Effect.NONE:
+			# DUPLICATE
+			if (idx >= 14 &&
+			days[idx-7].effect_applied == Name.Effect.RAINBOW):
+				day.set_effect(days[idx-14].effect_applied); sounded = true
 			# WIND
-			if (idx >= 2 &&
+			elif (idx >= 2 &&
 			days[idx-1].effect_applied == Name.Effect.RAIN &&
 			days[idx-2].effect_applied == Name.Effect.RAIN):
-				day.set_effect(Name.Effect.WIND)
+				day.set_effect(Name.Effect.WIND); sounded = true
 			# RAINBOW A
 			elif (idx >= 2 &&
 			days[idx-1].effect_applied == Name.Effect.RAIN &&
 			days[idx-2].effect_applied == Name.Effect.SUN):
-				day.set_effect(Name.Effect.RAINBOW)
+				day.set_effect(Name.Effect.RAINBOW); sounded = true
 			# RAINBOW B
 			elif (idx >= 2 &&
 			days[idx-1].effect_applied == Name.Effect.SUN &&
 			days[idx-2].effect_applied == Name.Effect.RAIN):
-				day.set_effect(Name.Effect.RAINBOW)
-			# STORM
-			elif (idx >= 1 && idx <= days.size()-2 &&
-			days[idx-1].effect_applied == Name.Effect.RAIN &&
-			days[idx+1].effect_applied == Name.Effect.RAIN):
-				day.set_effect(Name.Effect.STORM)
+				day.set_effect(Name.Effect.RAINBOW); sounded = true
 			# RAIN A
 			elif (idx >= 2 &&
 			days[idx-1].effect_applied == Name.Effect.STORM &&
 			days[idx-2].effect_applied == Name.Effect.WIND):
-				day.set_effect(Name.Effect.RAIN)
+				day.set_effect(Name.Effect.RAIN); sounded = true
 			# RAIN B
 			elif (idx >= 8 &&
 			days[idx-7].effect_applied == Name.Effect.STORM &&
 			days[idx-8].effect_applied == Name.Effect.WIND):
-				day.set_effect(Name.Effect.RAIN)
-			# DUPLICATE
-			elif (idx >= 14 &&
-			days[idx-7].effect_applied == Name.Effect.RAINBOW):
-				day.set_effect(days[idx-14].effect_applied)
+				day.set_effect(Name.Effect.RAIN); sounded = true
+	for day: DayBehaviour in days:
+		var idx: int = days.find(day)
+		if day.effect_applied == Name.Effect.NONE:
+			# STORM
+			if (idx >= 1 && idx <= days.size()-2 &&
+			days[idx-1].effect_applied == Name.Effect.RAIN &&
+			days[idx+1].effect_applied == Name.Effect.RAIN):
+				day.set_effect(Name.Effect.STORM); sounded = true
+	if sounded: sounder.play()
 
 func _mission_achieved() -> bool:
 	var evaluation := evaluator()
