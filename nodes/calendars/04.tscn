@@ -20,13 +20,13 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rdumg"]
 shader = ExtResource("9_ull2n")
-shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.5)
-shader_parameter/shadow_offset = Vector2(0.01, 0.05)
+shader_parameter/r = 0.0
+shader_parameter/offset = -0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_34tny"]
 shader = ExtResource("9_ull2n")
-shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.5)
-shader_parameter/shadow_offset = Vector2(0.01, 0.05)
+shader_parameter/r = 0.0
+shader_parameter/offset = -0.1
 
 [sub_resource type="Theme" id="Theme_nbp2d"]
 
