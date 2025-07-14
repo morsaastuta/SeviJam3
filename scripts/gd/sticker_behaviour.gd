@@ -4,7 +4,6 @@ class_name StickerBehaviour extends Sprite2D
 @export var audio_drop: AudioStreamPlayer
 @export var area: Area2D
 var held: bool = false
-var on_area_stay: bool = false
 
 func _ready() -> void:
 	self.set_instance_shader_parameter("hovering",0.0)
@@ -15,9 +14,14 @@ func _on_input_event(viewport, event, shape_idx) -> void:
 		elif Global.fridge.calendar.held && held && event.is_action_pressed("click"): drop()
 
 func _physics_process(delta) -> void:
+	if area.has_overlapping_areas(): _on_area_stay()
+	
 	if !Global.fridge.calendar.held || !held: return
 	global_position.x = lerp(global_position.x, get_global_mouse_position().x, 0.35)
 	global_position.y = lerp(global_position.y, get_global_mouse_position().y, 0.35)
+
+func _on_area_stay():
+	pass
 
 func grab() -> void:
 	audio_grab.play()
@@ -46,11 +50,3 @@ func _on_area_2d_mouse_entered() -> void:
 
 func _on_area_2d_mouse_exited() -> void:
 	create_tween().tween_property(self, "scale", Vector2.ONE*0.3, 0.2)
-
-
-func _on_area_2d_area_entered(area) -> void:
-	pass # Replace with function body.
-
-
-func _on_area_2d_area_exited(area) -> void:
-	pass # Replace with function body.
