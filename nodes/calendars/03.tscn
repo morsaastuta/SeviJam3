@@ -86,11 +86,15 @@ position = Vector2(675, 658)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_7amuo")
 
-[node name="Magnet" parent="." instance=ExtResource("5_iv61d")]
+[node name="Magnet" parent="." node_paths=PackedStringArray("audio_grab", "audio_drop") instance=ExtResource("5_iv61d")]
 position = Vector2(1781, 731)
+audio_grab = NodePath("AudioStreamPlayer")
+audio_drop = NodePath("AudioStreamPlayer2")
 
-[node name="Magnet2" parent="." instance=ExtResource("5_iv61d")]
+[node name="Magnet2" parent="." node_paths=PackedStringArray("audio_grab", "audio_drop") instance=ExtResource("5_iv61d")]
 position = Vector2(1630, 857)
+audio_grab = NodePath("AudioStreamPlayer")
+audio_drop = NodePath("AudioStreamPlayer2")
 
 [node name="Week1" parent="." instance=ExtResource("2_k35rt")]
 position = Vector2(421, 472)

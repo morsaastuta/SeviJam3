@@ -25,7 +25,7 @@ instance uniform float hovering = 1.0;
 
 uniform float rand_trans_power = 1.0;
 
-uniform float rand_seed;
+instance uniform float rand_seed;
 
 uniform float vortex_amt:hint_range(-10.0, 10.0, 0.1);
 

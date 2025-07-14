@@ -164,14 +164,20 @@ position = Vector2(1292, 872)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_kwv1y")
 
-[node name="Magnet" parent="." instance=ExtResource("6_6kooq")]
+[node name="Magnet" parent="." node_paths=PackedStringArray("audio_grab", "audio_drop") instance=ExtResource("6_6kooq")]
 position = Vector2(1603, 881)
+audio_grab = NodePath("AudioStreamPlayer")
+audio_drop = NodePath("AudioStreamPlayer2")
 
-[node name="Magnet2" parent="." instance=ExtResource("6_6kooq")]
+[node name="Magnet2" parent="." node_paths=PackedStringArray("audio_grab", "audio_drop") instance=ExtResource("6_6kooq")]
 position = Vector2(1730, 842)
+audio_grab = NodePath("AudioStreamPlayer")
+audio_drop = NodePath("AudioStreamPlayer2")
 
-[node name="Magnet3" parent="." instance=ExtResource("6_6kooq")]
+[node name="Magnet3" parent="." node_paths=PackedStringArray("audio_grab", "audio_drop") instance=ExtResource("6_6kooq")]
 position = Vector2(1628, 754)
+audio_grab = NodePath("AudioStreamPlayer")
+audio_drop = NodePath("AudioStreamPlayer2")
 
 [node name="Tray" type="CanvasLayer" parent="."]
 layer = 5
