@@ -11,7 +11,7 @@ class_name DayBehaviour extends Area2D
 		return progress_anim
 	set(value):
 		progress_anim = value
-		if sprite.texture: sprite.set_instance_shader_parameter("progress", progress_anim)
+		#if sprite.texture: sprite.set_instance_shader_parameter("progress", progress_anim)
 	
 var magnet_position: Vector2
 var magnet_hover: MagnetBehaviour
