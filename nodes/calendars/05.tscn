@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ck70bgoa052mg"]
+[gd_scene load_steps=22 format=3 uid="uid://ck70bgoa052mg"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_7mrer"]
 [ext_resource type="PackedScene" uid="uid://oibnepoh55k3" path="res://nodes/calendars/06.tscn" id="2_5uwkv"]
@@ -39,15 +39,6 @@ height = 750.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_1q1ak"]
 radius = 253.355
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1q1ak"]
-size = Vector2(1239, 1125)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvclw"]
-size = Vector2(2599, 2453.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0gdx"]
-size = Vector2(591.106, 668.713)
-
 [node name="Calendar" type="Node2D" node_paths=PackedStringArray("screen", "sounder")]
 script = ExtResource("1_7mrer")
 screen = NodePath("Tray/ColorRect")
@@ -83,7 +74,7 @@ offset_right = 189.069
 offset_bottom = 20.5069
 theme_override_fonts/normal_font = ExtResource("5_eb1uk")
 theme_override_font_sizes/normal_font_size = 32
-text = "Debe caer lluvia todas las semanas"
+text = "Debe caer la lluvia todas las semanas"
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="Notas"]
 modulate = Color(0.768627, 0.203922, 0.647059, 1)
@@ -93,7 +84,7 @@ offset_right = 243.155
 offset_bottom = 166.583
 theme_override_fonts/normal_font = ExtResource("5_eb1uk")
 theme_override_font_sizes/normal_font_size = 32
-text = "Debe salir el arcoiris todas las semanas"
+text = "Debe salir el arcoíris todas las semanas"
 
 [node name="Week1" parent="." instance=ExtResource("5_7ma50")]
 position = Vector2(421, 472)
@@ -219,29 +210,6 @@ texture = ExtResource("12_eb1uk")
 [node name="CollisionShape2D" parent="Tray/ColorRect/Sticker3/Area2D" index="0"]
 position = Vector2(-4.00543e-05, 1.90735e-05)
 shape = SubResource("CircleShape2D_1q1ak")
-
-[node name="StickerCanceller" type="Area2D" parent="."]
-position = Vector2(884, 599)
-collision_layer = 4
-collision_mask = 4
-input_pickable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StickerCanceller"]
-position = Vector2(18.5, -87)
-shape = SubResource("RectangleShape2D_1q1ak")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StickerCanceller"]
-position = Vector2(395.5, -1793)
-shape = SubResource("RectangleShape2D_kvclw")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StickerCanceller"]
-position = Vector2(2314, -161)
-shape = SubResource("RectangleShape2D_kvclw")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StickerCanceller"]
-position = Vector2(777.212, -352.772)
-rotation = -0.261799
-shape = SubResource("RectangleShape2D_k0gdx")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_eb1uk")
