@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cp4ilc1d6ygfu"]
+[gd_scene load_steps=20 format=3 uid="uid://cp4ilc1d6ygfu"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_hsbjh"]
 [ext_resource type="PackedScene" uid="uid://ck70bgoa052mg" path="res://nodes/calendars/05.tscn" id="2_77t68"]
@@ -16,6 +16,19 @@
 [ext_resource type="Texture2D" uid="uid://c6xojpx4lwle4" path="res://assets/images/icons/stickers/s_storm_2.png" id="14_tfnyj"]
 
 [sub_resource type="Theme" id="Theme_nbp2d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0l05d"]
+radius = 376.667
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l05d"]
+size = Vector2(433.333, 913.333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85a1h"]
+size = Vector2(706.667, 260)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_85a1h"]
+radius = 271.667
+height = 953.333
 
 [node name="Calendar2" type="Node2D" node_paths=PackedStringArray("screen")]
 script = ExtResource("1_hsbjh")
@@ -130,7 +143,6 @@ position = Vector2(1628, 754)
 layer = 5
 
 [node name="ColorRect" type="ColorRect" parent="Tray"]
-visible = false
 custom_minimum_size = Vector2(6.2, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -146,17 +158,36 @@ z_index = 3
 position = Vector2(632, 677)
 texture = ExtResource("12_0l05d")
 
+[node name="CollisionShape2D" parent="Tray/ColorRect/Sticker/Area2D" index="0"]
+position = Vector2(-20, 3.33374)
+shape = SubResource("CircleShape2D_0l05d")
+
 [node name="Sticker2" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
 z_index = 3
 position = Vector2(911, 593)
 texture = ExtResource("13_85a1h")
+
+[node name="CollisionShape2D" parent="Tray/ColorRect/Sticker2/Area2D" index="0"]
+position = Vector2(-76.6663, 20)
+shape = SubResource("RectangleShape2D_0l05d")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tray/ColorRect/Sticker2/Area2D" index="1"]
+position = Vector2(10.0002, 343.334)
+shape = SubResource("RectangleShape2D_85a1h")
 
 [node name="Sticker3" parent="Tray/ColorRect" instance=ExtResource("5_d7mam")]
 z_index = 3
 position = Vector2(1183, 685)
 texture = ExtResource("14_tfnyj")
 
+[node name="CollisionShape2D" parent="Tray/ColorRect/Sticker3/Area2D" index="0"]
+position = Vector2(-5, 3.33325)
+shape = SubResource("CapsuleShape2D_85a1h")
+
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
 
 [editable path="Week3"]
 [editable path="Week4"]
+[editable path="Tray/ColorRect/Sticker"]
+[editable path="Tray/ColorRect/Sticker2"]
+[editable path="Tray/ColorRect/Sticker3"]

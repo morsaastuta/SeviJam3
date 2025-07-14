@@ -25,7 +25,7 @@ shader_parameter/rotation = 0.0
 shader_parameter/mouse_screen_pos_test = Vector2(0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjg13"]
-size = Vector2(823.333, 823.334)
+size = Vector2(743.333, 720)
 
 [sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_djujm"]
 
@@ -55,6 +55,8 @@ bus = &"Sfx"
 stream = SubResource("AudioStreamOggVorbis_djujm")
 bus = &"Sfx"
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="input_event" from="Area2D" to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

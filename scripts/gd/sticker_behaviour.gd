@@ -4,6 +4,7 @@ class_name StickerBehaviour extends Sprite2D
 @export var audio_drop: AudioStreamPlayer
 @export var area: Area2D
 var held: bool = false
+var on_area_stay: bool = false
 
 func _ready() -> void:
 	self.set_instance_shader_parameter("hovering",0.0)
@@ -45,3 +46,11 @@ func _on_area_2d_mouse_entered() -> void:
 
 func _on_area_2d_mouse_exited() -> void:
 	create_tween().tween_property(self, "scale", Vector2.ONE*0.3, 0.2)
+
+
+func _on_area_2d_area_entered(area) -> void:
+	pass # Replace with function body.
+
+
+func _on_area_2d_area_exited(area) -> void:
+	pass # Replace with function body.

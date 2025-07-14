@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ck70bgoa052mg"]
+[gd_scene load_steps=17 format=3 uid="uid://ck70bgoa052mg"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_7mrer"]
 [ext_resource type="PackedScene" uid="uid://oibnepoh55k3" path="res://nodes/calendars/06.tscn" id="2_5uwkv"]
@@ -14,6 +14,17 @@
 [ext_resource type="Texture2D" uid="uid://bg4u56nnkvmsn" path="res://assets/images/icons/stickers/s_rainbow_2.png" id="12_eb1uk"]
 
 [sub_resource type="Theme" id="Theme_nbp2d"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nr3uo"]
+radius = 251.667
+height = 826.667
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eb1uk"]
+radius = 246.667
+height = 750.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1q1ak"]
+radius = 253.355
 
 [node name="Calendar" type="Node2D" node_paths=PackedStringArray("screen")]
 script = ExtResource("1_7mrer")
@@ -135,7 +146,6 @@ position = Vector2(1780, 685)
 layer = 5
 
 [node name="ColorRect" type="ColorRect" parent="Tray"]
-visible = false
 custom_minimum_size = Vector2(6.2, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -150,15 +160,28 @@ color = Color(0, 0, 0, 0)
 material = null
 position = Vector2(651, 745)
 
+[node name="CollisionShape2D" parent="Tray/ColorRect/Sticker/Area2D" index="0"]
+position = Vector2(3.33333, 0)
+shape = SubResource("CapsuleShape2D_nr3uo")
+
 [node name="Sticker2" parent="Tray/ColorRect" instance=ExtResource("7_eb1uk")]
 material = null
 position = Vector2(964, 637)
 texture = ExtResource("11_nr3uo")
 
+[node name="CollisionShape2D" parent="Tray/ColorRect/Sticker2/Area2D" index="0"]
+position = Vector2(-5.00004, 23.3334)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_eb1uk")
+
 [node name="Sticker3" parent="Tray/ColorRect" instance=ExtResource("7_eb1uk")]
 material = null
 position = Vector2(1289, 743)
 texture = ExtResource("12_eb1uk")
+
+[node name="CollisionShape2D" parent="Tray/ColorRect/Sticker3/Area2D" index="0"]
+position = Vector2(-4.00543e-05, 1.90735e-05)
+shape = SubResource("CircleShape2D_1q1ak")
 
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
 
@@ -167,3 +190,6 @@ texture = ExtResource("12_eb1uk")
 [editable path="Week3"]
 [editable path="Week4"]
 [editable path="Week5"]
+[editable path="Tray/ColorRect/Sticker"]
+[editable path="Tray/ColorRect/Sticker2"]
+[editable path="Tray/ColorRect/Sticker3"]
