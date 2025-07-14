@@ -11,11 +11,10 @@ func _ready() -> void:
 func _on_input_event(viewport, event, shape_idx) -> void:
 	if event is InputEventMouseButton:
 		if !Global.fridge.calendar.held && !held && event.is_action_pressed("click"): grab()
-		elif Global.fridge.calendar.held && held && event.is_action_pressed("click"): drop()
+		elif (Global.fridge.calendar.held && held && event.is_action_pressed("click") and 
+		not area.has_overlapping_areas()): drop()
 
 func _physics_process(delta) -> void:
-	if area.has_overlapping_areas(): _on_area_stay()
-	
 	if !Global.fridge.calendar.held || !held: return
 	global_position.x = lerp(global_position.x, get_global_mouse_position().x, 0.35)
 	global_position.y = lerp(global_position.y, get_global_mouse_position().y, 0.35)
