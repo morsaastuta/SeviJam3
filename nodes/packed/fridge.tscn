@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b4nclix6r782b"]
+[gd_scene load_steps=24 format=3 uid="uid://b4nclix6r782b"]
 
 [ext_resource type="Script" uid="uid://cmstrfwit0tw" path="res://scripts/gd/fridge_behaviour.gd" id="1_7vwyd"]
 [ext_resource type="PackedScene" uid="uid://vtgtqyh3ptt7" path="res://nodes/calendars/03.tscn" id="2_xfus4"]
@@ -232,6 +232,15 @@ _data = {
 &"wave_text": SubResource("Animation_d6wal")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnkbh"]
+size = Vector2(1102, 1030.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61la0"]
+size = Vector2(2599, 2453.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjs0j"]
+size = Vector2(436.867, 625.587)
+
 [node name="Fridge" type="Node2D" node_paths=PackedStringArray("group_stickers", "group_calendar")]
 script = ExtResource("1_7vwyd")
 calendar_default = ExtResource("2_xfus4")
@@ -359,6 +368,37 @@ bus = &"Sfx"
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_17lom")
 autoplay = true
+
+[node name="StickerCanceller" type="Area2D" parent="."]
+position = Vector2(884, 599)
+collision_layer = 4
+collision_mask = 4
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StickerCanceller"]
+position = Vector2(6, -134.25)
+shape = SubResource("RectangleShape2D_nnkbh")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StickerCanceller"]
+position = Vector2(73, -1851)
+shape = SubResource("RectangleShape2D_61la0")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StickerCanceller"]
+position = Vector2(-2219, -34)
+shape = SubResource("RectangleShape2D_61la0")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StickerCanceller"]
+position = Vector2(2364, -169)
+shape = SubResource("RectangleShape2D_61la0")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StickerCanceller"]
+position = Vector2(84, 1740)
+shape = SubResource("RectangleShape2D_61la0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StickerCanceller"]
+position = Vector2(742.034, -365.67)
+rotation = -0.261799
+shape = SubResource("RectangleShape2D_tjs0j")
 
 [connection signal="button_down" from="CanvasLayer/ControlContinueBtn/ContinueButton" to="CanvasLayer/ControlContinueBtn/ContinueButton" method="_on_button_down"]
 [connection signal="button_up" from="CanvasLayer/ControlContinueBtn/ContinueButton" to="CanvasLayer/ControlContinueBtn/ContinueButton" method="_on_button_up"]
