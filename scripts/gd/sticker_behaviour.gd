@@ -40,10 +40,8 @@ func drop() -> void:
 func set_input_pickable(on: bool) -> void:
 	area.input_pickable = on
 
-
 func _on_area_2d_mouse_entered() -> void:
 	create_tween().tween_property(self, "scale", Vector2.ONE*0.315, 0.2)
-
 
 func _on_area_2d_mouse_exited() -> void:
 	create_tween().tween_property(self, "scale", Vector2.ONE*0.3, 0.2)
