@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://fjghibbvx8dn"]
+[gd_scene load_steps=10 format=3 uid="uid://fjghibbvx8dn"]
 
 [ext_resource type="Script" uid="uid://bsmr3og4rsc35" path="res://scripts/gd/magnet_behaviour.gd" id="1_ck3yo"]
 [ext_resource type="Shader" uid="uid://0qq7ftnrf05e" path="res://scripts/shader/dynamic_shadow.gdshader" id="2_7g17k"]
 [ext_resource type="Texture2D" uid="uid://r64w06ni550h" path="res://assets/images/icons/magnets/m_rain_1.png" id="3_ck3yo"]
 [ext_resource type="Script" uid="uid://hmbsi6dytkna" path="res://scripts/gd/shader_sprite_config.gd" id="4_hugoq"]
+[ext_resource type="AudioStream" uid="uid://5xlkyrrsosic" path="res://assets/audio/sfx/magnet_grab.ogg" id="5_pdmoi"]
+[ext_resource type="AudioStream" uid="uid://bw4loiblqxwo6" path="res://assets/audio/sfx/magnet_drop.ogg" id="6_hugoq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vtgsf"]
 shader = ExtResource("2_7g17k")
@@ -31,16 +33,14 @@ radius = 50.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_od1py"]
 radius = 50.04
 
-[sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_ck3yo"]
-
 [node name="Magnet" type="RigidBody2D" node_paths=PackedStringArray("area", "audio_grab", "audio_drop") groups=["magnets"]]
 z_index = 2
 collision_layer = 3
 gravity_scale = 0.0
 script = ExtResource("1_ck3yo")
 area = NodePath("Area2D")
-audio_grab = NodePath("AudioStreamPlayer")
-audio_drop = NodePath("AudioStreamPlayer2")
+audio_grab = NodePath("AudioGrab")
+audio_drop = NodePath("AudioDrop")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_vtgsf")
@@ -56,12 +56,12 @@ shape = SubResource("CircleShape2D_m442f")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_od1py")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamOggVorbis_ck3yo")
+[node name="AudioGrab" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_pdmoi")
 bus = &"Sfx"
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamOggVorbis_ck3yo")
+[node name="AudioDrop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_hugoq")
 bus = &"Sfx"
 
 [connection signal="input_event" from="Area2D" to="." method="_on_input_event"]
