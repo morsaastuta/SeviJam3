@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://fbftvnf2lnbu"]
+[gd_scene load_steps=17 format=3 uid="uid://fbftvnf2lnbu"]
 
+[ext_resource type="Script" uid="uid://11fdi8pgwxpu" path="res://scripts/gd/continue_button_config.gd" id="1_4r2jn"]
 [ext_resource type="Texture2D" uid="uid://df24glo7mivs3" path="res://assets/images/continua/00_c.png" id="1_d6wal"]
 [ext_resource type="Texture2D" uid="uid://cc60sw8bjaxf1" path="res://assets/images/continua/01_o.png" id="2_tyvqe"]
 [ext_resource type="Texture2D" uid="uid://drmy8yttcusk8" path="res://assets/images/continua/02_n.png" id="3_4r2jn"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://du8jblbtkcgae" path="res://assets/images/continua/05_n.png" id="6_p2ga1"]
 [ext_resource type="Texture2D" uid="uid://b1606k3qvsflj" path="res://assets/images/continua/06_u.png" id="7_vi0vg"]
 [ext_resource type="Texture2D" uid="uid://bwexnm3k7sojm" path="res://assets/images/continua/07_a.png" id="8_4istx"]
+[ext_resource type="AudioStream" uid="uid://bngt7btaslcx7" path="res://assets/audio/sfx/pop.ogg" id="9_tyvqe"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d6wal"]
 
@@ -19,18 +21,6 @@ Button/styles/focus = SubResource("StyleBoxEmpty_d6wal")
 Button/styles/hover = SubResource("StyleBoxEmpty_tyvqe")
 Button/styles/normal = null
 Button/styles/pressed = null
-
-[sub_resource type="GDScript" id="GDScript_d6wal"]
-script/source = "extends Button
-
-func _on_mouse_entered() -> void: create_tween().tween_property(self, \"scale\", Vector2.ONE*1.10, 0.1)
-
-func _on_mouse_exited() -> void: create_tween().tween_property(self, \"scale\", Vector2.ONE, 0.1)
-
-func _on_button_down() -> void: create_tween().tween_property(self, \"scale\", Vector2.ONE*0.9, 0.025)
-
-func _on_button_up() -> void: create_tween().tween_property(self, \"scale\", Vector2.ONE, 0.05)
-"
 
 [sub_resource type="Animation" id="Animation_tyvqe"]
 length = 0.001
@@ -265,7 +255,7 @@ grow_vertical = 0
 pivot_offset = Vector2(337, 57)
 theme = SubResource("Theme_d6wal")
 flat = true
-script = SubResource("GDScript_d6wal")
+script = ExtResource("1_4r2jn")
 
 [node name="00C" type="TextureRect" parent="Control/ContinueButton"]
 layout_mode = 0
@@ -337,9 +327,12 @@ libraries = {
 }
 autoplay = "wave_text"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+[node name="ButtonSound" type="AudioStreamPlayer" parent="Control"]
+unique_name_in_owner = true
+stream = ExtResource("9_tyvqe")
 
 [connection signal="button_down" from="Control/ContinueButton" to="Control/ContinueButton" method="_on_button_down"]
 [connection signal="button_up" from="Control/ContinueButton" to="Control/ContinueButton" method="_on_button_up"]
 [connection signal="mouse_entered" from="Control/ContinueButton" to="Control/ContinueButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Control/ContinueButton" to="Control/ContinueButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Control/ContinueButton" to="Control/ContinueButton" method="_on_pressed"]
