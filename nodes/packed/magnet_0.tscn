@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bsmr3og4rsc35" path="res://scripts/gd/magnet_behaviour.gd" id="1_8emyy"]
 [ext_resource type="Shader" uid="uid://0qq7ftnrf05e" path="res://scripts/shader/dynamic_shadow.gdshader" id="2_4auc2"]
-[ext_resource type="Texture2D" uid="uid://y6klxd3jyp68" path="res://assets/images/icons/magnets/m_rain_0.png" id="3_5t8gb"]
+[ext_resource type="Texture2D" uid="uid://r64w06ni550h" path="res://assets/images/icons/magnets/m_rain_1.png" id="3_5t8gb"]
 [ext_resource type="Script" uid="uid://hmbsi6dytkna" path="res://scripts/gd/shader_sprite_config.gd" id="4_5t2mh"]
 [ext_resource type="AudioStream" uid="uid://5xlkyrrsosic" path="res://assets/audio/sfx/magnet_grab.ogg" id="5_5t8gb"]
 [ext_resource type="AudioStream" uid="uid://bw4loiblqxwo6" path="res://assets/audio/sfx/magnet_drop.ogg" id="6_5t2mh"]
