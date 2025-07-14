@@ -33,6 +33,9 @@ func _ready() -> void:
 	Global.dropped.connect(_on_magnet_dropped)
 	Global.check_day.connect(_self_check)
 	effect_applied = effect_default
+	
+func _process(delta):
+	if magnet_applied: magnet_applied.global_position = global_position
 
 func _on_magnet_dropped(magnet: MagnetBehaviour) -> void:
 	if (not magnet_hover) || magnet.day != null: return
@@ -46,7 +49,6 @@ func _on_magnet_dropped(magnet: MagnetBehaviour) -> void:
 		magnet_applied.day = self
 	
 	magnet_hover = null
-	if magnet_applied: magnet_applied.global_position = global_position
 	Global.check_day.emit()
 
 func _on_magnet_grabbed(magnet: MagnetBehaviour) -> void:
@@ -69,6 +71,7 @@ func _self_check() -> void:
 		requirements[key] = effect_applied == Global.effect_by_name(key)
 		
 func set_effect(e: Name.Effect) -> void:
+	await get_tree().create_timer(0.05).timeout
 	if effect_applied != Name.Effect.NONE: return
 	effect_applied = e
 	_self_check()

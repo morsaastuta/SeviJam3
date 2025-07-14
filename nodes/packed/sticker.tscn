@@ -48,11 +48,11 @@ position = Vector2(-5.00004, 1.90735e-05)
 shape = SubResource("RectangleShape2D_cjg13")
 
 [node name="AudioGrab" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_uo3xf")
+stream = ExtResource("5_aw034")
 bus = &"Sfx"
 
 [node name="AudioDrop" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_aw034")
+stream = ExtResource("4_uo3xf")
 bus = &"Sfx"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
