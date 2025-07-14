@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://voinhe3w734h"]
+[gd_scene load_steps=8 format=3 uid="uid://voinhe3w734h"]
 
 [ext_resource type="Texture2D" uid="uid://b8bttqm7xb1yr" path="res://assets/images/icons/stickers/s_rainbow_0.png" id="1_8nhou"]
 [ext_resource type="Shader" uid="uid://0qq7ftnrf05e" path="res://scripts/shader/dynamic_shadow.gdshader" id="1_djujm"]
 [ext_resource type="Script" uid="uid://bx3hx5ma0ikba" path="res://scripts/gd/sticker_behaviour.gd" id="1_gvdio"]
+[ext_resource type="AudioStream" uid="uid://67nmv6ga8k3i" path="res://assets/audio/sfx/pap.ogg" id="4_uo3xf"]
+[ext_resource type="AudioStream" uid="uid://bngt7btaslcx7" path="res://assets/audio/sfx/pop.ogg" id="5_aw034"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e1k6i"]
 shader = ExtResource("1_djujm")
@@ -27,16 +29,14 @@ shader_parameter/mouse_screen_pos_test = Vector2(0, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjg13"]
 size = Vector2(743.333, 720)
 
-[sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_djujm"]
-
 [node name="Sticker" type="Sprite2D" node_paths=PackedStringArray("audio_grab", "audio_drop", "area") groups=["stickers"]]
 z_index = 5
 material = SubResource("ShaderMaterial_e1k6i")
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_8nhou")
 script = ExtResource("1_gvdio")
-audio_grab = NodePath("AudioStreamPlayer")
-audio_drop = NodePath("AudioStreamPlayer2")
+audio_grab = NodePath("AudioGrab")
+audio_drop = NodePath("AudioDrop")
 area = NodePath("Area2D")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -47,12 +47,12 @@ collision_mask = 4
 position = Vector2(-5.00004, 1.90735e-05)
 shape = SubResource("RectangleShape2D_cjg13")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamOggVorbis_djujm")
+[node name="AudioGrab" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_uo3xf")
 bus = &"Sfx"
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamOggVorbis_djujm")
+[node name="AudioDrop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_aw034")
 bus = &"Sfx"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
