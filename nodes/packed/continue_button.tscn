@@ -330,6 +330,7 @@ autoplay = "wave_text"
 [node name="ButtonSound" type="AudioStreamPlayer" parent="Control"]
 unique_name_in_owner = true
 stream = ExtResource("9_tyvqe")
+volume_db = 10.0
 bus = &"Sfx"
 
 [connection signal="button_down" from="Control/ContinueButton" to="Control/ContinueButton" method="_on_button_down"]

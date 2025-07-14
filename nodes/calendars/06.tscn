@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://oibnepoh55k3"]
+[gd_scene load_steps=23 format=3 uid="uid://oibnepoh55k3"]
 
 [ext_resource type="Script" uid="uid://bu5apstoeetiv" path="res://scripts/gd/calendar_behaviour.gd" id="1_phkgn"]
 [ext_resource type="PackedScene" uid="uid://hvhfmf0dvefq" path="res://nodes/calendars/07.tscn" id="2_fstfa"]
@@ -36,6 +36,15 @@ shader_parameter/r = 0.0
 shader_parameter/offset = -0.1
 
 [sub_resource type="Theme" id="Theme_nbp2d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7r0a3"]
+size = Vector2(1239, 1125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6t8cv"]
+size = Vector2(2599, 2453.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_253jj"]
+size = Vector2(591.106, 668.713)
 
 [node name="Calendar" type="Node2D" node_paths=PackedStringArray("screen", "sounder")]
 script = ExtResource("1_phkgn")
@@ -203,6 +212,29 @@ texture = ExtResource("8_4reae")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_q43t1")
+
+[node name="StickerCanceller" type="Area2D" parent="."]
+position = Vector2(884, 599)
+collision_layer = 4
+collision_mask = 4
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StickerCanceller"]
+position = Vector2(18.5, -87)
+shape = SubResource("RectangleShape2D_7r0a3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StickerCanceller"]
+position = Vector2(395.5, -1793)
+shape = SubResource("RectangleShape2D_6t8cv")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StickerCanceller"]
+position = Vector2(2314, -161)
+shape = SubResource("RectangleShape2D_6t8cv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StickerCanceller"]
+position = Vector2(777.212, -352.772)
+rotation = -0.261799
+shape = SubResource("RectangleShape2D_253jj")
 
 [connection signal="gui_input" from="Tray/ColorRect" to="Tray/ColorRect" method="_on_gui_input"]
 
